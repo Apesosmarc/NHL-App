@@ -46,6 +46,8 @@ const teams = {
   },
   6: {
     name: "Boston Bruins",
+    mainLogo:
+      "https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/6.svg",
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/_KkOxoGjAn3S7_9-Z1d0OA_48x48.png",
     mainColor: "#000000",
@@ -179,6 +181,8 @@ const teams = {
     name: "Dallas Stars",
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/yAPda2I1VV6sr0TB17rnxQ_48x48.png",
+    mainColor: "#006847",
+    secondColor: "#8F8F8C",
     conference: 5,
     division: 16,
   },
