@@ -1,10 +1,10 @@
 import React from "react";
-import MatchupCard from "./MatchupCard";
 import GameTimer from "./GameTimer";
+import Matchups from "./Matchups";
 
-const TeamHeader = ({ team, nextGame }) => {
+const TeamHeader = ({ team, nextGame, active, prevGame, schedule }) => {
   if (nextGame.length != 0) {
-    const gameInfo = nextGame.nextGameSchedule.dates[0].games[0];
+    const nextGameInfo = nextGame.nextGameSchedule.dates[0].games[0];
 
     return (
       <div>
@@ -17,8 +17,8 @@ const TeamHeader = ({ team, nextGame }) => {
             className="mx-auto"
           />
         </div>
-        <GameTimer gameInfo={gameInfo} />
-        <MatchupCard gameInfo={gameInfo} team={team} />
+        {!active ? <GameTimer gameInfo={nextGameInfo} /> : null}
+        <Matchups gameInfo={nextGameInfo} team={team} schedule={schedule} />
       </div>
     );
   }

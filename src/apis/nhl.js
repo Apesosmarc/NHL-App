@@ -6,11 +6,22 @@ const divisionStandings = axios.create({
   baseURL,
 });
 
-const game = axios.create({
-  baseURL,
-  params: {
-    expand: "team.schedule.next",
-  },
-});
+const game = (sched) =>
+  axios.create({
+    baseURL,
+    params: {
+      expand: `team.schedule.${sched}`,
+    },
+  });
 
-export { divisionStandings, game };
+const gamesList = (id) =>
+  axios.create({
+    baseURL,
+    params: {
+      teamId: id,
+      startDate: "2021-10-12",
+      endDate: "2021-10-30",
+    },
+  });
+
+export { divisionStandings, game, gamesList };

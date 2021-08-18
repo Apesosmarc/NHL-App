@@ -24,15 +24,15 @@ const Standings = ({ standings, teamJSON }) => {
 
   return (
     <React.Fragment>
-      <table className="table-auto min-w-sm shadow-lg bg-gray-100 ">
+      <table className="table-auto">
         <thead>
           <tr>
-            <th className="border text-left px-4 py-2">Team</th>
+            <th className="text-left px-4 py-2">Team</th>
             <th className="border text-left px-4 py-2">GP</th>
             <th className="border text-left px-4 py-2">W</th>
             <th className="border text-left px-4 py-2">L</th>
             <th className="border text-left px-4 py-2">OTL</th>
-            <th className="border text-left px-4 py-2">Streak</th>
+            <th className="text-left px-4 py-2">Streak</th>
           </tr>
         </thead>
         <tbody>{standings.length != 0 && divisionStandings}</tbody>

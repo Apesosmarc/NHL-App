@@ -7,7 +7,22 @@ export default function GameTimer({ gameInfo }) {
     let currentTime = new Date();
     let diff = gameDate - currentTime;
 
-    return diff.toString();
+    let days = diff / 1000 / 60 / 60 / 24;
+    let hours = (diff / 1000 / 60 / 60) % 24;
+    let mins = (diff / 1000 / 60) % 60;
+    let seconds = (diff / 1000) % 60;
+
+    const timeArr = [days, hours, mins, seconds].map((time) => {
+      return Math.trunc(time);
+    });
+
+    let things = ["D", "H", "M", "S"];
+
+    for (let i = 0; i < timeArr.length; i++) {
+      timeArr[i] = timeArr[i] + things[i];
+    }
+
+    return timeArr.join(":");
   };
 
   const [time, setTime] = useState("");
@@ -20,5 +35,14 @@ export default function GameTimer({ gameInfo }) {
     return () => clearTimeout(timer);
   });
 
-  return <div>{time}</div>;
+  return (
+    <div className="flex flex-col justify-center w-full mb-4">
+      <div className="mx-auto text-center">
+        <h2 className="text-lg font-bold">Puck Drop Timer:</h2>
+        <h3 className="tracking-tighter" style={{ fontFamily: "DM Mono" }}>
+          {time}
+        </h3>
+      </div>
+    </div>
+  );
 }
