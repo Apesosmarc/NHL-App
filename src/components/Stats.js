@@ -15,7 +15,7 @@ export default function Stats({ team }) {
       setStats(response.data.stats[0].splits[0].stat);
     };
     getStats();
-  }, []);
+  }, [team.id]);
 
   return !stats ? (
     <div>Loading...</div>

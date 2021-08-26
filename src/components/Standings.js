@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React from "react";
 import teams from "../data/teams";
 
 const Standings = ({ standings, teamJSON, selectTeam }) => {
@@ -39,7 +39,7 @@ const Standings = ({ standings, teamJSON, selectTeam }) => {
             <th className="text-left px-4 py-2">Streak</th>
           </tr>
         </thead>
-        <tbody>{standings.length != 0 && divisionStandings}</tbody>
+        <tbody>{standings.length !== 0 && divisionStandings}</tbody>
       </table>
     </React.Fragment>
   );

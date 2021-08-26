@@ -10,7 +10,7 @@ const TeamHeader = ({
   schedule,
   selectTeam,
 }) => {
-  if (nextGame.length != 0) {
+  if (nextGame.length !== 0) {
     const nextGameInfo = nextGame.nextGameSchedule.dates[0].games[0];
     const nextRegSeason = schedule[0].games[0].gameDate;
     return (

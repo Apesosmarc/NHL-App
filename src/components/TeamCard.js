@@ -2,7 +2,7 @@ import React from "react";
 import teams from "../data/teams";
 
 export default function TeamCard({ nextGame, selectTeam }) {
-  if (nextGame.length != 0) {
+  if (nextGame.length !== 0) {
     const id = nextGame.team.id;
     const logo = teams[nextGame.team.id].smallLogo;
     return (
