@@ -14,14 +14,14 @@ const TeamHeader = ({
     const nextGameInfo = nextGame.nextGameSchedule.dates[0].games[0];
     const nextRegSeason = schedule[0].games[0].gameDate;
     return (
-      <div className="flex flex-col justify-center">
-        <div className="py-5 h-60">
+      <div className="">
+        <div className="py-5 h-60 flex flex-col justify-center align-center">
           <img
             src={team.mainLogo}
             alt=""
             height="200"
             width="200"
-            className="mx-auto"
+            className="mx-auto my-auto"
           />
         </div>
         {!active ? (
