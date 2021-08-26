@@ -3,6 +3,7 @@ import { divisionStandings, game, gamesList } from "../apis/nhl";
 import Standings from "./Standings";
 import TeamHeader from "./TeamHeader";
 import teams from "../data/teams";
+import Stats from "./Stats";
 
 const isLive = (game) => {
   // This Func compares the status code of the 'next' game and checks if it is live or not
@@ -18,27 +19,46 @@ const isLive = (game) => {
 
 export default class App extends Component {
   state = {
+    teamId: 5,
+    team: teams[5],
     standings: [],
-    teamId: 6,
     nextGame: [],
     prevGame: [],
     active: "false",
     schedule: [],
   };
 
-  componentDidMount = async () => {
+  getData = async () => {
+    console.log("fetch");
     const standings = await divisionStandings.get("/standings");
     const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
     const prevGame = await game("prev").get(`/teams/${this.state.teamId}`);
     const getSchedule = await gamesList(this.state.teamId).get("/schedule");
 
     this.setState({
-      standings: standings.data.records[2].teamRecords,
+      team: teams[this.state.teamId],
+      standings: standings.data.records[this.state.team.covidDiv].teamRecords,
       nextGame: nextGame.data.teams[0],
       prevGame: prevGame.data.teams[0],
       active: isLive(nextGame) === true ? true : false,
       schedule: getSchedule.data.dates,
     });
+  };
+
+  componentDidMount = async () => {
+    this.getData();
+  };
+
+  // componentDidUpdate = async () => {
+  //   this.getData();
+  // };
+
+  selectTeam = (teamId) => {
+    this.setState({
+      teamId: teamId,
+      team: teams[teamId],
+    });
+    this.getData();
   };
   render() {
     return (
@@ -51,11 +71,14 @@ export default class App extends Component {
             prevGame={this.state.prevGame}
             active={this.state.active}
             schedule={this.state.schedule}
+            selectTeam={this.selectTeam}
           />
           <Standings
             standings={this.state.standings}
             active={this.state.active}
+            selectTeam={this.selectTeam}
           />
+          <Stats team={this.state.team} />
         </div>
       </div>
     );

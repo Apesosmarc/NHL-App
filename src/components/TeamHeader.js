@@ -2,13 +2,20 @@ import React from "react";
 import GameTimer from "./GameTimer";
 import Matchups from "./Matchups";
 
-const TeamHeader = ({ team, nextGame, active, prevGame, schedule }) => {
+const TeamHeader = ({
+  team,
+  nextGame,
+  active,
+  prevGame,
+  schedule,
+  selectTeam,
+}) => {
   if (nextGame.length != 0) {
     const nextGameInfo = nextGame.nextGameSchedule.dates[0].games[0];
-
+    const nextRegSeason = schedule[0].games[0].gameDate;
     return (
-      <div>
-        <div className="py-5">
+      <div className="flex flex-col justify-center">
+        <div className="py-5 h-60">
           <img
             src={team.mainLogo}
             alt=""
@@ -17,8 +24,15 @@ const TeamHeader = ({ team, nextGame, active, prevGame, schedule }) => {
             className="mx-auto"
           />
         </div>
-        {!active ? <GameTimer gameInfo={nextGameInfo} /> : null}
-        <Matchups gameInfo={nextGameInfo} team={team} schedule={schedule} />
+        {!active ? (
+          <GameTimer gameInfo={nextGameInfo} nextRegSeason={nextRegSeason} />
+        ) : null}
+        <Matchups
+          gameInfo={nextGameInfo}
+          team={team}
+          schedule={schedule}
+          selectTeam={selectTeam}
+        />
       </div>
     );
   }

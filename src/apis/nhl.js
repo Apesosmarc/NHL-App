@@ -20,8 +20,12 @@ const gamesList = (id) =>
     params: {
       teamId: id,
       startDate: "2021-10-12",
-      endDate: "2021-10-30",
+      endDate: "2021-10-22",
     },
   });
 
-export { divisionStandings, game, gamesList };
+const teamStats = axios.create({
+  baseURL,
+});
+
+export { divisionStandings, game, gamesList, teamStats };

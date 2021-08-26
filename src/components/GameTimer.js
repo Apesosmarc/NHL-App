@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-export default function GameTimer({ gameInfo }) {
-  const gameDate = new Date(gameInfo.gameDate);
+export default function GameTimer({ gameInfo, nextRegSeason }) {
+  // Conditional for Regular Season Game vs Pre Season
+  const gameDate = nextRegSeason
+    ? new Date(nextRegSeason)
+    : new Date(gameInfo.gameDate);
 
   const calculateTimeLeft = () => {
     let currentTime = new Date();

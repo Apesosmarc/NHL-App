@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import teams from "../data/teams";
 
-const Standings = ({ standings, teamJSON }) => {
+const Standings = ({ standings, teamJSON, selectTeam }) => {
   const divisionStandings = standings.map((teamRank) => {
     const team = teams[teamRank.team.id];
     return (
@@ -11,7 +11,11 @@ const Standings = ({ standings, teamJSON }) => {
         key={team.name}
       >
         <td className="px-4 py-2 sm:px-8 sm:py-4">
-          <img src={team.smallLogo} alt="" />
+          <img
+            src={team.smallLogo}
+            alt=""
+            onClick={() => selectTeam(team.id)}
+          />
         </td>
         <td className="px-4 py-2">{teamRank.gamesPlayed}</td>
         <td className="px-4 py-2">{teamRank.leagueRecord.wins}</td>
@@ -24,7 +28,7 @@ const Standings = ({ standings, teamJSON }) => {
 
   return (
     <React.Fragment>
-      <table className="table-auto">
+      <table className="table-auto min-w-full">
         <thead>
           <tr>
             <th className="text-left px-4 py-2">Team</th>
