@@ -1,27 +1,31 @@
 import React from "react";
 import teams from "../data/teams";
 
-const Standings = ({ standings, teamJSON, selectTeam }) => {
+const Standings = ({ standings, selectTeam, teamId }) => {
   const divisionStandings = standings.map((teamRank) => {
     const team = teams[teamRank.team.id];
+    const outlineTeam =
+      team.id == teamId ? `5px solid ${team.mainColor}` : "none";
     return (
       <tr
-        className="text-white font-bold"
-        style={{ backgroundColor: `${team.mainColor}` }}
+        className="text-black font-bold"
+        style={{
+          border: `${outlineTeam}`,
+        }}
         key={team.name}
       >
-        <td className="px-4 py-2 sm:px-8 sm:py-4">
+        <td className="px-4 py-2">
           <img
             src={team.smallLogo}
             alt=""
             onClick={() => selectTeam(team.id)}
           />
         </td>
-        <td className="px-4 py-2">{teamRank.gamesPlayed}</td>
-        <td className="px-4 py-2">{teamRank.leagueRecord.wins}</td>
-        <td className="px-4 py-2">{teamRank.leagueRecord.losses}</td>
-        <td className="px-4 py-2">{teamRank.leagueRecord.ot}</td>
-        <td className="px-4 py-2">{teamRank.streak.streakCode}</td>
+        <td>{teamRank.gamesPlayed}</td>
+        <td>{teamRank.leagueRecord.wins}</td>
+        <td>{teamRank.leagueRecord.losses}</td>
+        <td>{teamRank.leagueRecord.ot}</td>
+        <td>{teamRank.streak.streakCode}</td>
       </tr>
     );
   });
@@ -31,12 +35,12 @@ const Standings = ({ standings, teamJSON, selectTeam }) => {
       <table className="table-auto min-w-full">
         <thead>
           <tr>
-            <th className="text-left px-4 py-2">Team</th>
-            <th className="border text-left px-4 py-2">GP</th>
-            <th className="border text-left px-4 py-2">W</th>
-            <th className="border text-left px-4 py-2">L</th>
-            <th className="border text-left px-4 py-2">OTL</th>
-            <th className="text-left px-4 py-2">Streak</th>
+            <th className="">Team</th>
+            <th className="">GP</th>
+            <th className="">W</th>
+            <th className="">L</th>
+            <th className="">OTL</th>
+            <th className="">STR</th>
           </tr>
         </thead>
         <tbody>{standings.length !== 0 && divisionStandings}</tbody>

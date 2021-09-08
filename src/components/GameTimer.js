@@ -19,10 +19,10 @@ export default function GameTimer({ gameInfo, nextRegSeason }) {
       return Math.trunc(time);
     });
 
-    let things = ["D", "H", "M", "S"];
+    let timeAbbrev = ["D", "H", "M", "S"];
 
     for (let i = 0; i < timeArr.length; i++) {
-      timeArr[i] = timeArr[i] + things[i];
+      timeArr[i] = timeArr[i] + timeAbbrev[i];
     }
 
     return timeArr.join(":");

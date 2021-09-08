@@ -49,10 +49,6 @@ export default class App extends Component {
     this.getData();
   };
 
-  // componentDidUpdate = async () => {
-  //   this.getData();
-  // };
-
   selectTeam = (teamId) => {
     this.setState({
       teamId: teamId,
@@ -77,6 +73,7 @@ export default class App extends Component {
             standings={this.state.standings}
             active={this.state.active}
             selectTeam={this.selectTeam}
+            teamId={this.state.teamId}
           />
           <Stats team={this.state.team} />
         </div>

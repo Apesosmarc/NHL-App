@@ -31,3 +31,7 @@
   - Have an option to display similar info on each NHL team
 
   - Able to display live news on Bruins + NHL.
+
+  // git doc notes
+
+  Uses global base styles to reduce inline style redundancy.
