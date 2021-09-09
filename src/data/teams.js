@@ -55,7 +55,7 @@ const teams = {
     name: "Pittsburgh Penguins",
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/mTXURxq0CbsVREw9q3UAnw_48x48.png",
-    mainColor: "#000000",
+    mainColor: "#FCB514",
     secondColor: "#FFB81C",
     conference: 6,
     division: 18,
