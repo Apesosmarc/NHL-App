@@ -3,7 +3,7 @@ import TeamCard from "./TeamCard";
 import GameDate from "./GameDate";
 import { dateConverter } from "../utils/dateConverter";
 
-export default function MatchupCard({ gameInfo, team, selectTeam, gameNum }) {
+export default function MatchupCard({ gameInfo, team, selectTeam }) {
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
   const borderColor =
     gameInfo.teams.home.team.name === team.name ? `${team.mainColor}` : "#fff";

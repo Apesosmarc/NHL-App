@@ -41,7 +41,7 @@ export default class App extends Component {
       nextGame: nextGame.data.teams[0],
       prevGame: prevGame.data.teams[0],
       active: isLive(nextGame) === true ? true : false,
-      schedule: getSchedule.data.dates,
+      schedule: getSchedule.data,
     });
   };
 
@@ -56,7 +56,9 @@ export default class App extends Component {
     });
     this.getData();
   };
+
   render() {
+    console.log(this.state.schedule);
     return (
       <div className="container max-w-lg mx-auto">
         <div className="w-100 h-100">
@@ -66,7 +68,7 @@ export default class App extends Component {
             nextGame={this.state.nextGame}
             prevGame={this.state.prevGame}
             active={this.state.active}
-            schedule={this.state.schedule}
+            schedule={this.state.schedule.dates}
             selectTeam={this.selectTeam}
           />
           <Standings

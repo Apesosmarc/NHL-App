@@ -1,7 +1,7 @@
 import React from "react";
 import MatchupCard from "./MatchupCard";
 
-export default function Matchups({ gameInfo, team, schedule, selectTeam }) {
+export default function Matchups({ team, schedule, selectTeam }) {
   const renderedSched = schedule.map((game, i) => {
     return (
       <MatchupCard
