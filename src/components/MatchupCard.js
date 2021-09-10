@@ -10,7 +10,7 @@ export default function MatchupCard({ gameInfo, team, selectTeam }) {
   return (
     <div
       style={{ borderTop: `5px solid ${borderColor}` }}
-      className="teamcard rounded-md py-6 my-4 mx-2"
+      className="teamcard rounded-md py-6 my-4"
     >
       <div className="flex mx-2">
         <TeamCard nextGame={gameInfo.teams.away} selectTeam={selectTeam} />

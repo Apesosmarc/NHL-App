@@ -29,6 +29,8 @@ const TeamHeader = ({ team, nextGame, active, schedule, selectTeam }) => {
       </div>
     );
   }
+
+  return <div className="">Loading...</div>;
 };
 
 export default TeamHeader;

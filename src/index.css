@@ -31,30 +31,6 @@
   --toggle-button: var(--toggle-button-light);
 }
 
-/* :root {
-  --background: var(--dark-bg);
-  --text-color: var(--dark-text2);
-  --text-color2: var(--dark-text1);
-  --card-bg: var(--dark-card);
-  --card-hover: var(--dark-card-hover);
-  --background: var(--dark-bg);
-  --text-color: var(--dark-text2);
-  --text-color2: var(--dark-text1);
-  --card-bg: var(--dark-card);
-  --card-hover: var(--dark-card-hover);
-} */
-
-/* body.light {
-  --background: var(--light-bg);
-  --text-color: var(--light-text2);
-  --text-color2: var(--light-text1);
-  --card-bg: var(--light-card);
-  --card-hover: var(--light-card-hover);
-  --toggle: var(--toggle-light);
-  --toggle-bg: var(--toggle-bg-light);
-  --toggle-button: var(--toggle-button-light);
-} */
-
 .container {
   background-color: var(--dark-bg);
   color: var(--dark-text2);

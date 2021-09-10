@@ -8,7 +8,7 @@ const Standings = ({ standings, selectTeam, teamId }) => {
       team.id == teamId ? `5px solid ${team.mainColor}` : "none";
     return (
       <tr
-        className="text-black font-bold"
+        className="font-bold teamcard"
         style={{
           border: `${outlineTeam}`,
         }}

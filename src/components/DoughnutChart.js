@@ -1,11 +1,19 @@
 import React from "react";
 import { ChartDonut } from "@patternfly/react-charts";
+import { useEffect } from "react";
 
 const DoughnutChart = ({ title, label, stats, average, team }) => {
   const statsNum = parseFloat(stats);
   const diff = 100 - statsNum;
+
+  // changes styles via dom, patternfly library not accepting styles.
+  useEffect(() => {
+    const tspans = [...document.querySelectorAll("tspan")];
+    tspans.forEach((tspan) => (tspan.style.fill = "hsl(0, 0%, 100%)"));
+  }, []);
+
   return (
-    <div className="text-center py-10">
+    <div className="text-center py-10 ">
       <h2 className="text-xl font-bold">{label}</h2>
       <ChartDonut
         colorScale={[`${team.mainColor}`, "#F3F4F6"]}

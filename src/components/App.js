@@ -55,7 +55,6 @@ export default class App extends Component {
   };
 
   render() {
-    console.log(this.state.schedule);
     return (
       <div className="container max-w-lg mx-auto">
         <div className="w-100 h-100">
