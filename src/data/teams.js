@@ -265,7 +265,7 @@ const teams = {
     conference: 5,
     division: 15,
     covidDiv: 3,
-    mainColor: "#041E42",
+    mainColor: "#FF4C00",
     secondColor: "#FF4C00",
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/290013862/binary-file/file.svg",
