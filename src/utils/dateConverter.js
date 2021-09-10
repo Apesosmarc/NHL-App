@@ -32,6 +32,4 @@ const dateConverter = (gameDay) => {
   return dateStr.split(/\d{4}/g);
 };
 
-export { dateConverter };
-
-getGamesFromToday();
+export { dateConverter, getGamesFromToday };

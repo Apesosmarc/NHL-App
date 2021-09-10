@@ -23,7 +23,6 @@ export default class App extends Component {
     team: teams[5],
     standings: [],
     nextGame: [],
-    prevGame: [],
     active: "false",
     schedule: [],
   };
@@ -32,14 +31,12 @@ export default class App extends Component {
     console.log("fetch");
     const standings = await divisionStandings.get("/standings");
     const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
-    const prevGame = await game("prev").get(`/teams/${this.state.teamId}`);
     const getSchedule = await gamesList(this.state.teamId).get("/schedule");
 
     this.setState({
       team: teams[this.state.teamId],
       standings: standings.data.records[this.state.team.covidDiv].teamRecords,
       nextGame: nextGame.data.teams[0],
-      prevGame: prevGame.data.teams[0],
       active: isLive(nextGame) === true ? true : false,
       schedule: getSchedule.data,
     });
@@ -66,7 +63,6 @@ export default class App extends Component {
             standings={this.state.standings}
             team={teams[this.state.teamId]}
             nextGame={this.state.nextGame}
-            prevGame={this.state.prevGame}
             active={this.state.active}
             schedule={this.state.schedule.dates}
             selectTeam={this.selectTeam}
