@@ -34,7 +34,7 @@ const Standings = ({ standings, selectTeam, teamId, division }) => {
     <React.Fragment>
       <h1 className="text-center text-xl pb-2">{division}</h1>
       <h1 className="text-center text-xl pb-4">2020-2021 Season</h1>
-      <table className="table-auto min-w-full">
+      <table className="table-auto">
         <thead>
           <tr>
             <th className="">Team</th>
