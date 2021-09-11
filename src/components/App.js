@@ -25,6 +25,7 @@ export default class App extends Component {
     nextGame: [],
     active: "false",
     schedule: [],
+    division: [],
   };
 
   getData = async () => {
@@ -35,6 +36,7 @@ export default class App extends Component {
 
     this.setState({
       team: teams[this.state.teamId],
+      division: standings.data.records[this.state.team.covidDiv].division.name,
       standings: standings.data.records[this.state.team.covidDiv].teamRecords,
       nextGame: nextGame.data.teams[0],
       active: isLive(nextGame) === true ? true : false,
@@ -66,12 +68,15 @@ export default class App extends Component {
             schedule={this.state.schedule.dates}
             selectTeam={this.selectTeam}
           />
+          <div className="py-4"> </div>
           <Standings
             standings={this.state.standings}
             active={this.state.active}
             selectTeam={this.selectTeam}
             teamId={this.state.teamId}
+            division={this.state.division}
           />
+          <div className="py-8"> </div>
           <Stats team={this.state.team} />
         </div>
       </div>

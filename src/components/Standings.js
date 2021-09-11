@@ -1,7 +1,7 @@
 import React from "react";
 import teams from "../data/teams";
 
-const Standings = ({ standings, selectTeam, teamId }) => {
+const Standings = ({ standings, selectTeam, teamId, division }) => {
   const divisionStandings = standings.map((teamRank) => {
     const team = teams[teamRank.team.id];
     const outlineTeam =
@@ -32,6 +32,8 @@ const Standings = ({ standings, selectTeam, teamId }) => {
 
   return (
     <React.Fragment>
+      <h1 className="text-center text-xl pb-2">{division}</h1>
+      <h1 className="text-center text-xl pb-4">2020-2021 Season</h1>
       <table className="table-auto min-w-full">
         <thead>
           <tr>

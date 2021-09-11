@@ -1,14 +1,25 @@
 import React from "react";
 import MatchupCard from "./MatchupCard";
+import GameTimer from "./GameTimer";
 
-export default function Matchups({ team, schedule, selectTeam }) {
+export default function Matchups({
+  team,
+  schedule,
+  selectTeam,
+  gameInfo,
+  nextRegSeason,
+  active,
+}) {
   const renderedSched = schedule.map((game, i) => {
     return (
       <MatchupCard
+        gameInfo={gameInfo}
+        nextRegSeason={nextRegSeason}
+        active={active}
         selectTeam={selectTeam}
         gameInfo={game.games[0]}
         team={team}
-        gameNum={i.toString()}
+        gameNum={i}
         key={i}
       />
     );

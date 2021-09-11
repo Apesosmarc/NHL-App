@@ -17,11 +17,11 @@ const TeamHeader = ({ team, nextGame, active, schedule, selectTeam }) => {
             className="mx-auto my-auto"
           />
         </div>
-        {!active ? (
-          <GameTimer gameInfo={nextGameInfo} nextRegSeason={nextRegSeason} />
-        ) : null}
+
         <Matchups
+          active={active}
           gameInfo={nextGameInfo}
+          nextRegSeason={nextRegSeason}
           team={team}
           schedule={schedule}
           selectTeam={selectTeam}

@@ -25,7 +25,7 @@ export default function GameTimer({ gameInfo, nextRegSeason }) {
       timeArr[i] = timeArr[i] + timeAbbrev[i];
     }
 
-    return timeArr.join(":");
+    return timeArr.join(": ");
   };
 
   const [time, setTime] = useState("");
@@ -39,13 +39,8 @@ export default function GameTimer({ gameInfo, nextRegSeason }) {
   });
 
   return (
-    <div className="flex flex-col justify-center w-full mb-4">
-      <div className="mx-auto text-center">
-        <h2 className="text-lg font-bold">Puck Drop Timer:</h2>
-        <h3 className="tracking-tighter" style={{ fontFamily: "DM Mono" }}>
-          {time}
-        </h3>
-      </div>
+    <div className="mb-4 text-center text-sm subtitle">
+      <h3>{time}</h3>
     </div>
   );
 }
