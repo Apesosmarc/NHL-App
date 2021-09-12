@@ -14,7 +14,7 @@ const Standings = ({ standings, selectTeam, teamId, division }) => {
         }}
         key={team.name}
       >
-        <td className="px-4 py-2">
+        <td className="">
           <img
             src={team.smallLogo}
             alt=""
@@ -34,7 +34,7 @@ const Standings = ({ standings, selectTeam, teamId, division }) => {
     <React.Fragment>
       <h1 className="text-center text-xl pb-2">{division}</h1>
       <h1 className="text-center text-xl pb-4">2020-2021 Season</h1>
-      <table className="table-auto">
+      <table className="table-auto mx-auto ">
         <thead>
           <tr>
             <th className="">Team</th>

@@ -11,7 +11,7 @@ export default function TeamCard({ nextGame, selectTeam }) {
           onClick={() => selectTeam(id)}
           src={logo}
           alt="teamlogo"
-          className="mb-2"
+          className="mb-2 transform hover:scale-110"
         />
         <h1 className="text-xs mb-2 ">{nextGame.team.name}</h1>
         <ul className="flex text-xs mb-2">

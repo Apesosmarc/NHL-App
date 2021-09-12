@@ -59,7 +59,12 @@ export default class App extends Component {
   render() {
     return (
       <div className="container max-w-lg mx-auto">
-        <div className="w-100 h-100">
+        <div className="">
+          <img
+            src="https://cms.nhl.bamgrid.com/images/photos/281468728/425x56/cut.png"
+            alt=""
+            className="mx-auto pt-5"
+          />
           <TeamHeader
             standings={this.state.standings}
             team={teams[this.state.teamId]}

@@ -25,7 +25,7 @@ export default function GameTimer({ gameInfo, nextRegSeason }) {
       timeArr[i] = timeArr[i] + timeAbbrev[i];
     }
 
-    return timeArr.join(": ");
+    return timeArr.join(" : ");
   };
 
   const [time, setTime] = useState("");
