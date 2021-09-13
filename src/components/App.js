@@ -4,6 +4,7 @@ import Standings from "./Standings";
 import TeamHeader from "./TeamHeader";
 import teams from "../data/teams";
 import Stats from "./Stats";
+import TeamText from "./TeamText";
 
 const isLive = (game) => {
   // This Func compares the status code of the 'next' game and checks if it is live or not
@@ -19,8 +20,8 @@ const isLive = (game) => {
 
 export default class App extends Component {
   state = {
-    teamId: 5,
-    team: teams[5],
+    teamId: 25,
+    team: teams[25],
     standings: [],
     nextGame: [],
     active: "false",
@@ -59,15 +60,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="container max-w-lg mx-auto">
-        <div className="">
-          <img
-            src="https://cms.nhl.bamgrid.com/images/photos/281468728/425x56/cut.png"
-            alt=""
-            className="mx-auto pt-5"
-          />
+        <div>
+          <TeamText team={this.state.team} />
           <TeamHeader
             standings={this.state.standings}
-            team={teams[this.state.teamId]}
+            team={this.state.team}
             nextGame={this.state.nextGame}
             active={this.state.active}
             schedule={this.state.schedule.dates}

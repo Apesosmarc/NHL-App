@@ -2,7 +2,6 @@ import React from "react";
 import TeamCard from "./TeamCard";
 import GameDate from "./GameDate";
 import { dateConverter } from "../utils/dateConverter";
-import GameTimer from "./GameTimer";
 
 export default function MatchupCard({
   gameInfo,
