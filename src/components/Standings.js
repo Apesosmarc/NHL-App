@@ -18,8 +18,9 @@ const Standings = ({ standings, selectTeam, teamId, division }) => {
         <td className="">
           <img
             src={team.smallLogo}
-            alt=""
+            alt={`${team.name} logo`}
             onClick={() => selectTeam(team.id)}
+            className="mb-2 transform hover:opacity-50"
           />
         </td>
         <td>{teamRank.gamesPlayed}</td>

@@ -60,10 +60,16 @@ table {
 
 td,
 th {
-  padding: 15px;
+  text-align: center;
 }
 
-@media (min-width: 370px) {
+td img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 450px) {
   table {
     width: 85%;
   }

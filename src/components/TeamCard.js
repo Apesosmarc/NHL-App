@@ -3,6 +3,7 @@ import teams from "../data/teams";
 
 export default function TeamCard({ nextGame, selectTeam }) {
   if (nextGame.length !== 0) {
+    // should pass team as opposed to having import data
     const id = nextGame.team.id;
     const logo = teams[nextGame.team.id].smallLogo;
     return (
@@ -10,8 +11,8 @@ export default function TeamCard({ nextGame, selectTeam }) {
         <img
           onClick={() => selectTeam(id)}
           src={logo}
-          alt="teamlogo"
-          className="mb-2 transform hover:scale-110"
+          alt={`${teams[nextGame.team.id].name} logo`}
+          className="mb-2 transform hover:opacity-50"
         />
         <h1 className="text-xs mb-2 ">{nextGame.team.name}</h1>
         <ul className="flex text-xs mb-2">
