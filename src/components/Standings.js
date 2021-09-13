@@ -13,6 +13,7 @@ const Standings = ({ standings, selectTeam, teamId, division }) => {
           border: `${outlineTeam}`,
         }}
         key={team.name}
+        onClick={() => selectTeam(team.id)}
       >
         <td className="">
           <img

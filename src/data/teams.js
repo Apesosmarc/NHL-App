@@ -11,6 +11,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/301891622/binary-file/file.svg",
     id: "1",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/320286118/470x32/cut.png",
   },
   2: {
     name: "New York Islanders",
@@ -37,6 +39,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/289471614/binary-file/file.svg",
     id: "3",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/281807656/408x56/cut.png",
   },
   4: {
     name: "Philadelphia Flyers",
@@ -50,6 +54,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/4.svg",
     id: "4",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/290924876/569x56/cut.png",
   },
   5: {
     name: "Pittsburgh Penguins",
@@ -63,6 +69,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/5.svg",
     id: "5",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/281468728/425x56/cut.png",
   },
   6: {
     name: "Boston Bruins",
@@ -76,10 +84,13 @@ const teams = {
     division: 17,
     covidDiv: 2,
     id: "6",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/325907858/512x56/cut.png",
   },
   7: {
     name: "Buffalo Sabres",
-    mainLogo: null,
+    mainLogo:
+      "https://cms.nhl.bamgrid.com/images/assets/binary/318303268/binary-file/file.svg",
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/6vSZsDaiDt1MW__o_ksW4A_48x48.png",
     mainColor: "#FCB514",
@@ -88,6 +99,8 @@ const teams = {
     division: 17,
     covidDiv: 2,
     id: "7",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/319830988/550x60/cut.png",
   },
   8: {
     name: "Montréal Canadiens",
@@ -101,6 +114,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/309964716/binary-file/file.svg",
     id: "8",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/281945186/500x56/cut.png",
   },
   9: {
     name: "Ottawa Senators",
@@ -114,6 +129,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/319086486/binary-file/file.svg",
     id: "9",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/319567538/560x32/cut.png",
   },
   10: {
     name: "Toronto Maple Leafs",
@@ -127,6 +144,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/10.svg",
     id: "10",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/300304082/604x56/cut.png",
   },
   12: {
     name: "Carolina Hurricanes",
@@ -140,6 +159,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/nhl.com/builds/site-core/8ecaf2e5b9df3410a759d20f311404825907c23a_1629306204/images/logos/team/current/team-12-light.svg",
     id: "12",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309924580/560x32/cut.png",
   },
   13: {
     name: "Florida Panthers",
@@ -153,6 +174,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/291015530/binary-file/file.svg",
     id: "13",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309957182/561x32/cut.png",
   },
   14: {
     name: "Tampa Bay Lightning",
@@ -166,6 +189,8 @@ const teams = {
     mainLogo:
       "https://seeklogo.com/images/T/tampa-bay-lightning-logo-9066D2F72D-seeklogo.com.png",
     id: "14",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309921738/500x56/cut.png",
   },
   15: {
     name: "Washington Capitals",
@@ -179,6 +204,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/298789884/binary-file/file.svg",
     id: "15",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/319950972/560x32/cut.png",
   },
   16: {
     name: "Chicago Blackhawks",
@@ -192,6 +219,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/301971744/binary-file/file.svg",
     id: "16",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/320245294/409x32/cut.png",
   },
   17: {
     name: "Detroit Red Wings",
@@ -205,6 +234,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/17.svg",
     id: "17",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/300066598/500x56/cut.png",
   },
   18: {
     name: "Nashville Predators",
@@ -218,6 +249,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/nhl.com/builds/site-core/8ecaf2e5b9df3410a759d20f311404825907c23a_1629306204/images/logos/team/current/team-18-dark.svg",
     id: "18",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/319477548/560x32/cut.png",
   },
   19: {
     name: "St. Louis Blues",
@@ -231,6 +264,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/309991890/binary-file/file.svg",
     id: "19",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309944758/560x32/cut.png",
   },
   20: {
     name: "Calgary Flames",
@@ -244,6 +279,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/319279210/binary-file/file.svg",
     id: "20",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/292351992/512x56/cut.png",
   },
   21: {
     name: "Colorado Avalanche",
@@ -257,6 +294,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/21.svg",
     id: "21",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/310091430/512x56/cut.png",
   },
   22: {
     name: "Edmonton Oilers",
@@ -270,6 +309,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/290013862/binary-file/file.svg",
     id: "22",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309927568/423x50/cut.png",
   },
   23: {
     name: "Vancouver Canucks",
@@ -283,6 +324,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/309954422/binary-file/file.svg",
     id: "23",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309930350/560x32/cut.png",
   },
   24: {
     name: "Anaheim Ducks",
@@ -296,6 +339,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/318845684/binary-file/file.svg",
     id: "24",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/281407324/480x48/cut.png",
   },
   25: {
     name: "Dallas Stars",
@@ -309,6 +354,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/325914394/binary-file/file.svg",
     id: "25",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/325909540/512x56/cut.png",
   },
   26: {
     name: "Los Angeles Kings",
@@ -322,6 +369,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/308180580/binary-file/file.svg",
     id: "26",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/321078680/300x56/cut.png",
   },
   28: {
     name: "San Jose Sharks",
@@ -333,6 +382,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/301041748/binary-file/file.svg",
     id: "28",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/311056822/560x32/cut.png",
   },
   29: {
     name: "Columbus Blue Jackets",
@@ -346,6 +397,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/301936032/binary-file/file.svg",
     id: "29",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309920394/560x32/cut.png",
   },
   30: {
     name: "Minnesota Wild",
@@ -359,6 +412,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/302317224/binary-file/file.svg",
     id: "30",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/320272298/560x32/cut.png",
   },
   52: {
     name: "Winnipeg Jets",
@@ -372,6 +427,8 @@ const teams = {
     mainLogo:
       "https://www-league.nhlstatic.com/nhl.com/builds/site-core/8ecaf2e5b9df3410a759d20f311404825907c23a_1629306204/images/logos/team/current/team-52-dark.svg",
     id: "52",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/309920402/560x32/cut.png",
   },
   53: {
     name: "Arizona Coyotes",
@@ -384,6 +441,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/309994320/binary-file/file.svg",
     id: "53",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/317365672/560x32/cut.png",
   },
   54: {
     name: "Vegas Golden Knights",
@@ -397,6 +456,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/290581542/binary-file/file.svg",
     id: "54",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/290581538/500x56/cut.png",
   },
   55: {
     name: "Seattle Kraken",
@@ -409,6 +470,8 @@ const teams = {
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/317578370/binary-file/file.svg",
     id: "55",
+    teamText:
+      "https://cms.nhl.bamgrid.com/images/photos/317588166/560x32/cut.png",
   },
 };
 

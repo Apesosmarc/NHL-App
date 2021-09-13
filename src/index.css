@@ -33,6 +33,7 @@
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 .container {
@@ -55,6 +56,11 @@ img {
 
 table {
   width: 100%;
+}
+
+td,
+th {
+  padding: 15px;
 }
 
 @media (min-width: 370px) {
