@@ -59,7 +59,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container max-w-lg mx-auto">
+      <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
         <div>
           <TeamText team={this.state.team} />
           <TeamHeader

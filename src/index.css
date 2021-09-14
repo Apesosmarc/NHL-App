@@ -44,6 +44,8 @@ img {
 .teamcard {
   background-color: var(--dark-card);
   color: var(--dark-text2);
+  min-height: 150px;
+  @apply rounded-md py-6 my-4;
 }
 
 .subtitle {

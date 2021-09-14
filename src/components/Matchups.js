@@ -25,5 +25,9 @@ export default function Matchups({
     );
   });
 
-  return <div>{renderedSched}</div>;
+  return (
+    <div className="sm:grid sm:grid-flow-row sm:grid-cols-2 gap-4">
+      {renderedSched}
+    </div>
+  );
 }

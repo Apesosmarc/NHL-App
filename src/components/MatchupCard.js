@@ -12,14 +12,17 @@ export default function MatchupCard({
   gameNum,
 }) {
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
+
   const borderColor =
     gameInfo.teams.home.team.name === team.name ? `${team.mainColor}` : "#fff";
+
+  const firstGameStyling = gameNum === 0 ? "col-span-full" : "col-auto";
   return (
     <div
       style={{ borderTop: `5px solid ${borderColor}` }}
-      className="teamcard rounded-md py-6 my-4"
+      className={`teamcard ${firstGameStyling}`}
     >
-      <div className="flex mx-2">
+      <div className="flex mx-auto sm:max-w-xs">
         <TeamCard nextGame={gameInfo.teams.away} selectTeam={selectTeam} />
         <GameDate
           gameNum={gameNum}
