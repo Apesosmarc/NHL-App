@@ -31,6 +31,10 @@
   --toggle-button: var(--toggle-button-light);
 }
 
+body {
+  background-color: var(--dark-bg);
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -44,8 +48,7 @@ img {
 .teamcard {
   background-color: var(--dark-card);
   color: var(--dark-text2);
-  min-height: 150px;
-  @apply rounded-md py-6 my-4;
+  @apply rounded-md py-6 mb-6 sm:mb-0;
 }
 
 .subtitle {

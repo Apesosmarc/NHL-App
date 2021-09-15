@@ -17,13 +17,20 @@ export default function MatchupCard({
     gameInfo.teams.home.team.name === team.name ? `${team.mainColor}` : "#fff";
 
   const firstGameStyling = gameNum === 0 ? "col-span-full" : "col-auto";
+  const firstGameWidth = gameNum === 0 ? "sm:max-w-lg md:max-w-xl" : null;
   return (
     <div
       style={{ borderTop: `5px solid ${borderColor}` }}
-      className={`teamcard ${firstGameStyling}`}
+      className={`teamcard ${firstGameStyling} align-center`}
     >
-      <div className="flex mx-auto sm:max-w-xs">
-        <TeamCard nextGame={gameInfo.teams.away} selectTeam={selectTeam} />
+      <div
+        className={`${firstGameWidth} flex max-w-xs justify-between mx-auto `}
+      >
+        <TeamCard
+          gameNum={gameNum}
+          nextGame={gameInfo.teams.away}
+          selectTeam={selectTeam}
+        />
         <GameDate
           gameNum={gameNum}
           gameInfo={gameInfo}
@@ -33,7 +40,11 @@ export default function MatchupCard({
           gameTime={gameTime}
           gameVenue={gameInfo.venue.name}
         />
-        <TeamCard nextGame={gameInfo.teams.home} selectTeam={selectTeam} />
+        <TeamCard
+          gameNum={gameNum}
+          nextGame={gameInfo.teams.home}
+          selectTeam={selectTeam}
+        />
       </div>
     </div>
   );
