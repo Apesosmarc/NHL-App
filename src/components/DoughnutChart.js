@@ -13,7 +13,7 @@ const DoughnutChart = ({ title, label, stats, average, team }) => {
   }, []);
 
   return (
-    <div className="text-center py-10 ">
+    <div className="text-center py-10  sm:mx-auto">
       <h2 className="text-xl font-bold">{label}</h2>
       <ChartDonut
         colorScale={[`${team.mainColor}`, "#F3F4F6"]}
@@ -25,7 +25,7 @@ const DoughnutChart = ({ title, label, stats, average, team }) => {
         ]}
         subTitle={title}
         title={`${stats}%`}
-        width={350}
+        width={250}
       />
       <h2 class="text-lg">League Average: {`${average}%`}</h2>
     </div>

@@ -48,7 +48,7 @@ img {
 .teamcard {
   background-color: var(--dark-card);
   color: var(--dark-text2);
-  @apply rounded-md py-6 mb-6 sm:mb-0;
+  @apply rounded-md py-6 mb-6 sm:mb-0 flex items-center;
 }
 
 .subtitle {
@@ -57,6 +57,10 @@ img {
 
 .outlinedTeam {
   border: 1px solid;
+}
+
+.tableRow {
+  background-color: var(--dark-card);
 }
 
 table {
@@ -72,6 +76,12 @@ td img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.bottom-header {
+  font-family: "graduate";
+  text-align: center;
+  display: inline;
 }
 
 @media (min-width: 450px) {

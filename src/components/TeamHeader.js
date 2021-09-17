@@ -8,7 +8,7 @@ const TeamHeader = ({ team, nextGame, active, schedule, selectTeam }) => {
     const nextRegSeason = schedule[0].games[0].gameDate;
     return (
       <div className="">
-        <div className="py-5 h-60 flex flex-col justify-center align-center md:mb-12">
+        <div className="h-60 flex flex-col justify-center align-center md:mb-12">
           <img
             src={team.mainLogo}
             alt=""

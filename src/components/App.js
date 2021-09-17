@@ -59,7 +59,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
+      <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <div>
           <TeamText team={this.state.team} />
           <TeamHeader
@@ -70,15 +70,22 @@ export default class App extends Component {
             schedule={this.state.schedule.dates}
             selectTeam={this.selectTeam}
           />
-          <div className="py-4"> </div>
+          <div className="sm:py-8 py-2"> </div>
           <Standings
             standings={this.state.standings}
             active={this.state.active}
             selectTeam={this.selectTeam}
-            teamId={this.state.teamId}
+            team={this.state.team}
             division={this.state.division}
           />
-          <div className="py-8"> </div>
+          <div className="pt-16 pb-8 flex content-center justify-center">
+            <h1
+              className="bottom-header sm:text-4xl"
+              style={{ borderBottom: `3px solid ${this.state.team.mainColor}` }}
+            >
+              {this.state.team.name}
+            </h1>
+          </div>
           <Stats team={this.state.team} />
         </div>
       </div>

@@ -5,7 +5,7 @@ export default function TeamText({ team }) {
     <div>
       {team.teamText !== null && (
         <img
-          className="mx-auto my-auto pt-5"
+          className="mx-auto my-auto pt-8"
           src={team.teamText}
           alt={`${team.name} logo in words`}
         />

@@ -39,7 +39,7 @@ export default function GameTimer({ gameInfo, nextRegSeason }) {
   });
 
   return (
-    <div className="mb-4 text-center text-sm subtitle">
+    <div className="mb-4 text-center text-sm subtitle lg:w-56">
       <h3>{time}</h3>
     </div>
   );

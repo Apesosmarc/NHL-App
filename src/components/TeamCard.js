@@ -7,7 +7,7 @@ export default function TeamCard({ nextGame, selectTeam, gameNum }) {
     const id = nextGame.team.id;
     const logo = teams[nextGame.team.id].smallLogo;
     //Increases the size of the first game card
-    const sizeUp = gameNum === 0 && "sm:w-80 sm:h-36";
+    const sizeUp = gameNum === 0 && "sm:w-26 sm:h-36";
     return (
       <div
         className={`w-24 h-32 flex flex-col justify-between items-center text-center self-center ${sizeUp}`}

@@ -20,7 +20,7 @@ export default function Stats({ team }) {
   return !stats ? (
     <div>Loading...</div>
   ) : (
-    <div class="divide-y-2 divide-solid divide-gray-200">
+    <div class="divide-y-2 divide-solid divide-gray-200 sm:divide-none sm:grid-cols-2 md:grid-cols-3 md:gap-8 sm:grid pb-20">
       <DoughnutChart
         label={"Faceoff Win Percentage"}
         stats={stats.faceOffWinPercentage}

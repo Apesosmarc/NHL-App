@@ -3,14 +3,16 @@ import teams from "../data/teams";
 
 const Standings = ({ standings, selectTeam, teamId, division }) => {
   const divisionStandings = standings.map((teamRank) => {
+    // Selects team data for each team in division
     const team = teams[teamRank.team.id];
     const outlineTeam =
       team.id == teamId ? `5px solid ${team.mainColor}` : "none";
     return (
       <tr
-        className="font-bold teamcard"
+        className="font-bold"
         style={{
           border: `${outlineTeam}`,
+          backgroundColor: "var(--dark-card)",
         }}
         key={team.name}
         onClick={() => selectTeam(team.id)}
@@ -23,10 +25,10 @@ const Standings = ({ standings, selectTeam, teamId, division }) => {
             className="mb-2 transform hover:opacity-50"
           />
         </td>
-        <td>{teamRank.gamesPlayed}</td>
+        <td>{teamRank.points}</td>
         <td>{teamRank.leagueRecord.wins}</td>
         <td>{teamRank.leagueRecord.losses}</td>
-        <td>{teamRank.leagueRecord.ot}</td>
+        <td>{teamRank.gamesPlayed}</td>
         <td>{teamRank.streak.streakCode}</td>
       </tr>
     );
@@ -34,8 +36,8 @@ const Standings = ({ standings, selectTeam, teamId, division }) => {
 
   return (
     <React.Fragment>
-      <h1 className="text-center text-xl pb-2">{division}</h1>
-      <h1 className="text-center text-xl pb-4">2020-2021 Season</h1>
+      <h1 className="text-center text-2xl pb-2 sm:text-3xl">{division}</h1>
+      <h1 className="text-center text-xl">2020-2021 Season</h1>
       <table className="mx-auto">
         <thead>
           <tr>

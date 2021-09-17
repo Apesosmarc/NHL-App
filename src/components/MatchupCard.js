@@ -16,15 +16,18 @@ export default function MatchupCard({
   const borderColor =
     gameInfo.teams.home.team.name === team.name ? `${team.mainColor}` : "#fff";
 
-  const firstGameStyling = gameNum === 0 ? "col-span-full" : "col-auto";
+  const firstGameStyling =
+    gameNum === 0
+      ? "sm:col-span-full lg:col-start-1 lg:col-span-2"
+      : "col-auto";
   const firstGameWidth = gameNum === 0 ? "sm:max-w-lg md:max-w-xl" : null;
   return (
     <div
       style={{ borderTop: `5px solid ${borderColor}` }}
-      className={`teamcard ${firstGameStyling} align-center`}
+      className={`teamcard ${firstGameStyling}`}
     >
       <div
-        className={`${firstGameWidth} flex max-w-xs justify-between mx-auto `}
+        className={`${firstGameWidth} flex max-w-xs justify-between content-center mx-auto`}
       >
         <TeamCard
           gameNum={gameNum}
