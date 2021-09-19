@@ -75,7 +75,7 @@ export default class App extends Component {
             standings={this.state.standings}
             active={this.state.active}
             selectTeam={this.selectTeam}
-            team={this.state.team}
+            currentTeam={this.state.team}
             division={this.state.division}
           />
           <div className="pt-16 pb-8 flex content-center justify-center">

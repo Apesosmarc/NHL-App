@@ -1,12 +1,13 @@
 import React from "react";
 import teams from "../data/teams";
+import getTeamInfo from "../utils/getTeamInfo";
 
-const Standings = ({ standings, selectTeam, teamId, division }) => {
+const Standings = ({ standings, selectTeam, currentTeam, division }) => {
   const divisionStandings = standings.map((teamRank) => {
     // Selects team data for each team in division
-    const team = teams[teamRank.team.id];
+    const team = getTeamInfo(teamRank.team.id);
     const outlineTeam =
-      team.id == teamId ? `5px solid ${team.mainColor}` : "none";
+      team.id == currentTeam.id ? `5px solid ${team.mainColor}` : "none";
     return (
       <tr
         className="font-bold"

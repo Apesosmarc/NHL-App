@@ -1,6 +1,7 @@
 import React from "react";
 import GameTimer from "./GameTimer";
 export default function GameDate({
+  firstGame,
   gameDate,
   gameTime,
   gameVenue,
@@ -11,7 +12,7 @@ export default function GameDate({
   const getDate = () => {
     return (
       <div className={`text-center p-2`}>
-        {gameNum === 0 && (
+        {firstGame && (
           <GameTimer gameInfo={gameInfo} nextRegSeason={nextRegSeason} />
         )}
         <p className="text-md md:text-lg font-semibold">{gameDate}</p>

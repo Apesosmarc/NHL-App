@@ -11,24 +11,19 @@ export default function MatchupCard({
   active,
   gameNum,
 }) {
+  // Gets date + time from util function.
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
 
+  //Determines home/away border
   const borderColor =
     gameInfo.teams.home.team.name === team.name ? `${team.mainColor}` : "#fff";
 
-  const firstGameStyling =
-    gameNum === 0
-      ? "sm:col-span-full lg:col-start-1 lg:col-span-2"
-      : "col-auto";
-  const firstGameWidth = gameNum === 0 ? "sm:max-w-lg md:max-w-xl" : null;
   return (
     <div
       style={{ borderTop: `5px solid ${borderColor}` }}
-      className={`teamcard ${firstGameStyling}`}
+      className={`teamcard col-auto`}
     >
-      <div
-        className={`${firstGameWidth} flex max-w-xs justify-between content-center mx-auto`}
-      >
+      <div className={`flex max-w-xs justify-between content-center mx-auto`}>
         <TeamCard
           gameNum={gameNum}
           nextGame={gameInfo.teams.away}
