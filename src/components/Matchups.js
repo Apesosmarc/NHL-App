@@ -11,7 +11,7 @@ export default function Matchups({
   active,
 }) {
   const firstGameInfo = schedule[0];
-  const renderedSched = schedule.slice(1, schedule.length).map((game, i) => {
+  const renderedSched = schedule.slice(1, 4).map((game, i) => {
     return (
       <MatchupCard
         gameInfo={gameInfo}

@@ -20,7 +20,7 @@ const gamesList = (id) =>
     params: {
       teamId: id,
       startDate: "2021-10-12",
-      endDate: "2021-10-22",
+      endDate: "2021-10-30",
     },
   });
 
