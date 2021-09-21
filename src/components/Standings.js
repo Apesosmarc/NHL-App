@@ -1,6 +1,6 @@
 import React from "react";
-import teams from "../data/teams";
 import getTeamInfo from "../utils/getTeamInfo";
+import { Link } from "react-router-dom";
 
 const Standings = ({ standings, selectTeam, currentTeam, division }) => {
   const divisionStandings = standings.map((teamRank) => {
@@ -18,13 +18,15 @@ const Standings = ({ standings, selectTeam, currentTeam, division }) => {
         key={team.name}
         onClick={() => selectTeam(team.id)}
       >
-        <td className="">
-          <img
-            src={team.smallLogo}
-            alt={`${team.name} logo`}
-            onClick={() => selectTeam(team.id)}
-            className="mb-2 transform hover:opacity-50"
-          />
+        <td>
+          <Link to={`/${team.abrev}`}>
+            <img
+              src={team.smallLogo}
+              alt={`${team.name} logo`}
+              onClick={() => selectTeam(team.id)}
+              className="mb-2 transform hover:opacity-50"
+            />
+          </Link>
         </td>
         <td>{teamRank.points}</td>
         <td>{teamRank.leagueRecord.wins}</td>

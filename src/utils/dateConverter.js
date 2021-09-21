@@ -15,7 +15,9 @@ const getGamesFromToday = (days = 7) => {
   return [today, endDate].map((date) => formatDate(date));
 };
 
+// returns an array of readable time, and readable date from API date format
 const dateConverter = (gameDay) => {
+  // returns date with short weekday, month, and 12-hour time basis
   const newDate = Intl.DateTimeFormat("en", {
     weekday: "short",
     year: "numeric",
@@ -27,8 +29,8 @@ const dateConverter = (gameDay) => {
   }).format(new Date(gameDay));
 
   const [day, date, year, time] = newDate.split(",");
-  let dateStr = day + " " + date + " " + year + " " + time;
-  dateStr = dateStr.replaceAll(/\s\s/g, " ");
+  let dateStr = day + date + year + time + "";
+
   return dateStr.split(/\d{4}/g);
 };
 

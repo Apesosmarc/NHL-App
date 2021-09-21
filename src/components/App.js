@@ -5,23 +5,12 @@ import TeamHeader from "./TeamHeader";
 import teams from "../data/teams";
 import Stats from "./Stats";
 import TeamText from "./TeamText";
-
-const isLive = (game) => {
-  // This Func compares the status code of the 'next' game and checks if it is live or not
-
-  // Status code of nextGamegame
-  const statusCode =
-    game.data.teams[0].nextGameSchedule.dates[0].games[0].status
-      .abstractGameState;
-
-  if (statusCode === "Live" || statusCode === "Final") return true;
-  else return false;
-};
+import { isLive } from "../utils/isLive";
 
 export default class App extends Component {
   state = {
-    teamId: 25,
-    team: teams[25],
+    teamId: this.props.id,
+    team: teams[this.props.id],
     standings: [],
     nextGame: [],
     active: "false",
@@ -86,6 +75,7 @@ export default class App extends Component {
               {this.state.team.name}
             </h1>
           </div>
+
           <Stats team={this.state.team} />
         </div>
       </div>

@@ -1,7 +1,6 @@
 import teams from "../data/teams";
 
 export default function getTeamInfo(id) {
-  const teamInfo = teams[id];
-
-  return teamInfo;
+  if (!teams[id]) throw new Error("ID passed was not valid");
+  return teams[id];
 }
