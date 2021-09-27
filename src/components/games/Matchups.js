@@ -1,30 +1,25 @@
 import React from "react";
-import MatchupCard from "./MatchupCard";
-import NextGame from "./games/NextGame";
 import { useState, useEffect } from "react";
+import ViewMore from "../buttons/ViewMore";
+import MatchupCard from "./MatchupCard";
+import NextGame from "./NextGame";
 
-export default function Matchups({
-  team,
-  schedule,
-  selectTeam,
-  gameInfo,
-  nextRegSeason,
-  active,
-}) {
+export default function Matchups({ team, schedule, selectTeam, active }) {
+  const showThree = schedule.slice(1, 4);
+  const showSix = schedule.slice(1, 7);
   const [toggle, setToggle] = useState(false);
-  const [shownSchedule, setShownSchedule] = useState(schedule.slice(1, 4));
+  const [shownSchedule, setShownSchedule] = useState(showThree);
 
   const viewMoreToggle = () => {
-    console.log("toggled");
     setToggle(!toggle);
   };
 
   useEffect(() => {
-    console.log("loaded");
+    console.log("called");
     if (toggle) {
-      setShownSchedule(schedule.slice(1, 7));
+      setShownSchedule(showSix);
     } else {
-      setShownSchedule(schedule.slice(1, 4));
+      setShownSchedule(showThree);
     }
   }, [schedule, toggle]);
 
@@ -32,13 +27,10 @@ export default function Matchups({
   const renderedSched = shownSchedule.map((game, i) => {
     return (
       <MatchupCard
-        gameInfo={gameInfo}
-        nextRegSeason={nextRegSeason}
         active={active}
         selectTeam={selectTeam}
         gameInfo={game.games[0]}
         team={team}
-        gameNum={i}
         key={i}
       />
     );
@@ -56,9 +48,7 @@ export default function Matchups({
         {renderedSched}
       </div>
       <div className="flex">
-        <button onClick={viewMoreToggle} className="mx-auto px-4 border">
-          View More
-        </button>
+        <ViewMore toggle={viewMoreToggle} toggleStatus={toggle} team={team} />
       </div>
     </div>
   );

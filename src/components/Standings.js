@@ -7,7 +7,7 @@ const Standings = ({ standings, selectTeam, currentTeam, division }) => {
     // Selects team data for each team in division
     const team = getTeamInfo(teamRank.team.id);
     const outlineTeam =
-      team.id == currentTeam.id ? `5px solid ${team.mainColor}` : "none";
+      team.id === currentTeam.id ? `5px solid ${team.mainColor}` : "none";
     return (
       <tr
         className="font-bold"

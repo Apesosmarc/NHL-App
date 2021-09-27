@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { teamStats } from "../apis/nhl";
+import { teamStats } from "../../apis/nhl";
 import DoughnutChart from "./DoughnutChart";
 
 export default function Stats({ team }) {
   const [stats, setStats] = useState("");
-  const [seattleWarning, setSeattleWarning] = useState("");
   const fowAvg = 49.98;
   const pkAvg = 79.95;
   const ppAvg = 17.05;
@@ -23,7 +22,7 @@ export default function Stats({ team }) {
     getStats();
   }, [team.id]);
 
-  // Seattle has yet to play a season != no stats
+  // Seattle has yet to play a season = no stats
   return stats === false ? (
     <div className="mx-auto text-center mb-12">
       Seattle Kraken Stats Coming Soon :)

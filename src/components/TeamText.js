@@ -1,5 +1,7 @@
 import React from "react";
 
+//dynamically loads Team text above team logo
+
 export default function TeamText({ team }) {
   return (
     <div>

@@ -1,16 +1,9 @@
 import React from "react";
 import TeamCard from "./TeamCard";
 import GameDate from "./GameDate";
-import { dateConverter } from "../utils/dateConverter";
+import { dateConverter } from "../../utils/dateConverter";
 
-export default function MatchupCard({
-  gameInfo,
-  team,
-  selectTeam,
-  nextRegSeason,
-  active,
-  gameNum,
-}) {
+export default function MatchupCard({ gameInfo, team, selectTeam, active }) {
   // Gets date + time from util function.
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
 
@@ -25,21 +18,19 @@ export default function MatchupCard({
     >
       <div className={`flex max-w-xs justify-between content-center mx-auto`}>
         <TeamCard
-          gameNum={gameNum}
+          displayedTeam={team}
           nextGame={gameInfo.teams.away}
           selectTeam={selectTeam}
         />
         <GameDate
-          gameNum={gameNum}
           gameInfo={gameInfo}
-          nextRegSeason={nextRegSeason}
           active={active}
           gameDate={gameDate}
           gameTime={gameTime}
           gameVenue={gameInfo.venue.name}
         />
         <TeamCard
-          gameNum={gameNum}
+          displayedTeam={team}
           nextGame={gameInfo.teams.home}
           selectTeam={selectTeam}
         />

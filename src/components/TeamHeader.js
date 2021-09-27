@@ -1,11 +1,10 @@
 import React from "react";
-import GameTimer from "./GameTimer";
-import Matchups from "./Matchups";
+import Matchups from "./games/Matchups";
 
 const TeamHeader = ({ team, nextGame, active, schedule, selectTeam }) => {
   if (nextGame.length !== 0) {
     const nextGameInfo = nextGame.nextGameSchedule.dates[0].games[0];
-    const nextRegSeason = schedule[0].games[0].gameDate;
+
     return (
       <div>
         <div className="h-60 flex flex-col justify-center align-center md:mb-8">
@@ -21,7 +20,6 @@ const TeamHeader = ({ team, nextGame, active, schedule, selectTeam }) => {
         <Matchups
           active={active}
           gameInfo={nextGameInfo}
-          nextRegSeason={nextRegSeason}
           team={team}
           schedule={schedule}
           selectTeam={selectTeam}

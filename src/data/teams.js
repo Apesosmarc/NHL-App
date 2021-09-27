@@ -4,7 +4,7 @@ const teams = {
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/dlm2PLEGHJY8DzDLloxLcQ_48x48.png",
     mainColor: "#CE1126",
-    secondColor: "black",
+    secondColor: "#fff",
     conference: 6,
     division: 18,
     covidDiv: 1,
@@ -51,7 +51,7 @@ const teams = {
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/ZFZEyofJ8vMrr0tFGsMFKg_48x48.png",
     mainColor: "#F74902",
-    secondColor: "#000000",
+    secondColor: "#F74902",
     conference: 6,
     division: 18,
     covidDiv: 2,
@@ -85,7 +85,7 @@ const teams = {
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/_KkOxoGjAn3S7_9-Z1d0OA_48x48.png",
     mainColor: "#FFB81C",
-    secondColor: "#000000",
+    secondColor: "#FFB81C",
     conference: 6,
     division: 17,
     covidDiv: 2,
@@ -163,7 +163,7 @@ const teams = {
     division: 18,
     covidDiv: 1,
     mainColor: "#CC0000",
-    secondColor: "#000000",
+    secondColor: "#CC0000",
     mainLogo:
       "https://www-league.nhlstatic.com/nhl.com/builds/site-core/8ecaf2e5b9df3410a759d20f311404825907c23a_1629306204/images/logos/team/current/team-12-light.svg",
     id: "12",
@@ -206,7 +206,7 @@ const teams = {
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/uT-r__4aRFZmtEITN9mNdQ_48x48.png",
     mainColor: "#C8102E",
-    secondColor: "#041E42",
+    secondColor: "#C8102E",
     conference: 6,
     division: 18,
     covidDiv: 2,
@@ -256,7 +256,7 @@ const teams = {
     division: 16,
     covidDiv: 1,
     mainColor: "#FFB81C",
-    secondColor: "#041E42",
+    secondColor: "#FFB81C",
     mainLogo:
       "https://www-league.nhlstatic.com/nhl.com/builds/site-core/8ecaf2e5b9df3410a759d20f311404825907c23a_1629306204/images/logos/team/current/team-18-dark.svg",
     id: "18",
@@ -359,7 +359,7 @@ const teams = {
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/yAPda2I1VV6sr0TB17rnxQ_48x48.png",
     mainColor: "#006847",
-    secondColor: "#8F8F8C",
+    secondColor: "#006847",
     conference: 5,
     division: 16,
     covidDiv: 1,
@@ -377,7 +377,7 @@ const teams = {
     division: 15,
     covidDiv: 0,
     mainColor: "#5F259F",
-    secondColor: "#A2AAAD",
+    secondColor: "#5F259F",
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/308180580/binary-file/file.svg",
     id: "26",
@@ -465,7 +465,7 @@ const teams = {
     division: 15,
     covidDiv: 0,
     mainColor: "#B4975A",
-    secondColor: "#333F42",
+    secondColor: "#B4975A",
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/290581542/binary-file/file.svg",
     id: "54",
