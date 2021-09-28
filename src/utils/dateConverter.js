@@ -1,9 +1,12 @@
-const formatDate = (date) => {
-  return Intl.DateTimeFormat("en", {
+const formatDate = (
+  date,
+  obj = {
     year: "numeric",
     month: "numeric",
     day: "numeric",
-  }).format(new Date(date));
+  }
+) => {
+  return Intl.DateTimeFormat("en", obj).format(new Date(date));
 };
 
 const getGamesFromToday = (days = 7) => {
@@ -34,4 +37,4 @@ const dateConverter = (gameDay) => {
   return dateStr.split(/\d{4}/g);
 };
 
-export { dateConverter, getGamesFromToday };
+export { dateConverter, getGamesFromToday, formatDate };

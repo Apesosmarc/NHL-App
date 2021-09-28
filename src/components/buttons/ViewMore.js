@@ -5,13 +5,13 @@ export default function ViewMore({ toggle, toggleStatus, team }) {
     return toggleStatus ? (
       <button
         onClick={toggle}
-        className="mx-auto pt-4 group flex flex-col items-center"
+        className="mx-auto sm:pt-4 group flex flex-col items-center"
       >
         <svg
-          className="up"
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
+          className="up"
           height="16"
+          width="16"
           fill={team.secondColor}
           class="bi bi-caret-up"
           viewBox="0 0 16 16"
@@ -23,15 +23,15 @@ export default function ViewMore({ toggle, toggleStatus, team }) {
     ) : (
       <button
         onClick={toggle}
-        className="mx-auto pt-4 group flex flex-col items-center"
+        className="mx-auto sm:pt-4 smgroup flex flex-col items-center"
       >
         <p className="group-hover:text-hoverDark">View More</p>
 
         <svg
           className="down"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
           height="16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
           fill={team.secondColor}
           class="bi bi-caret-down"
           viewBox="0 0 16 16"

@@ -3,6 +3,7 @@ import getTeamInfo from "../utils/getTeamInfo";
 import { Link } from "react-router-dom";
 
 const Standings = ({ standings, selectTeam, currentTeam, division }) => {
+  // Renders the Table Body
   const divisionStandings = standings.map((teamRank) => {
     // Selects team data for each team in division
     const team = getTeamInfo(teamRank.team.id);
@@ -37,6 +38,7 @@ const Standings = ({ standings, selectTeam, currentTeam, division }) => {
     );
   });
 
+  // Renders Table Header and inputs iterated from array above.
   return (
     <React.Fragment>
       <h1 className="text-center text-2xl pb-2 sm:text-3xl">{division}</h1>

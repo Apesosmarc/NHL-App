@@ -1,12 +1,14 @@
 import React from "react";
 
 export default function Spinner({ team }) {
-  const mainColor = team ? team.mainColor : "blue";
+  const mainColor = team ? team.mainColor : "gray";
   return (
     <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto flex justify-center relative">
       <div className="loader-container mt-48 flex flex-col justify-center content-center">
-        <img className="min-w-full" src={team.smallLogo} alt={team.name} />
-        <svg class="animate-spin h-24 w-12" viewBox="0 0 24 24">
+        {!team ? null : (
+          <img className="min-w-full" src={team.smallLogo} alt={team.name} />
+        )}
+        <svg className="animate-spin h-24 w-12" viewBox="0 0 24 24">
           <circle
             className="opacity-25"
             cx="12"

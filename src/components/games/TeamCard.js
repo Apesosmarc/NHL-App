@@ -16,7 +16,7 @@ export default function TeamCard({
   // Disables the icon link if the logo is the logo of the team showing
   let teamDisplayed = false;
   if (displayedTeam) {
-    teamDisplayed = displayedTeam.id === team.id ? true : false;
+    teamDisplayed = displayedTeam.id === team.id && true;
   }
   return (
     <div

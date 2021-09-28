@@ -59,14 +59,12 @@ export default class App extends Component {
             standings={this.state.standings}
             team={this.state.team}
             nextGame={this.state.nextGame}
-            active={this.state.active}
             schedule={this.state.schedule.dates}
             selectTeam={this.selectTeam}
           />
           <div className="sm:py-8 py-2"> </div>
           <Standings
             standings={this.state.standings}
-            active={this.state.active}
             selectTeam={this.selectTeam}
             currentTeam={this.state.team}
             division={this.state.division}

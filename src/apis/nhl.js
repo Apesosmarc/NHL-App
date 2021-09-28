@@ -14,13 +14,13 @@ const game = (sched) =>
     },
   });
 
-const gamesList = (id) =>
+const gamesList = (id = null, start = "2021-10-12", end = "2021-10-30") =>
   axios.create({
     baseURL,
     params: {
       teamId: id,
-      startDate: "2021-10-12",
-      endDate: "2021-10-30",
+      startDate: start,
+      endDate: end,
     },
   });
 
