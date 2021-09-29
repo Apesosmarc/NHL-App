@@ -95,8 +95,8 @@ td img {
 }
 
 .table-logo {
-  max-width: 50%;
-  max-height: 50%;
+  max-width: 65%;
+  max-height: 65%;
 }
 
 @media (min-width: 450px) {
