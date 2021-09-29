@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import ViewMore from "../buttons/ViewMore";
-import MatchupCard from "./MatchupCard";
+
 import NextGame from "./NextGame";
 import GameGrid from "../layout/GameGrid";
 

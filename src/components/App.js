@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import { divisionStandings, game, gamesList } from "../apis/nhl";
-import Standings from "./Standings";
-import TeamHeader from "./TeamHeader";
-import teams from "../data/teams";
-import Stats from "./stats/Stats";
 import TeamText from "./TeamText";
+import TeamHeader from "./TeamHeader";
+import Standings from "./Standings";
+import StatsHeader from "./layout/StatsHeader";
+import Stats from "./stats/Stats";
 import Spinner from "./loading/Spinner";
+// retrieves teamInfo with teamId as argument
+import getTeamInfo from "../utils/getTeamInfo";
 
 // import { isLive } from "../utils/isLive";
 
 export default class App extends Component {
   state = {
     teamId: this.props.id,
-    team: teams[this.props.id],
+    team: getTeamInfo(this.props.id),
     standings: [],
     nextGame: [],
     schedule: [],
@@ -29,7 +31,7 @@ export default class App extends Component {
 
     setTimeout(() => this.setState({ isLoading: false }), 800);
     this.setState({
-      team: teams[this.state.teamId],
+      team: getTeamInfo(this.state.teamId),
       division: standings.data.records[this.state.team.covidDiv].division.name,
       standings: standings.data.records[this.state.team.covidDiv].teamRecords,
       nextGame: nextGame.data.teams[0],
@@ -45,7 +47,7 @@ export default class App extends Component {
     if (teamId === this.state.team.id) return;
     this.setState({
       teamId: teamId,
-      team: teams[teamId],
+      team: getTeamInfo(teamId),
     });
     this.getData();
   };
@@ -69,17 +71,7 @@ export default class App extends Component {
             currentTeam={this.state.team}
             division={this.state.division}
           />
-          <div className="pt-16 pb-8 flex content-center justify-center">
-            <h1
-              className="bottom-header sm:text-4xl"
-              style={{
-                borderBottom: `3px solid ${this.state.team.mainColor}`,
-              }}
-            >
-              {this.state.team.name}
-            </h1>
-          </div>
-
+          <StatsHeader team={this.state.team} />
           <Stats team={this.state.team} />
         </div>
       </div>

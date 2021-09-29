@@ -1,48 +1,19 @@
 import React from "react";
 
+import UpSVG from "./UpSVG";
+import DownSVG from "./DownSVG";
+
 // create up and down components for SVGs +txt s and render dynamically
 
 export default function ViewMore({ toggleFunc, toggleStatus, team }) {
-  const showArrow = () => {
-    return toggleStatus ? (
+  return (
+    <React.Fragment>
       <button
         onClick={toggleFunc}
         className="mx-auto sm:pt-4 group flex flex-col items-center"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="up"
-          height="16"
-          width="16"
-          fill={team.secondColor}
-          className="bi bi-caret-up"
-          viewBox="0 0 16 16"
-        >
-          <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
-        </svg>
-        <p className="group-hover:text-hoverDark">View Less</p>
+        {toggleStatus ? <UpSVG team={team} /> : <DownSVG team={team} />}
       </button>
-    ) : (
-      <button
-        onClick={toggleFunc}
-        className="mx-auto sm:pt-4 smgroup flex flex-col items-center"
-      >
-        <p className="group-hover:text-hoverDark">View More</p>
-
-        <svg
-          className="down"
-          height="16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-          fill={team.secondColor}
-          className="bi bi-caret-down"
-          viewBox="0 0 16 16"
-        >
-          <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
-        </svg>
-      </button>
-    );
-  };
-
-  return showArrow();
+    </React.Fragment>
+  );
 }

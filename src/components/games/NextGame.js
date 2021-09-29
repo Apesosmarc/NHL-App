@@ -16,7 +16,7 @@ export default function NextGame({ selectTeam, gameInfo, team, nextGame }) {
 
   return (
     <div
-      className={`teamcard sm:max-w-lg md:max-w-xl sm:col-span-full lg:col-start-1 lg:col-span-2 mx-auto sm:mb-4`}
+      className={`teamcard sm:max-w-lg md:max-w-xl sm:col-span-full lg:col-start-1 lg:col-span-2 mx-auto sm:mb-6`}
       style={{ borderTop: `5px solid ${borderColor}` }}
     >
       <div

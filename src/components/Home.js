@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import { gamesList } from "../apis/nhl";
-import teams from "../data/teams";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
 
@@ -36,8 +35,6 @@ export default class Home extends Component {
     this.getData();
   };
 
-  routeTeam = () => {};
-
   render() {
     if (!this.state.data) return <div></div>;
     return (
@@ -51,13 +48,13 @@ export default class Home extends Component {
         <GameGrid
           schedule={this.state.todaysGames}
           selectTeam={() => console.log("hi")}
-          team={teams[5]}
+          team={false}
         />
         <DateHeader game={this.state.tomorrowsGames[0]} />
         <GameGrid
           schedule={this.state.tomorrowsGames}
           selectTeam={() => console.log("hi")}
-          team={teams[5]}
+          team={false}
         />
         <div className="py-6"></div>
       </div>

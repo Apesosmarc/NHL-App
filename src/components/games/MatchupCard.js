@@ -1,32 +1,23 @@
 import React from "react";
 import TeamCard from "./TeamCard";
 import GameDate from "./GameDate";
+import Border from "../layout/Border";
 import { dateConverter } from "../../utils/dateConverter";
-import getTeamInfo from "../../utils/getTeamInfo";
 
 export default function MatchupCard({ gameInfo, team, selectTeam }) {
-  const homeTeam = gameInfo.teams.home.team.id;
-  const awayTeam = gameInfo.teams.away.team.id;
+  const homeTeamId = gameInfo.teams.home.team.id;
+  const awayTeamId = gameInfo.teams.away.team.id;
   // Gets date + time from util function.
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
 
-  //Determines home/away border
-  const borderColor =
-    gameInfo.teams.home.team.id === team.id ? `${team.mainColor}` : "#fff";
-
   return (
-    <div
-      // style={{ borderTop: `5px solid ${borderColor}` }}
-      className={`teamcard col-auto`}
-    >
-      <div
-        style={{
-          background: `linear-gradient(to left, ${
-            getTeamInfo(homeTeam).mainColor
-          }, ${getTeamInfo(awayTeam).mainColor})`,
-        }}
-        className="gradient-border"
-      ></div>
+    <div className={`teamcard col-auto`}>
+      <Border
+        team={team}
+        homeTeamId={homeTeamId}
+        awayTeamId={awayTeamId}
+        gameInfo={gameInfo}
+      />
       <div className={`flex max-w-xs justify-between content-center mx-auto`}>
         <TeamCard
           displayedTeam={team}
