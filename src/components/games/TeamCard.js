@@ -27,7 +27,7 @@ export default function TeamCard({
           onClick={() => selectTeam(team.id)}
           src={logo}
           alt={`${team.name} logo`}
-          className={`img
+          className={`teamcard-logo
             ${teamDisplayed === true ? null : "transform hover:opacity-50"}
           `}
         />

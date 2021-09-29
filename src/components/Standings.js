@@ -25,7 +25,7 @@ const Standings = ({ standings, selectTeam, currentTeam, division }) => {
               src={team.smallLogo}
               alt={`${team.name} logo`}
               onClick={() => selectTeam(team.id)}
-              className="mb-2 transform hover:opacity-50"
+              className="table-logo transform hover:opacity-50"
             />
           </Link>
         </td>
