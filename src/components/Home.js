@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { gamesList } from "../apis/nhl";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
+import RouteHandle from "./routeHandlers";
+import { BrowserRouter } from "react-router-dom";
+import { Route } from "react-router";
 
 export default class Home extends Component {
   state = {
@@ -35,12 +38,16 @@ export default class Home extends Component {
     this.getData();
   };
 
+  selectTeam = (id) => {
+    return;
+  };
+
   render() {
     if (!this.state.data) return <div></div>;
     return (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <img
-          className="sm:w-56 sm:h-56 w-32 h-32 mx-auto my-auto pt-8"
+          className="sm:w-56 sm:h-56 w-48 h-48 mx-auto my-auto py-8"
           src="https://www-league.nhlstatic.com/images/logos/league-dark/133.svg"
           alt="NHL Trademark logo"
         ></img>

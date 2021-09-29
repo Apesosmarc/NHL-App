@@ -7,6 +7,7 @@ import Home from "../Home";
 // Component that loads the team based on path or team abreviation. I.E (*/10, */TOR)
 
 export default function RouteHandle(props) {
+  console.log(props);
   const id = props.match.params.id;
   const verifyTeam = (teamId) => {
     teamId = teamId.toLowerCase();

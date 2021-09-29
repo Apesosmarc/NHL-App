@@ -53,6 +53,7 @@ export default class App extends Component {
   };
 
   render() {
+    console.log("app loaded");
     return this.state.isLoading === false ? (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <div>
