@@ -24,11 +24,6 @@ body {
   background-color: var(--dark-bg);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 .container {
   background-color: var(--dark-bg);
   color: var(--dark-text2);
@@ -74,12 +69,13 @@ img {
 }
 
 table {
-  width: 100%;
+  width: 98%;
 }
 
 td,
 th {
   text-align: center;
+  padding: 0.5em;
 }
 
 td img {
@@ -94,6 +90,11 @@ td img {
   display: inline;
 }
 
+.img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
 @media (min-width: 450px) {
   table {
     width: 85%;
@@ -101,5 +102,9 @@ td img {
   td,
   th {
     padding: 1em;
+  }
+  .img {
+    max-width: 100%;
+    height: auto;
   }
 }
