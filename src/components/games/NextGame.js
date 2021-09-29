@@ -5,9 +5,7 @@ import GameDate from "./GameDate";
 import { dateConverter } from "../../utils/dateConverter";
 
 export default function NextGame({ selectTeam, gameInfo, team, nextGame }) {
-  gameInfo = gameInfo.games[0];
-
-  // inits firstGame for TeamCard
+  // inits firstGame for TeamCard styling
   const firstGame = true;
 
   // Gets date + time from util function.
@@ -18,7 +16,7 @@ export default function NextGame({ selectTeam, gameInfo, team, nextGame }) {
 
   return (
     <div
-      className={`teamcard sm:max-w-lg md:max-w-xl sm:col-span-full lg:col-start-1 lg:col-span-2 mx-auto`}
+      className={`teamcard sm:max-w-lg md:max-w-xl sm:col-span-full lg:col-start-1 lg:col-span-2 mx-auto sm:mb-4`}
       style={{ borderTop: `5px solid ${borderColor}` }}
     >
       <div

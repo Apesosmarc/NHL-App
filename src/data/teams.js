@@ -331,7 +331,7 @@ const teams = {
     conference: 5,
     division: 15,
     covidDiv: 3,
-    mainColor: "#00205B",
+    mainColor: "#00843D",
     secondColor: "#00843D",
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/309954422/binary-file/file.svg",
@@ -477,7 +477,7 @@ const teams = {
     name: "Seattle Kraken",
     division: 15,
     covidDiv: 0,
-    mainColor: "#001628",
+    mainColor: "#99D9D9",
     secondColor: "#99D9D9",
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/JQg1BPtt9E6O5JfjqJiDrg_48x48.png",

@@ -6,26 +6,25 @@ import NextGame from "./NextGame";
 import GameGrid from "../layout/GameGrid";
 
 export default function Matchups({ team, schedule, selectTeam, gameNum }) {
-  console.log(selectTeam);
-  const showThree = schedule.slice(1, 4);
-  const showSix = schedule.slice(1, 7);
+  // Format schedule to array of game objects
+  schedule = schedule.map((gameInfo) => gameInfo.games[0]);
+  // Array of three vs six games displayed on toggle
+  const showThree = schedule.slice(1, 5);
+  const showSix = schedule.slice(1, 8);
+
   const [toggle, setToggle] = useState(false);
-  const [shownSchedule, setShownSchedule] = useState(showThree);
+
+  useEffect(() => {
+    // reloads component on View More push
+  }, [toggle]);
 
   const viewMoreToggle = () => {
     setToggle(!toggle);
   };
 
-  useEffect(() => {
-    console.log("called");
-    if (toggle) {
-      setShownSchedule(showSix);
-    } else {
-      setShownSchedule(showThree);
-    }
-  }, [schedule, toggle]);
+  schedule = toggle ? showSix : showThree;
 
-  const firstGameInfo = schedule[0];
+  const firstGameInfo = schedule.shift();
 
   return (
     <div>
@@ -35,13 +34,13 @@ export default function Matchups({ team, schedule, selectTeam, gameNum }) {
         selectTeam={selectTeam}
         team={team}
       />
-      <GameGrid
-        teamSchedule={shownSchedule}
-        team={team}
-        selectTeam={selectTeam}
-      />
+      <GameGrid schedule={schedule} team={team} selectTeam={selectTeam} />
       <div className="flex">
-        <ViewMore toggle={viewMoreToggle} toggleStatus={toggle} team={team} />
+        <ViewMore
+          toggleFunc={viewMoreToggle}
+          toggleStatus={toggle}
+          team={team}
+        />
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import getTeamInfo from "../../utils/getTeamInfo";
 export default function MatchupCard({ gameInfo, team, selectTeam }) {
   const homeTeam = gameInfo.teams.home.team.id;
   const awayTeam = gameInfo.teams.away.team.id;
-  console.log(getTeamInfo(homeTeam));
   // Gets date + time from util function.
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
 
@@ -22,7 +21,7 @@ export default function MatchupCard({ gameInfo, team, selectTeam }) {
     >
       <div
         style={{
-          background: `linear-gradient(250deg, ${
+          background: `linear-gradient(to left, ${
             getTeamInfo(homeTeam).mainColor
           }, ${getTeamInfo(awayTeam).mainColor})`,
         }}
