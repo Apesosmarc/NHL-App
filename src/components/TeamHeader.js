@@ -1,7 +1,7 @@
 import React from "react";
 import Matchups from "./games/Matchups";
 
-const TeamHeader = ({ team, nextGame, schedule, selectTeam }) => {
+const TeamHeader = ({ team, nextGame, schedule }) => {
   if (nextGame.length !== 0) {
     const nextGameInfo = nextGame.nextGameSchedule.dates[0].games[0];
 
@@ -17,12 +17,7 @@ const TeamHeader = ({ team, nextGame, schedule, selectTeam }) => {
           />
         </div>
 
-        <Matchups
-          gameInfo={nextGameInfo}
-          team={team}
-          schedule={schedule}
-          selectTeam={selectTeam}
-        />
+        <Matchups gameInfo={nextGameInfo} team={team} schedule={schedule} />
       </div>
     );
   }

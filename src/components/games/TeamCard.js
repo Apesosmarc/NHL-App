@@ -24,11 +24,10 @@ export default function TeamCard({
     >
       <Link to={`/${team.abrev}`}>
         <img
-          onClick={() => selectTeam(team.id)}
           src={logo}
           alt={`${team.name} logo`}
           className={`teamcard-logo
-            ${teamDisplayed === true ? null : "transform hover:opacity-50"}
+            ${teamDisplayed === true ? null : "transform hover:opacity-30"}
           `}
         />
       </Link>

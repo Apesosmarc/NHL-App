@@ -4,7 +4,7 @@ import GameDate from "./GameDate";
 
 import { dateConverter } from "../../utils/dateConverter";
 
-export default function NextGame({ selectTeam, gameInfo, team, nextGame }) {
+export default function NextGame({ gameInfo, team, nextGame }) {
   // inits firstGame for TeamCard styling
   const firstGame = true;
 
@@ -26,7 +26,6 @@ export default function NextGame({ selectTeam, gameInfo, team, nextGame }) {
           displayedTeam={team}
           firstGame={firstGame}
           nextGame={gameInfo.teams.away}
-          selectTeam={selectTeam}
         />
         <GameDate
           firstGame={firstGame}
@@ -39,7 +38,6 @@ export default function NextGame({ selectTeam, gameInfo, team, nextGame }) {
           displayedTeam={team}
           firstGame={firstGame}
           nextGame={gameInfo.teams.home}
-          selectTeam={selectTeam}
         />
       </div>
     </div>

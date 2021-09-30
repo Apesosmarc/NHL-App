@@ -2,7 +2,7 @@ import React from "react";
 import getTeamInfo from "../utils/getTeamInfo";
 import { Link } from "react-router-dom";
 
-const Standings = ({ standings, selectTeam, currentTeam, division }) => {
+const Standings = ({ standings, currentTeam, division }) => {
   // Renders the Table Body
   const divisionStandings = standings.map((teamRank) => {
     // Selects team data for each team in division
@@ -17,15 +17,13 @@ const Standings = ({ standings, selectTeam, currentTeam, division }) => {
           backgroundColor: "var(--dark-card)",
         }}
         key={team.name}
-        onClick={() => selectTeam(team.id)}
       >
         <td>
           <Link to={`/${team.abrev}`}>
             <img
               src={team.smallLogo}
               alt={`${team.name} logo`}
-              onClick={() => selectTeam(team.id)}
-              className="table-logo transform hover:opacity-50"
+              className="table-logo transform hover:opacity-30"
             />
           </Link>
         </td>

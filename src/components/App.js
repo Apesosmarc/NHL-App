@@ -8,13 +8,14 @@ import Stats from "./stats/Stats";
 import Spinner from "./loading/Spinner";
 // retrieves teamInfo with teamId as argument
 import getTeamInfo from "../utils/getTeamInfo";
+import { ChartDonutThresholdLabelOrientation } from "@patternfly/react-charts";
 
 // import { isLive } from "../utils/isLive";
 
 export default class App extends Component {
   state = {
-    teamId: this.props.id,
-    team: getTeamInfo(this.props.id),
+    teamId: null,
+    team: null,
     standings: [],
     nextGame: [],
     schedule: [],
@@ -23,7 +24,10 @@ export default class App extends Component {
   };
 
   getData = async () => {
-    this.setState({ isLoading: true });
+    // resets isLoading to true
+    this.setState({
+      isLoading: true,
+    });
     console.log("fetch");
     const standings = await divisionStandings.get("/standings");
     const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
@@ -39,21 +43,31 @@ export default class App extends Component {
     });
   };
 
+  // Sets props.id to state when URL is entered manually.
   componentDidMount = async () => {
-    this.getData();
-  };
-
-  selectTeam = (teamId) => {
-    if (teamId === this.state.team.id) return;
+    console.log(`compdidmount`);
     this.setState({
-      teamId: teamId,
-      team: getTeamInfo(teamId),
+      teamId: this.props.id,
+      team: getTeamInfo(this.props.id),
     });
     this.getData();
   };
 
+  // Sets props.id to state passed down by RouteHandle.js + loads data
+  componentWillReceiveProps(nextProps) {
+    console.log("compWillReceiveProps");
+    if (nextProps.id === this.state.teamId) {
+      console.log("returned");
+      return;
+    }
+    this.setState({
+      teamId: nextProps.id,
+      team: getTeamInfo(nextProps.id),
+    });
+    this.getData();
+  }
+
   render() {
-    console.log("app loaded");
     return this.state.isLoading === false ? (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <div>
@@ -63,12 +77,10 @@ export default class App extends Component {
             team={this.state.team}
             nextGame={this.state.nextGame}
             schedule={this.state.schedule.dates}
-            selectTeam={this.selectTeam}
           />
           <div className="sm:py-8 py-2"> </div>
           <Standings
             standings={this.state.standings}
-            selectTeam={this.selectTeam}
             currentTeam={this.state.team}
             division={this.state.division}
           />

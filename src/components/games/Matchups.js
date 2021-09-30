@@ -5,7 +5,7 @@ import ViewMore from "../buttons/ViewMore";
 import NextGame from "./NextGame";
 import GameGrid from "../layout/GameGrid";
 
-export default function Matchups({ team, schedule, selectTeam, gameNum }) {
+export default function Matchups({ team, schedule, gameNum }) {
   // Format schedule to array of game objects
   schedule = schedule.map((gameInfo) => gameInfo.games[0]);
   // Array of three vs six games displayed on toggle
@@ -28,13 +28,8 @@ export default function Matchups({ team, schedule, selectTeam, gameNum }) {
 
   return (
     <div>
-      <NextGame
-        firstGame={true}
-        gameInfo={firstGameInfo}
-        selectTeam={selectTeam}
-        team={team}
-      />
-      <GameGrid schedule={schedule} team={team} selectTeam={selectTeam} />
+      <NextGame firstGame={true} gameInfo={firstGameInfo} team={team} />
+      <GameGrid schedule={schedule} team={team} />
       <div className="flex">
         <ViewMore
           toggleFunc={viewMoreToggle}
