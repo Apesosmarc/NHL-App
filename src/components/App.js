@@ -8,7 +8,6 @@ import Stats from "./stats/Stats";
 import Spinner from "./loading/Spinner";
 // retrieves teamInfo with teamId as argument
 import getTeamInfo from "../utils/getTeamInfo";
-import { ChartDonutThresholdLabelOrientation } from "@patternfly/react-charts";
 
 // import { isLive } from "../utils/isLive";
 
@@ -43,7 +42,7 @@ export default class App extends Component {
     });
   };
 
-  // Sets props.id to state when URL is entered manually.
+  // Sets props.id to state when this component actually unmounts.
   componentDidMount = async () => {
     console.log(`compdidmount`);
     this.setState({
@@ -53,19 +52,18 @@ export default class App extends Component {
     this.getData();
   };
 
-  // Sets props.id to state passed down by RouteHandle.js + loads data
-  componentWillReceiveProps(nextProps) {
-    console.log("compWillReceiveProps");
-    if (nextProps.id === this.state.teamId) {
-      console.log("returned");
+  // Conditionally renders props.id to state passed down by RouteHandle.js + loads data
+  // This is necessary as this comp does not rerender when passed props.
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.id === this.props.id) {
       return;
     }
     this.setState({
-      teamId: nextProps.id,
-      team: getTeamInfo(nextProps.id),
+      teamId: this.props.id,
+      team: getTeamInfo(this.props.id),
     });
     this.getData();
-  }
+  };
 
   render() {
     return this.state.isLoading === false ? (

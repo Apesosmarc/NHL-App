@@ -3,9 +3,6 @@ import React, { Component } from "react";
 import { gamesList } from "../apis/nhl";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
-import RouteHandle from "./routeHandlers";
-import { BrowserRouter } from "react-router-dom";
-import { Route } from "react-router";
 
 export default class Home extends Component {
   state = {
