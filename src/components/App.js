@@ -23,7 +23,7 @@ export default class App extends Component {
   };
 
   getData = async () => {
-    // resets isLoading to true
+    // resets need to load on update
     this.setState({
       isLoading: true,
     });
@@ -34,7 +34,6 @@ export default class App extends Component {
 
     setTimeout(() => this.setState({ isLoading: false }), 800);
     this.setState({
-      team: getTeamInfo(this.state.teamId),
       division: standings.data.records[this.state.team.covidDiv].division.name,
       standings: standings.data.records[this.state.team.covidDiv].teamRecords,
       nextGame: nextGame.data.teams[0],
@@ -44,7 +43,6 @@ export default class App extends Component {
 
   // Sets props.id to state when this component actually unmounts.
   componentDidMount = async () => {
-    console.log(`compdidmount`);
     this.setState({
       teamId: this.props.id,
       team: getTeamInfo(this.props.id),
@@ -70,13 +68,14 @@ export default class App extends Component {
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <div>
           <TeamText team={this.state.team} />
+
           <TeamHeader
             standings={this.state.standings}
             team={this.state.team}
             nextGame={this.state.nextGame}
             schedule={this.state.schedule.dates}
           />
-          <div className="sm:py-8 py-2"> </div>
+
           <Standings
             standings={this.state.standings}
             currentTeam={this.state.team}

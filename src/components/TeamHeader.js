@@ -1,5 +1,6 @@
 import React from "react";
 import Matchups from "./games/Matchups";
+import SwitchContainer from "./buttons/SwitchContainer";
 
 const TeamHeader = ({ team, nextGame, schedule }) => {
   if (nextGame.length !== 0) {
@@ -7,7 +8,7 @@ const TeamHeader = ({ team, nextGame, schedule }) => {
 
     return (
       <div>
-        <div className="h-60 flex flex-col justify-center align-center md:mb-8">
+        <div className="h-60 flex flex-col justify-center align-center items-end md:mb-8">
           <img
             src={team.mainLogo}
             alt=""
@@ -16,7 +17,7 @@ const TeamHeader = ({ team, nextGame, schedule }) => {
             className="mx-auto my-auto "
           />
         </div>
-
+        <SwitchContainer />
         <Matchups gameInfo={nextGameInfo} team={team} schedule={schedule} />
       </div>
     );
