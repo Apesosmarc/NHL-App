@@ -4,13 +4,30 @@ import RouteHandle from "./components/routeHandlers/";
 import "./index.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
+import App from "./components/App";
 
-ReactDOM.render(
+const loadFavorite = () => {
+  return parseInt(JSON.parse(localStorage.getItem("favorite")).id);
+};
+
+const hasFavorite = () => {
+  if (localStorage.getItem("favorite")) {
+    return true;
+  }
+  return false;
+};
+
+console.log(sessionStorage.length === 0 && hasFavorite());
+
+const id = ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Home} />
       <Route path="/:id" component={RouteHandle} />
-      <Home />
+      {sessionStorage.length === 0 && hasFavorite() ? (
+        <App id={loadFavorite()} />
+      ) : (
+        <Home />
+      )}
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

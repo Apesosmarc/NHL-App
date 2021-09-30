@@ -1,9 +1,32 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Switch } from "@headlessui/react";
 
-export default function SwitchContainer() {
-  const [enabled, setEnabled] = useState(false);
+export default function SwitchContainer({ team }) {
+  const getFavorite = () => {
+    return JSON.parse(localStorage.getItem("favorite")).id;
+  };
+
+  const hasFavorite = () => {
+    if (localStorage.getItem("favorite")) {
+      return true;
+    }
+    return false;
+  };
+
+  const favorited = hasFavorite() && team.id == getFavorite() ? true : false;
+  const [enabled, setEnabled] = useState(favorited);
+
+  useEffect(() => {
+    sessionStorage.length === 0 && sessionStorage.setItem("visited", "true");
+    if (enabled) {
+      return localStorage.setItem(
+        "favorite",
+        JSON.stringify({ enabled: enabled, id: team.id })
+      );
+    }
+    if (!enabled && favorited) return localStorage.clear();
+  }, [enabled]);
 
   //default is off unless statepassed as true
   // teamcolor conditional

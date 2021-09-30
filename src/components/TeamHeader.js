@@ -17,7 +17,7 @@ const TeamHeader = ({ team, nextGame, schedule }) => {
             className="mx-auto my-auto "
           />
         </div>
-        <SwitchContainer />
+        <SwitchContainer team={team} />
         <Matchups gameInfo={nextGameInfo} team={team} schedule={schedule} />
       </div>
     );
