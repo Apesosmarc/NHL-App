@@ -28,16 +28,14 @@ export default function SwitchContainer({ team }) {
     if (!enabled && favorited) return localStorage.clear();
   }, [enabled]);
 
-  //default is off unless statepassed as true
-  // teamcolor conditional
+  const backGroundColor = enabled ? team.mainColor : "hsl(228, 34%, 66%)";
   return (
     <div className="py-4 bg-darkBg flex justify-end px-7 sm:px-28 lg:px-56 mx-auto lg:order-first">
       <Switch
         checked={enabled}
         onChange={setEnabled}
-        className={`${
-          enabled ? "bg-purple-600" : "bg-lightText"
-        } relative inline-flex items-center h-7 w-16 rounded-full`}
+        style={{ background: `${backGroundColor}` }}
+        className={`relative inline-flex items-center h-7 w-16 rounded-full`}
       >
         <br />
         <span
