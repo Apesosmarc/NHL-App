@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { gamesList } from "../apis/nhl";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
+import { getGamesFromToday } from "../utils/dateConverter";
 
 export default class Home extends Component {
   state = {
@@ -12,16 +13,10 @@ export default class Home extends Component {
   };
 
   getData = async () => {
-    const getTodaysGames = await gamesList(
-      null,
-      "2021-10-12",
-      "2021-10-12"
-    ).get("/schedule");
-    const getTomorrowsGames = await gamesList(
-      null,
-      "2021-10-13",
-      "2021-10-13"
-    ).get("/schedule");
+    const [start, end] = getGamesFromToday(1);
+    const getTodaysGames = await gamesList(null, start).get("/schedule");
+
+    const getTomorrowsGames = await gamesList(null, end).get("/schedule");
 
     this.setState({
       todaysGames: getTodaysGames.data.dates[0].games,
@@ -31,16 +26,12 @@ export default class Home extends Component {
   };
 
   componentDidMount = async () => {
-    console.log("mounted");
     this.getData();
-  };
-
-  selectTeam = (id) => {
-    return;
   };
 
   render() {
     if (!this.state.data) return <div></div>;
+
     return (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <img

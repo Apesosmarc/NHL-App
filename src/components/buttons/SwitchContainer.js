@@ -35,7 +35,7 @@ export default function SwitchContainer({ team }) {
         checked={enabled}
         onChange={setEnabled}
         style={{ background: `${backGroundColor}` }}
-        className={`relative inline-flex items-center h-7 w-16 rounded-full`}
+        className={`relative inline-flex items-center h-7 w-16 rounded-full border-black`}
       >
         <br />
         <span

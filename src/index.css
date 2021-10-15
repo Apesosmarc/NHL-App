@@ -29,6 +29,18 @@ body {
   color: var(--dark-text2);
 }
 
+/* FONT STYLES */
+
+.bottom-header {
+  font-family: "graduate";
+  text-align: center;
+  display: inline;
+}
+
+.subtitle {
+  color: var(--dark-text1);
+}
+
 .teamcard {
   background-color: var(--dark-card);
   color: var(--dark-text2);
@@ -56,13 +68,16 @@ body {
   position: absolute;
 }
 
-.subtitle {
-  color: var(--dark-text1);
-}
-
 .outlinedTeam {
   border: 1px solid;
 }
+
+.teamcard-logo {
+  max-width: 85%;
+  max-width: 85%;
+}
+
+/* TABLE STYLES */
 
 .tableRow {
   background-color: var(--dark-card);
@@ -83,21 +98,25 @@ td img {
   margin-right: auto;
 }
 
-.bottom-header {
-  font-family: "graduate";
-  text-align: center;
-  display: inline;
-}
-
-.teamcard-logo {
-  max-width: 85%;
-  max-width: 85%;
-}
-
 .table-logo {
   max-width: 65%;
   max-height: 65%;
 }
+
+/* CUSTOM PING ANIMATIONS */
+.ping {
+  animation: ping 0.5s cubic-bezier(0, 0, 0.2, 1) 4;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* MEDIA QUERIES */
 
 @media (min-width: 300px) {
   td,

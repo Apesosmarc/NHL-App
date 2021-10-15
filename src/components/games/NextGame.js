@@ -1,13 +1,12 @@
 import React from "react";
 import TeamCard from "./TeamCard";
 import GameDate from "./GameDate";
+import LiveScore from "./LiveScore";
+import checkIfLive from "../../utils/checkIfLive";
 
 import { dateConverter } from "../../utils/dateConverter";
 
-export default function NextGame({ gameInfo, team, nextGame }) {
-  // inits firstGame for TeamCard styling
-  const firstGame = true;
-
+export default function NextGame({ gameInfo, team, nextGame, firstGame }) {
   // Gets date + time from util function.
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
 
@@ -16,7 +15,7 @@ export default function NextGame({ gameInfo, team, nextGame }) {
 
   return (
     <div
-      className={`teamcard sm:max-w-lg md:max-w-xl sm:col-span-full lg:col-start-1 lg:col-span-2 mx-auto sm:mb-6`}
+      className={`teamcard  md:max-w-xl lg:col-start-1 lg:col-span-2 mx-auto sm:mb-6`}
       style={{ borderTop: `5px solid ${borderColor}` }}
     >
       <div
@@ -27,13 +26,22 @@ export default function NextGame({ gameInfo, team, nextGame }) {
           firstGame={firstGame}
           nextGame={gameInfo.teams.away}
         />
-        <GameDate
-          firstGame={firstGame}
-          gameInfo={gameInfo}
-          gameDate={gameDate}
-          gameTime={gameTime}
-          gameVenue={gameInfo.venue.name}
-        />
+        {/* 
+        {checkIfLive(gameInfo.status) ? (
+          <LiveScore gameInfo={gameInfo.link} />
+        ) : (
+          <GameDate
+            firstGame={firstGame}
+            gameInfo={gameInfo}
+            gameDate={gameDate}
+            gameTime={gameTime}
+            gameVenue={gameInfo.venue.name}
+          />
+
+        )} */}
+
+        <LiveScore gameInfo={gameInfo.link} />
+
         <TeamCard
           displayedTeam={team}
           firstGame={firstGame}

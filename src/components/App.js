@@ -51,7 +51,7 @@ export default class App extends Component {
   };
 
   // Conditionally renders props.id to state passed down by RouteHandle.js + loads data
-  // This is necessary as this comp does not rerender when passed props.
+  // This is necessary as compDidMount does not run when passed props
   componentDidUpdate = (prevProps) => {
     if (prevProps.id === this.props.id) {
       return;
