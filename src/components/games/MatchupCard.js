@@ -6,8 +6,14 @@ import { dateConverter } from "../../utils/dateConverter";
 import LiveScore from "./LiveScore";
 import checkIfLive from "../../utils/checkIfLive";
 import { game } from "../../apis/nhl";
+import FormatGameInfo from "../layout/FormatGameInfo";
 
-export default function MatchupCard({ gameInfo, team, selectTeam }) {
+export default function MatchupCard({
+  gameInfo,
+  team,
+  selectTeam,
+  gameStatus,
+}) {
   const homeTeamId = gameInfo.teams.home.team.id;
   const awayTeamId = gameInfo.teams.away.team.id;
   // Gets date + time from util function.
@@ -22,7 +28,7 @@ export default function MatchupCard({ gameInfo, team, selectTeam }) {
         gameInfo={gameInfo}
       />
       <div
-        className={`flex sm: w-3/4 md:w-full justify-between content-center mx-auto`}
+        className={`flex w-3/4 md:w-full justify-evenly content-center mx-auto`}
       >
         <TeamCard
           displayedTeam={team}
@@ -30,16 +36,13 @@ export default function MatchupCard({ gameInfo, team, selectTeam }) {
           selectTeam={selectTeam}
         />
 
-        {checkIfLive(gameInfo.status) ? (
-          <LiveScore gameInfo={gameInfo.link} />
-        ) : (
-          <GameDate
-            gameInfo={gameInfo}
-            gameDate={gameDate}
-            gameTime={gameTime}
-            gameVenue={gameInfo.venue.name}
-          />
-        )}
+        <FormatGameInfo
+          gameInfo={gameInfo}
+          gameDate={gameDate}
+          gameTime={gameTime}
+          gameVenue={gameInfo.venue.name}
+          gameStatus={gameStatus}
+        />
 
         <TeamCard
           displayedTeam={team}

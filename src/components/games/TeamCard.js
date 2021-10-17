@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 export default function TeamCard({
   nextGame,
   selectTeam,
-  firstGame,
+  fullColumn,
   displayedTeam,
 }) {
   const team = getTeamInfo(nextGame.team.id);
   const logo = team.smallLogo;
-  //Increases the size of the first game card
-  const sizeUp = firstGame && "sm:w-26 sm:h-36";
+  //Increases the size of the first game cards
+  const sizeUp = fullColumn && "sm:w-26 sm:h-36";
 
   // Disables the icon link if the logo is the logo of the team showing
   let teamDisplayed = false;

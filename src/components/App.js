@@ -8,6 +8,7 @@ import Stats from "./stats/Stats";
 import Spinner from "./loading/Spinner";
 // retrieves teamInfo with teamId as argument
 import getTeamInfo from "../utils/getTeamInfo";
+import { getGamesFromToday } from "../utils/dateConverter";
 
 // import { isLive } from "../utils/isLive";
 
@@ -28,9 +29,15 @@ export default class App extends Component {
       isLoading: true,
     });
     console.log("fetch");
+    const [scheduleStart, scheduleEnd] = getGamesFromToday(20);
+
     const standings = await divisionStandings.get("/standings");
     const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
-    const getSchedule = await gamesList(this.state.teamId).get("/schedule");
+    const getSchedule = await gamesList(
+      this.state.teamId,
+      scheduleStart,
+      scheduleEnd
+    ).get("/schedule");
 
     setTimeout(() => this.setState({ isLoading: false }), 800);
     this.setState({

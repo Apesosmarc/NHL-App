@@ -2,11 +2,19 @@ import React from "react";
 import TeamCard from "./TeamCard";
 import GameDate from "./GameDate";
 import LiveScore from "./LiveScore";
+import ScoreDisplay from "./ScoreDisplay";
 import checkIfLive from "../../utils/checkIfLive";
+import FormatGameInfo from "../layout/FormatGameInfo";
 
 import { dateConverter } from "../../utils/dateConverter";
 
-export default function NextGame({ gameInfo, team, nextGame, firstGame }) {
+export default function NextGame({
+  gameInfo,
+  team,
+  nextGame,
+  fullColumn,
+  status,
+}) {
   // Gets date + time from util function.
   const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
 
@@ -15,36 +23,30 @@ export default function NextGame({ gameInfo, team, nextGame, firstGame }) {
 
   return (
     <div
-      className={`teamcard  md:max-w-xl lg:col-start-1 lg:col-span-2 mx-auto sm:mb-6`}
+      className={`teamcard  max-w-xl lg:col-start-1 lg:col-span-2 mx-auto sm:mb-6 max-h-52`}
       style={{ borderTop: `5px solid ${borderColor}` }}
     >
       <div
-        className={`flex max-w-xs justify-between content-center mx-auto sm:max-w-lg md:max-w-xl `}
+        className={`flex justify-between content-center mx-auto max-w-lg md:max-w-xl `}
       >
         <TeamCard
           displayedTeam={team}
-          firstGame={firstGame}
+          fullColumn={fullColumn}
           nextGame={gameInfo.teams.away}
         />
-        {/* 
-        {checkIfLive(gameInfo.status) ? (
-          <LiveScore gameInfo={gameInfo.link} />
-        ) : (
-          <GameDate
-            firstGame={firstGame}
-            gameInfo={gameInfo}
-            gameDate={gameDate}
-            gameTime={gameTime}
-            gameVenue={gameInfo.venue.name}
-          />
-
-        )} */}
-
-        <LiveScore gameInfo={gameInfo.link} />
+        <FormatGameInfo
+          fullColumn={fullColumn}
+          gameInfo={gameInfo}
+          gameDate={gameDate}
+          gameTime={gameTime}
+          gameVenue={gameInfo.venue.name}
+          team={team}
+          gameStatus={status}
+        />
 
         <TeamCard
           displayedTeam={team}
-          firstGame={firstGame}
+          fullColumn={fullColumn}
           nextGame={gameInfo.teams.home}
         />
       </div>

@@ -25,7 +25,7 @@ const DoughnutChart = ({ title, label, stats, average, team }) => {
         ]}
         subTitle={title}
         title={`${stats}%`}
-        width={250}
+        width={150}
       />
       <h2 className="text-lg">League Average: {`${average}%`}</h2>
     </div>

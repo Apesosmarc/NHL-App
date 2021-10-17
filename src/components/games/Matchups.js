@@ -1,11 +1,12 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ViewMore from "../buttons/ViewMore";
 import PrevGame from "./PrevGame";
 import NextGame from "./NextGame";
 import GameGrid from "../layout/GameGrid";
+import GameDateHeaders from "../dates/GameDateHeaders";
 
-export default function Matchups({ team, schedule }) {
+export default function Matchups({ team, schedule, nextGameInfo }) {
   // Format schedule to array of game objects
   schedule = schedule.map((gameInfo) => gameInfo.games[0]);
   // Array of three vs six games displayed on toggle
@@ -14,24 +15,23 @@ export default function Matchups({ team, schedule }) {
 
   const [toggle, setToggle] = useState(false);
 
-  useEffect(() => {
-    // reloads component on View More push
-  }, [toggle]);
-
   const viewMoreToggle = () => {
     setToggle(!toggle);
   };
 
   schedule = toggle ? showSix : showThree;
 
-  const firstGameInfo = schedule.shift();
-
   return (
     <div>
-      <h3>Previous Game</h3>
+      <GameDateHeaders content={"Previous Game:"} />
       <PrevGame team={team} />
-      <h3>Upcoming Game</h3>
-      <NextGame firstGame={true} gameInfo={firstGameInfo} team={team} />
+      <GameDateHeaders content={"Upcoming Games:"}></GameDateHeaders>
+      <NextGame
+        fullColumn={true}
+        gameInfo={nextGameInfo}
+        team={team}
+        status={nextGameInfo.status.abstractGameState}
+      />
       <GameGrid schedule={schedule} team={team} />
       <div className="flex">
         <ViewMore

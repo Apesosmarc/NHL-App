@@ -9,7 +9,7 @@ export default function DateHeader({ game }) {
     day: "numeric",
   };
   return (
-    <div className="mx-auto lg:py-12 pb-8 text-center">
+    <div className="mx-auto lg:py-12 py-8 text-center">
       <h2 className="text-2xl">
         {formatDate(game.gameDate, dateFormatOptions)}
       </h2>

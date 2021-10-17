@@ -15,7 +15,7 @@ export default function GameTimer({ gameInfo }) {
   });
 
   return (
-    <div className="mb-4 text-center text-sm subtitle lg:w-56">
+    <div className="mb-4 text-center text-sm subtitle lg:w-56 md:w-40 w-32">
       <h3>{time}</h3>
     </div>
   );

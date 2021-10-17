@@ -18,7 +18,7 @@ const TeamHeader = ({ team, nextGame, schedule }) => {
           />
         </div>
         <SwitchContainer team={team} />
-        <Matchups gameInfo={nextGameInfo} team={team} schedule={schedule} />
+        <Matchups nextGameInfo={nextGameInfo} team={team} schedule={schedule} />
       </div>
     );
   }

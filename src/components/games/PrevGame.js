@@ -12,14 +12,19 @@ export default function PrevGame({ team }) {
     setGameInfo(prevGameInfo);
   };
   useEffect(() => {
+    if (gameInfo.length !== 0) return;
     getPrevGame();
-  }, []);
+  }, [gameInfo]);
 
   return gameInfo.length === 0 ? (
     <div></div>
   ) : (
     <NextGame
-      firstGame={true}
+      fullColumn={true}
+      status={
+        gameInfo.data.teams[0].previousGameSchedule.dates[0].games[0].status
+          .abstractGameState
+      }
       gameInfo={gameInfo.data.teams[0].previousGameSchedule.dates[0].games[0]}
       team={team}
     />
