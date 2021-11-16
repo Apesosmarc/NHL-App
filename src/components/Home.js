@@ -15,9 +15,10 @@ export default class Home extends Component {
 
   getData = async () => {
     const [start, end] = getGamesFromToday(1);
-    const getTodaysGames = await gamesList(null, start).get("/schedule");
 
-    const getTomorrowsGames = await gamesList(null, end).get("/schedule");
+    const getTodaysGames = await gamesList(null, start, start).get("/schedule");
+
+    const getTomorrowsGames = await gamesList(null, end, end).get("/schedule");
 
     this.setState({
       todaysGames: getTodaysGames.data.dates[0].games,
