@@ -11,7 +11,7 @@ module.exports = {
       darkCard: "#252a41",
       darkBG: "hsl(230, 17%, 14%)",
       darkText: "hsl(228, 34%, 66%)",
-      lightBlue: sky,
+
       ...colors,
     },
   },
