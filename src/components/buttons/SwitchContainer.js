@@ -34,7 +34,7 @@ export default function SwitchContainer({ team }) {
 
   return (
     <div className="py-4 bg-darkBg flex justify-between items-center px-7 sm:px-12 lg:px-56 mx-auto lg:order-first">
-      <Link to="/">
+      <Link to="/home">
         <button
           className="px-4 py-2 rounded text-lg self-center  mt-2"
           style={{ backgroundColor: `${team.mainColor}` }}
