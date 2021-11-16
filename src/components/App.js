@@ -28,7 +28,7 @@ export default class App extends Component {
     this.setState({
       isLoading: true,
     });
-    console.log("fetch");
+
     const [scheduleStart, scheduleEnd] = getGamesFromToday(20);
 
     const standings = await divisionStandings.get("/standings");

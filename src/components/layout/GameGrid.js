@@ -4,7 +4,7 @@ import MatchupCard from "../games/MatchupCard";
 export default function GameGrid({ schedule, team }) {
   // formats lg vp to fit number of games
 
-  const gridFormat = schedule.length < 6 ? null : "lg:grid-cols-3";
+  const gridFormat = schedule.length < 6 ? null : "lg:grid-cols-2";
   const singleFormat =
     schedule.length === 1 ? "mx-auto md:w-3/4 " : "sm:grid-cols-2  sm:grid";
 

@@ -4,6 +4,7 @@ import { gamesList } from "../apis/nhl";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
 import { getGamesFromToday } from "../utils/dateConverter";
+import Spinner from "./loading/Spinner";
 
 export default class Home extends Component {
   state = {
@@ -30,7 +31,7 @@ export default class Home extends Component {
   };
 
   render() {
-    if (!this.state.data) return <div></div>;
+    if (!this.state.data) return <Spinner />;
 
     return (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Switch } from "@headlessui/react";
+import ReactTooltip from "react-tooltip";
+import { Link } from "react-router-dom";
 
 export default function SwitchContainer({ team }) {
   const getFavorite = () => {
@@ -14,7 +16,7 @@ export default function SwitchContainer({ team }) {
     return false;
   };
 
-  const favorited = hasFavorite() && team.id == getFavorite() ? true : false;
+  const favorited = hasFavorite() && team.id === getFavorite() ? true : false;
   const [enabled, setEnabled] = useState(favorited);
 
   useEffect(() => {
@@ -26,24 +28,44 @@ export default function SwitchContainer({ team }) {
       );
     }
     if (!enabled && favorited) return localStorage.clear();
-  }, [enabled]);
+  }, [enabled, favorited, team.id]);
 
   const backGroundColor = enabled ? team.mainColor : "hsl(228, 34%, 66%)";
+
   return (
-    <div className="py-4 bg-darkBg flex justify-end px-7 sm:px-28 lg:px-56 mx-auto lg:order-first">
-      <Switch
-        checked={enabled}
-        onChange={setEnabled}
-        style={{ background: `${backGroundColor}` }}
-        className={`relative inline-flex items-center h-7 w-16 rounded-full border-black`}
-      >
-        <br />
-        <span
-          aria-hidden="true"
-          className={`${enabled ? "translate-x-9" : "translate-x-0"}
+    <div className="py-4 bg-darkBg flex justify-between items-center px-7 sm:px-12 lg:px-56 mx-auto lg:order-first">
+      <Link to="/">
+        <button
+          className="px-4 py-2 rounded text-lg self-center  mt-2"
+          style={{ backgroundColor: `${team.mainColor}` }}
+        >
+          All Games
+        </button>
+      </Link>
+      <div className="flex flex-col">
+        <h2
+          className="mb-2 text-md subtitle font-bold"
+          style={{ color: `${team.mainColor}` }}
+          data-tip={`Auto-redirect to ${team.name} team on load`}
+        >
+          Favorite <small className="text-darkText">(?)</small>
+        </h2>
+        <ReactTooltip />
+        <Switch
+          checked={enabled}
+          onChange={setEnabled}
+          style={{ background: `${backGroundColor}` }}
+          className={`relative inline-flex items-center h-7 w-16 rounded-full border-black`}
+          data-tip={`Auto-redirect to ${team.name} on load`}
+        >
+          <br />
+          <span
+            aria-hidden="true"
+            className={`${enabled ? "translate-x-9" : "translate-x-0"}
              bg-lightGray inline-block h-8 w-8 rounded-full shadow-lg transform ring-0 transition ease-in-out duration-200`}
-        />
-      </Switch>
+          />
+        </Switch>
+      </div>
     </div>
   );
 }

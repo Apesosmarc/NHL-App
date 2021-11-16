@@ -7,7 +7,6 @@ export default function FormatGameInfo({
   gameInfo,
   gameDate,
   gameTime,
-  gameVenue,
   team,
   gameStatus,
   fullColumn,
@@ -30,6 +29,8 @@ export default function FormatGameInfo({
         );
       case "Live":
         return <LiveScore gameInfo={gameInfo} />;
+      default:
+        return <div>loading...</div>;
     }
   };
 

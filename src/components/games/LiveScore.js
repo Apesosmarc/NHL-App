@@ -1,7 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import ScoreDisplay from "./ScoreDisplay";
-import { liveScore } from "../../apis/nhl";
 import axios from "axios";
 
 //statsapi.web.nhl.com/api/v1/game/ID/boxscore
@@ -10,14 +8,17 @@ export default function LiveScore({ gameInfo }) {
   const [liveData, setLiveData] = useState(null);
   const [score, setScore] = useState(null);
 
-  useEffect(async () => {
-    const gameData = await axios.get(
-      `https://statsapi.web.nhl.com${gameInfo.link}`
-    );
+  useEffect(() => {
+    async function fetchGameData() {
+      const gameData = await axios.get(
+        `https://statsapi.web.nhl.com${gameInfo.link}`
+      );
+      setLiveData(gameData.data.liveData.linescore);
+      setScore(gameData.data.liveData.linescore.teams);
+    }
 
-    setLiveData(gameData.data.liveData.linescore);
-    setScore(gameData.data.liveData.linescore.teams);
-  }, []);
+    fetchGameData();
+  }, [gameInfo.link]);
 
   if (liveData != null && score != null) {
     console.log(liveData, score);

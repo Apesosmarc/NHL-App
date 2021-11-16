@@ -1,3 +1,4 @@
+const { sky } = require("tailwindcss/colors");
 const colors = require("tailwindcss/colors");
 module.exports = {
   purge: [],
@@ -9,6 +10,8 @@ module.exports = {
       lightGray: "#d3d3d3",
       darkCard: "#252a41",
       darkBG: "hsl(230, 17%, 14%)",
+      darkText: "hsl(228, 34%, 66%)",
+      lightBlue: sky,
       ...colors,
     },
   },

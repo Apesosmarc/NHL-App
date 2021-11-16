@@ -1,9 +1,6 @@
 import React from "react";
 import TeamCard from "./TeamCard";
-import GameDate from "./GameDate";
-import LiveScore from "./LiveScore";
-import ScoreDisplay from "./ScoreDisplay";
-import checkIfLive from "../../utils/checkIfLive";
+
 import FormatGameInfo from "../layout/FormatGameInfo";
 
 import { dateConverter } from "../../utils/dateConverter";

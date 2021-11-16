@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import teams from "../../data/teams";
 import teamAbrev from "../../data/teamAbrev";
 import App from "../App";
@@ -8,8 +7,6 @@ import Home from "../Home";
 // Component that loads the team based on path or team abreviation. I.E (*/10, */TOR)
 
 export default function RouteHandle(props) {
-  console.log(props);
-
   const verifyTeam = (teamId) => {
     teamId = isNaN(teamId) ? teamId.toLowerCase() : teamId;
     if (teams[teamId]) {

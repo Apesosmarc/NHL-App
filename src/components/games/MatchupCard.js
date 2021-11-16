@@ -1,11 +1,9 @@
 import React from "react";
 import TeamCard from "./TeamCard";
-import GameDate from "./GameDate";
+
 import Border from "../layout/Border";
 import { dateConverter } from "../../utils/dateConverter";
-import LiveScore from "./LiveScore";
-import checkIfLive from "../../utils/checkIfLive";
-import { game } from "../../apis/nhl";
+
 import FormatGameInfo from "../layout/FormatGameInfo";
 
 export default function MatchupCard({

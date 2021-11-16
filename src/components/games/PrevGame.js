@@ -6,15 +6,15 @@ import NextGame from "./NextGame";
 export default function PrevGame({ team }) {
   const [gameInfo, setGameInfo] = useState([]);
 
-  const getPrevGame = async () => {
-    const prevGameInfo = await fetchPrevious(team.id).get();
-
-    setGameInfo(prevGameInfo);
-  };
   useEffect(() => {
     if (gameInfo.length !== 0) return;
+    const getPrevGame = async () => {
+      const prevGameInfo = await fetchPrevious(team.id).get();
+
+      setGameInfo(prevGameInfo);
+    };
     getPrevGame();
-  }, [gameInfo]);
+  }, [gameInfo, team.id]);
 
   return gameInfo.length === 0 ? (
     <div></div>

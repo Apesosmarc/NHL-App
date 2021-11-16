@@ -17,9 +17,7 @@ const hasFavorite = () => {
   return false;
 };
 
-console.log(sessionStorage.length === 0 && hasFavorite());
-
-const id = ReactDOM.render(
+ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/:id" component={RouteHandle} />

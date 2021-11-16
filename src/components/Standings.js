@@ -31,7 +31,7 @@ const Standings = ({ standings, currentTeam, division }) => {
         <td>{teamRank.leagueRecord.wins}</td>
         <td>{teamRank.leagueRecord.losses}</td>
         <td>{teamRank.gamesPlayed}</td>
-        {/* <td>{teamRank.streak.streakCode}</td> */}
+        <td>{teamRank.streak.streakCode}</td>
       </tr>
     );
   });
