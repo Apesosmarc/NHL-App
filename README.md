@@ -22,7 +22,8 @@ A fully responsive web app that displays current rankings, stats and live scores
 
 ## Vision/Goals For This App:
 * Exist as a lightweight stat-tracking app for users to get NHL information at a glance without ads.
-* To learn React, class components, lifecycle methods, functional components, hooks, state & routing, by doing.
+* To practice, class components, lifecycle methods, functional components, hooks, state & routing, by doing.
+* Demonstrate ability to create responsive, dynamics web applications using Javascript frameworks.
 * To design, create & deploy a non-generic React beginner showcase application that looks good and can be actually useful.
 
 
