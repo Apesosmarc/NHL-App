@@ -1,7 +1,7 @@
 # NHL-App
 A fully responsive web app that displays current rankings, stats and live scores for NHL teams.
 
-## - [Live App](https://trusting-brahmagupta-a5fc11.netlify.app/)
+- **[Live App](https://trusting-brahmagupta-a5fc11.netlify.app/)**
 - API used: https://github.com/dword4/nhlapi
 
 ### Follow your favorite teams, see live scores, or check upcoming gamedates with an easy to use web app.
