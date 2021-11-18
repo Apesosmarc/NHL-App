@@ -56,7 +56,6 @@ export default function SwitchContainer({ team }) {
           onChange={setEnabled}
           style={{ background: `${backGroundColor}` }}
           className={`relative inline-flex items-center h-7 w-16 rounded-full border-black`}
-          data-tip={`Auto-redirect to ${team.name} on load`}
         >
           <br />
           <span

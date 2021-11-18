@@ -7,7 +7,7 @@ const teams = {
     secondColor: "#fff",
     conference: 6,
     division: 18,
-    covidDiv: 1,
+    covidDiv: 0,
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/301891622/binary-file/file.svg",
     id: "1",
@@ -23,7 +23,7 @@ const teams = {
     secondColor: "#F47D30",
     conference: 6,
     division: 18,
-    covidDiv: 2,
+    covidDiv: 0,
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/316482732/binary-file/file.svg",
     id: "2",
@@ -38,7 +38,7 @@ const teams = {
     secondColor: "#CE1126",
     conference: 6,
     division: 18,
-    covidDiv: 2,
+    covidDiv: 0,
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/289471614/binary-file/file.svg",
     id: "3",
@@ -54,7 +54,7 @@ const teams = {
     secondColor: "#F74902",
     conference: 6,
     division: 18,
-    covidDiv: 2,
+    covidDiv: 0,
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/4.svg",
     id: "4",
@@ -70,7 +70,7 @@ const teams = {
     secondColor: "#FFB81C",
     conference: 6,
     division: 18,
-    covidDiv: 2,
+    covidDiv: 0,
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/5.svg",
     id: "5",
@@ -88,7 +88,7 @@ const teams = {
     secondColor: "#FFB81C",
     conference: 6,
     division: 17,
-    covidDiv: 2,
+    covidDiv: 1,
     id: "6",
     teamText:
       "https://cms.nhl.bamgrid.com/images/photos/325907858/512x56/cut.png",
@@ -104,7 +104,7 @@ const teams = {
     secondColor: "#FCB514",
     conference: 6,
     division: 17,
-    covidDiv: 2,
+    covidDiv: 1,
     id: "7",
     teamText: "/images/sabres.png",
     abrev: "buf",
@@ -115,7 +115,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/fhexjWXZM7Sgvd22nDkBOA_48x48.png",
     conference: 6,
     division: 17,
-    covidDiv: 3,
+    covidDiv: 1,
     mainColor: "#AF1E2D",
     secondColor: "#192168",
     mainLogo:
@@ -130,7 +130,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/_rlImUQJkjVKGTj1Xkdaaw_48x48.png",
     conference: 6,
     division: 17,
-    covidDiv: 3,
+    covidDiv: 1,
     mainColor: "#C52032",
     secondColor: "#C52032",
     mainLogo:
@@ -145,7 +145,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/jMSyNOMdJPjHwsmbWukUag_48x48.png",
     conference: 6,
     division: 17,
-    covidDiv: 3,
+    covidDiv: 1,
     mainColor: "#00205B",
     secondColor: "white",
     mainLogo:
@@ -161,7 +161,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/nC8dMKdf-zPF4cWq_wSKHA_48x48.png",
     conference: 6,
     division: 18,
-    covidDiv: 1,
+    covidDiv: 0,
     mainColor: "#CC0000",
     secondColor: "#CC0000",
     mainLogo:
@@ -209,7 +209,7 @@ const teams = {
     secondColor: "#C8102E",
     conference: 6,
     division: 18,
-    covidDiv: 2,
+    covidDiv: 0,
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/298789884/binary-file/file.svg",
     id: "15",
@@ -222,7 +222,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/kUlSd6LbUN7Jj03mqZcgAw_48x48.png",
     conference: 5,
     division: 16,
-    covidDiv: 1,
+    covidDiv: 2,
     mainColor: "#CF0A2C",
     secondColor: "#FFD100",
     mainLogo:
@@ -254,7 +254,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/8aNIxgSUNttfOeojBie04w_48x48.png",
     conference: 5,
     division: 16,
-    covidDiv: 1,
+    covidDiv: 2,
     mainColor: "#FFB81C",
     secondColor: "#FFB81C",
     mainLogo:
@@ -269,7 +269,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/oUzPuWuhgzayhHwucx8htQ_48x48.png",
     conference: 5,
     division: 16,
-    covidDiv: 0,
+    covidDiv: 2,
     mainColor: "#FCB514",
     secondColor: "#fff",
     mainLogo:
@@ -299,7 +299,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/iBFLyMGpOW2Fh5j8s7kYpw_48x48.png",
     conference: 5,
     division: 16,
-    covidDiv: 0,
+    covidDiv: 2,
     mainColor: "#6F263D",
     secondColor: "#236192",
     mainLogo:
@@ -345,7 +345,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/Ujlge7BWmyIJvsCwu3y-Lw_48x48.png",
     conference: 5,
     division: 15,
-    covidDiv: 0,
+    covidDiv: 3,
     mainColor: "#F47A38",
     secondColor: "#B9975B",
     mainLogo:
@@ -362,7 +362,7 @@ const teams = {
     secondColor: "#006847",
     conference: 5,
     division: 16,
-    covidDiv: 1,
+    covidDiv: 2,
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/325914394/binary-file/file.svg",
     id: "25",
@@ -375,7 +375,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/74fKqDZ5DMq7qup120TeSQ_48x48.png",
     conference: 5,
     division: 15,
-    covidDiv: 0,
+    covidDiv: 3,
     mainColor: "#5F259F",
     secondColor: "#5F259F",
     mainLogo:
@@ -389,7 +389,8 @@ const teams = {
     name: "San Jose Sharks",
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/TuRBhY0zNhgZUbHQS4VUhQ_48x48.png",
-    covidDiv: 0,
+    division: 15,
+    covidDiv: 3,
     mainColor: "#006D75",
     secondColor: "#EA7200",
     mainLogo:
@@ -404,7 +405,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/7lrK9CX_nZj_veEeleHTmg_48x48.png",
     conference: 6,
     division: 18,
-    covidDiv: 1,
+    covidDiv: 0,
     mainColor: "#002654",
     secondColor: "#CE1126",
     mainLogo:
@@ -419,7 +420,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/2AkZ-bLhHUaPoj_LlLPBVA_48x48.png",
     conference: 5,
     division: 16,
-    covidDiv: 0,
+    covidDiv: 2,
     mainColor: "#154734",
     secondColor: "#A6192E",
     mainLogo:
@@ -434,7 +435,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/G92uFvMADMSGFV07IgpUIQ_48x48.png",
     conference: 5,
     division: 16,
-    covidDiv: 3,
+    covidDiv: 2,
     mainColor: "#AC162C",
     secondColor: "#004C97",
     mainLogo:
@@ -448,7 +449,7 @@ const teams = {
     smallLogo:
       "https://ssl.gstatic.com/onebox/media/sports/logos/dhQ15Ly2gTPvCPbJEq-OHA_48x48.png",
     division: 16,
-    covidDiv: 0,
+    covidDiv: 2,
     mainColor: "#8C2633",
     secondColor: "#E2D6B5",
     mainLogo:
@@ -463,7 +464,7 @@ const teams = {
       "https://ssl.gstatic.com/onebox/media/sports/logos/QeG0x42j0YlJGYEAwowewA_48x48.png",
     conference: 5,
     division: 15,
-    covidDiv: 0,
+    covidDiv: 3,
     mainColor: "#B4975A",
     secondColor: "#B4975A",
     mainLogo:
@@ -476,7 +477,7 @@ const teams = {
   55: {
     name: "Seattle Kraken",
     division: 15,
-    covidDiv: 0,
+    covidDiv: 3,
     mainColor: "#99D9D9",
     secondColor: "#99D9D9",
     smallLogo:

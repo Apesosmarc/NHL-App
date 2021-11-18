@@ -40,6 +40,7 @@ export default class App extends Component {
     ).get("/schedule");
 
     setTimeout(() => this.setState({ isLoading: false }), 800);
+
     this.setState({
       division: standings.data.records[this.state.team.covidDiv].division.name,
       standings: standings.data.records[this.state.team.covidDiv].teamRecords,

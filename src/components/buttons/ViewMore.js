@@ -10,7 +10,7 @@ export default function ViewMore({ toggleFunc, toggleStatus, team }) {
     <React.Fragment>
       <button
         onClick={toggleFunc}
-        className="mx-auto sm:pt-4 group flex flex-col items-center"
+        className="mx-auto sm:pt-4 group flex flex-col items-center mb-5"
       >
         {toggleStatus ? <UpSVG team={team} /> : <DownSVG team={team} />}
       </button>

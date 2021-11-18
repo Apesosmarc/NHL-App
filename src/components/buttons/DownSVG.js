@@ -3,10 +3,10 @@ import React from "react";
 export default function DownSVG({ team }) {
   return (
     <React.Fragment>
-      <p className="group-hover:text-hoverDark">View More</p>
+      <p className="group-hover:text-hoverDark text-xl">View More</p>
       <svg
-        height="16"
-        width="16"
+        height="25"
+        width="25"
         xmlns="http://www.w3.org/2000/svg"
         fill={team.secondColor}
         className="bi bi-caret-down"
