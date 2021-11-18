@@ -20,7 +20,7 @@ A fully responsive web app that displays current rankings, stats and live scores
 * CSS loading animations with custom colors.
 * Chart JS plots dougnut charts dynamically for each team.
 
-## Goals For This App:
+## Vision/Goals For This App:
 * Exist as a lightweight stat-tracking app for users to get NHL information at a glance without ads.
 * To learn React, class components, lifecycle methods, functional components, hooks, state & routing, by doing.
 * To design, create & deploy a non-generic React beginner showcase application that looks good and can be actually useful.
