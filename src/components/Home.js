@@ -14,10 +14,12 @@ export default class Home extends Component {
   };
 
   getData = async () => {
+    // fetches games from today by 1, start = today, end = tomorrow
     const [start, end] = getGamesFromToday(1);
 
+    // reuses gamesList function that fetches games from start/end point. start= today, end = today
     const getTodaysGames = await gamesList(null, start, start).get("/schedule");
-
+    // start= tomorrow, end = tomorrow
     const getTomorrowsGames = await gamesList(null, end, end).get("/schedule");
 
     this.setState({
