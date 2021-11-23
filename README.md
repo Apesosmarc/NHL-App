@@ -28,7 +28,7 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 * Build a lightweight stat-tracking app for users to get NHL information at a glance without ads.
 * To practice class components, lifecycle methods, functional components, hooks, state & routing, by building something unique.
 * Demonstrate ability to create responsive, dynamics web applications using React and latest CSS libraries. 
-* To design, create & deploy a non-generic React beginner showcase application that looks good and can be actually useful.
+* To design, create & deploy a non-generic React beginner showcase application that looks good and can provide a real service to users.
 
 
 
