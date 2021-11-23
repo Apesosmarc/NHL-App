@@ -18,9 +18,9 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 
 ## Notable Features:
 * Mobile-first fully responsive design **(using tailwind CSS & custom utility classes)**
-* Fetches current data for past, present and upcoming NHL games for **all 32 NHL teams** (using React framework & axios).
+* Axios fetches past, present and upcoming NHL games for **all 32 NHL teams** (using React framework & axios).
 * Uses **local storage and custom React Router** navigation to allow users to redirect to their favorite team automatically on load.
-* Navigate to seperate pages by clicking team icons or typing /{team abbreviation} in nav ex: (/bos, /tor, /tbl)
+* Navigate to seperate pages by clicking team icons or typing /{team abbreviation} in URL, ex: (/bos, /tor, /tbl)
 * CSS loading animations with custom colors.
 * Chart JS plots dougnut charts dynamically for each team.
 
