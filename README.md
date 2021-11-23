@@ -12,15 +12,12 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 
 
 ## Tech Used:
-<<<<<<< HEAD
-
 - React
 - React Router
 - Tailwind CSS
 - Chart JS
 
 ## Notable Features:
-=======
 * React
 * React Router
 * Tailwind CSS
@@ -39,18 +36,3 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 * To practice class components, lifecycle methods, functional components, hooks, state & routing, by building something unique.
 * Demonstrate ability to create responsive, dynamics web applications using React and latest CSS libraries. 
 * To design, create & deploy a non-generic React beginner showcase application that looks good and can provide a real service to users.
->>>>>>> 567dc68790bafef32d8489c67b385ae85836dc6a
-
-- Mobile-first fully responsive design **(using tailwind CSS & custom utility classes)**
-- Fetches current data for past, present and upcoming NHL games for **all 32 NHL teams** (using React framework & axios).
-- Uses **local storage and custom React Router** navigation to allow users to redirect to their favorite team automatically on load.
-- Navigate to seperate pages by clicking team icons or typing /{team abbreviation} in nav ex: (/bos, /tor, /tbl)
-- Dynamic CSS loading animations with custom colors and logos.
-- Chart JS plots dougnut charts dynamically for each team.
-
-## Vision/Goals For This App:
-
-- Exist as a lightweight stat-tracking app for users to get NHL information at a glance without ads.
-- To practice, class components, lifecycle methods, functional components, hooks, state & routing, by doing.
-- Demonstrate ability to create responsive, dynamics web applications using React and responsive mobile-forst design with latest/popular CSS frameworks.
-- To design, create & deploy a non-generic React beginner showcase application that looks good and can be actually useful.
