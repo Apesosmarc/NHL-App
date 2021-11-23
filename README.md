@@ -22,7 +22,7 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 * Uses **local storage and conditional React Router** navigation to allow users to redirect to their favorite team automatically on load.
 * Navigate using /{team abbreviation} in URL, ex: (*URL*/bos, /tor, /tbl, phi).
 * CSS loading & ping animations.
-* Chart JS plots dougnut charts dynamically for each team.
+* Doughnut charts rendered dynamically for each team using Patternfly chart-js with custom styling. 
 
 ## Vision/Goals For This App:
 * Build a lightweight stat-tracking app for users to get NHL information at a glance without ads.
