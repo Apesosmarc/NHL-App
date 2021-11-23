@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 - Chart JS
 
 ## Notable Features:
-* Mobile-first, fully responsive design, that dynamically renders team colors and logos **(using tailwind CSS & custom utility classes)**.
+* Mobile-first, fully responsive design, that dynamically renders team colors and logos on all view widths **(using tailwind CSS & custom utility classes)**.
 * Fetches past, present and upcoming NHL games, standings, and stats for all 32 NHL teams (**using React framework & axios**).
 * Uses **local storage and conditional React Router** navigation to allow users to redirect to their favorite team automatically on load.
 * Navigate using /{team abbreviation} in URL, ex: (*URL*/bos, /tor, /tbl, phi).
