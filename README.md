@@ -14,7 +14,7 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 * React
 * React Router
 * Tailwind CSS
-* Chart JS
+* Axios
 
 ## Notable Features:
 * Mobile-first fully responsive design **(using tailwind CSS & custom utility classes)**.
