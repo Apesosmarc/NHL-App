@@ -18,12 +18,6 @@ https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-
 - Chart JS
 
 ## Notable Features:
-* React
-* React Router
-* Tailwind CSS
-* Axios
-
-## Notable Features:
 * Mobile-first fully responsive design **(using tailwind CSS & custom utility classes)**.
 * Fetches past, present and upcoming NHL games, standings, and stats for **all 32 NHL teams** (using React framework & axios).
 * Uses **local storage and conditional React Router** navigation to allow users to redirect to their favorite team automatically on load.
