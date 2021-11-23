@@ -6,6 +6,10 @@ A fully responsive web app that displays current rankings, stats and live scores
 
 ### Follow your favorite teams, see live scores, or check upcoming gamedates with an easy to use web app.
 
+
+https://user-images.githubusercontent.com/73441355/143062081-5514737e-79a1-47c8-9cd3-b40a337c02d5.mp4
+
+
 ## Tech Used:
 * React
 * React Router
