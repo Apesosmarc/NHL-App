@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { fetchPrevious } from "../../apis/nhl";
-import NextGame from "./NextGame";
+import NextAndLastGame from "./NextAndLastGame";
 
+// this component reduces fetch code from styling component
 export default function PrevGame({ team }) {
   const [gameInfo, setGameInfo] = useState([]);
 
+  // fetches previous game info
   useEffect(() => {
     if (gameInfo.length !== 0) return;
     const getPrevGame = async () => {
@@ -17,9 +19,9 @@ export default function PrevGame({ team }) {
   }, [gameInfo, team.id]);
 
   return gameInfo.length === 0 ? (
-    <div></div>
+    <div>loading...</div>
   ) : (
-    <NextGame
+    <NextAndLastGame
       fullColumn={true}
       status={
         gameInfo.data.teams[0].previousGameSchedule.dates[0].games[0].status

@@ -2,26 +2,21 @@ import React from "react";
 import getTeamInfo from "../../utils/getTeamInfo";
 import { Link } from "react-router-dom";
 
-export default function TeamCard({
-  nextGame,
-  selectTeam,
-  fullColumn,
-  displayedTeam,
-}) {
+export default function TeamCard({ nextGame, fullColumn, displayedTeam }) {
   const team = getTeamInfo(nextGame.team.id);
   const logo = team.smallLogo;
-  //Increases the size of the first game cards
+
+  //Increases the size of the first-and-last-game-cards
   const sizeUp = fullColumn && "sm:w-26 sm:h-36";
 
-  // Disables the icon link if the logo is the logo of the team showing
+  // Disables the icon hover and link if the logo is the logo of the team showing
   let teamDisplayed = false;
   if (displayedTeam) {
     teamDisplayed = displayedTeam.id === team.id && true;
   }
+
   return (
-    <div
-      className={`w-24 h-32 flex flex-col justify-between items-center text-center self-center ${sizeUp}`}
-    >
+    <div className={`teamcard-info ${sizeUp}`}>
       <Link to={`/${team.abrev}`}>
         <img
           src={logo}

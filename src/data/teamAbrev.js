@@ -1,3 +1,6 @@
+// collection of team abreviations and their official team ids for routing purposes
+// users can input *nhl-app*.com/mtl || *nhl-app*.com/8 for Montreal Canadiens page
+
 const teamAbrev = {
   njd: "1",
   nyi: "2",

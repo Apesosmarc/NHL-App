@@ -3,8 +3,8 @@ import React from "react";
 export default function Spinner({ team }) {
   const mainColor = team ? team.mainColor : "gray";
   return (
-    <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto flex justify-center relative">
-      <div className="loader-container mt-48 flex flex-col justify-center content-center">
+    <div className="spinner-background">
+      <div className="spinner-and-img-container">
         {!team ? null : (
           <img className="teamcard-logo" src={team.smallLogo} alt={team.name} />
         )}

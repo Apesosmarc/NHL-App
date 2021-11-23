@@ -5,7 +5,8 @@ import FormatGameInfo from "../layout/FormatGameInfo";
 
 import { dateConverter } from "../../utils/dateConverter";
 
-export default function NextGame({
+//component creates different styles for the first and last game for each team page
+export default function NextAndLastGame({
   gameInfo,
   team,
   nextGame,
@@ -20,12 +21,10 @@ export default function NextGame({
 
   return (
     <div
-      className={`teamcard  max-w-xl lg:col-start-1 lg:col-span-2 mx-auto sm:mb-6 max-h-52`}
+      className={`teamcard first-and-last-game-card sm:mb-6`}
       style={{ borderTop: `5px solid ${borderColor}` }}
     >
-      <div
-        className={`flex justify-between content-center mx-auto max-w-lg md:max-w-xl `}
-      >
+      <div className={`first-and-last-game-info`}>
         <TeamCard
           displayedTeam={team}
           fullColumn={fullColumn}
