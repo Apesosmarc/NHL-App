@@ -40,7 +40,7 @@ const Standings = ({ standings, currentTeam, division }) => {
   return (
     <React.Fragment>
       <h1 className="text-center text-2xl pb-2 sm:text-3xl">{division}</h1>
-      <h1 className="text-center text-xl">2020-2021 Season</h1>
+      <h1 className="text-center text-xl">2021-2022 Season</h1>
       <table className="mx-auto">
         <thead>
           <tr>

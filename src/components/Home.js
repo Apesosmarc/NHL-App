@@ -44,17 +44,9 @@ export default class Home extends Component {
           alt="NHL Trademark logo"
         ></img>
         <DateHeader game={this.state.todaysGames[0]} />
-        <GameGrid
-          schedule={this.state.todaysGames}
-          selectTeam={() => console.log("hi")}
-          team={false}
-        />
+        <GameGrid schedule={this.state.todaysGames} team={false} />
         <DateHeader game={this.state.tomorrowsGames[0]} />
-        <GameGrid
-          schedule={this.state.tomorrowsGames}
-          selectTeam={() => console.log("hi")}
-          team={false}
-        />
+        <GameGrid schedule={this.state.tomorrowsGames} team={false} />
         <div className="py-6"></div>
       </div>
     );

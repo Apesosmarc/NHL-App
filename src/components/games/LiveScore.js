@@ -20,10 +20,6 @@ export default function LiveScore({ gameInfo }) {
     fetchGameData();
   }, [gameInfo.link]);
 
-  if (liveData != null && score != null) {
-    console.log(liveData, score);
-  }
-
   return liveData != null && score != null ? (
     <div
       className={`text-center p-2 flex flex-col justify-center items-center`}
@@ -33,7 +29,7 @@ export default function LiveScore({ gameInfo }) {
         <span className="text-sm  text-opacity-80 subtitle">Live</span>
       </div>
 
-      <p className="text-2xl font-semibold p-2 lg:w-56 lg:p-0 w-28 ">{`${score.away.goals} - ${score.home.goals}`}</p>
+      <p className="text-2xl font-semibold p-2 lg:p-0 w-28 lg:w-44">{`${score.away.goals} - ${score.home.goals}`}</p>
       <p className="mt-6 text-black text-opacity-80 text-xs subtitle">
         {`P${liveData.currentPeriod}`}
         <br></br>

@@ -19,13 +19,21 @@ export default function Matchups({ team, schedule, nextGameInfo }) {
     setToggle(!toggle);
   };
 
+  const checkIfLiveGame = () => {
+    if (nextGameInfo.status.abstractGameState === "Live") {
+      return "Current Game:";
+    } else {
+      return "Upcoming Game:";
+    }
+  };
+
   schedule = toggle ? showSix : showThree;
 
   return (
     <div>
       <GameDateHeaders content={"Previous Game:"} />
       <PrevGame team={team} />
-      <GameDateHeaders content={"Upcoming Games:"}></GameDateHeaders>
+      <GameDateHeaders content={checkIfLiveGame()}></GameDateHeaders>
       <NextGame
         fullColumn={true}
         gameInfo={nextGameInfo}
