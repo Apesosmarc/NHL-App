@@ -1,7 +1,7 @@
 const { sky } = require("tailwindcss/colors");
 const colors = require("tailwindcss/colors");
 module.exports = {
-  purge: [],
+  purge: ["./src/*.js", "./src/**/*"],
   darkMode: false,
   theme: {
     colors: {
