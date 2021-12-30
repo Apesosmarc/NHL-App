@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { gamesList } from "../apis/nhl";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
-import { getGamesFromToday } from "../utils/dateConverter";
+import { getDatesFromToday } from "../utils/dateConverter";
 import Spinner from "./loading/Spinner";
 
 export default class Home extends Component {
@@ -14,13 +14,12 @@ export default class Home extends Component {
   };
 
   getData = async () => {
-    // fetches games from today by 1, start = today, end = tomorrow
-    const [start, end] = getGamesFromToday(1);
+    // fetches games from today by 1, start = todaysDate, end = tomorrow
+    const [start, end] = getDatesFromToday(1);
 
-    // reuses gamesList function that fetches games from start/end point. start= today, end = today
-    const getTodaysGames = await gamesList(null, start, start).get("/schedule");
-    // start= tomorrow, end = tomorrow
-    const getTomorrowsGames = await gamesList(null, end, end).get("/schedule");
+    // reuses gamesList function that fetches games from start/end point.
+    const getTodaysGames = await gamesList(start, start, null).get("/schedule");
+    const getTomorrowsGames = await gamesList(end, end, null).get("/schedule");
 
     this.setState({
       todaysGames: getTodaysGames.data.dates[0].games,

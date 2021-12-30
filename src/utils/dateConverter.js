@@ -9,8 +9,8 @@ const formatDate = (
   return Intl.DateTimeFormat("en", obj).format(new Date(date));
 };
 
-const getGamesFromToday = (days = 7) => {
-  // return today's date & date 7 days from today
+// return today's games & games x days from today
+const getDatesFromToday = (days = 7) => {
   const today = new Date();
   const endDate = new Date();
   endDate.setDate(today.getDate() + days);
@@ -34,7 +34,8 @@ const dateConverter = (gameDay) => {
   const [day, date, year, time] = newDate.split(",");
   let dateStr = day + date + year + time + "";
 
+  // splits formatted date and time into an array of ["Fri Dec 31", "7:00"]
   return dateStr.split(/\d{4}/g);
 };
 
-export { dateConverter, getGamesFromToday, formatDate };
+export { dateConverter, getDatesFromToday, formatDate };

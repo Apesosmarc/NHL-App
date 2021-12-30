@@ -14,7 +14,7 @@ const TeamHeader = ({ team, nextGame, schedule }) => {
         <div className="team-header align-center">
           <img
             src={team.mainLogo}
-            alt=""
+            alt={`${team.name} logo`}
             height="200"
             width="200"
             className="mx-auto my-auto "

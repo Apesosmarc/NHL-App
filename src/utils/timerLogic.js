@@ -18,7 +18,7 @@ const truncTimeDigits = (arr) => {
   return arr.map((time) => Math.trunc(time));
 };
 
-// formats time arr to readable format
+// formats time arr to readable format for timer "3D : 5H : 20M : 1S"
 const formatTime = (timeArr) => {
   let timeAbbrev = ["D", "H", "M", "S"];
 

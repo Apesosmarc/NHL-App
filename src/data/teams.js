@@ -1,3 +1,5 @@
+// maps teamId to custom info on team
+
 const teams = {
   1: {
     name: "New Jersey Devils",
