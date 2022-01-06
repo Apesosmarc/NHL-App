@@ -23,7 +23,6 @@ export default function SwitchContainer({ team }) {
   const [enabled, setEnabled] = useState(favorited);
 
   useEffect(() => {
-    console.log(enabled);
     sessionStorage.length === 0 && sessionStorage.setItem("visited", "true");
     if (enabled) {
       return localStorage.setItem(

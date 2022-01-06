@@ -41,6 +41,7 @@ export default class App extends Component {
     setTimeout(() => this.setState({ isLoading: false }), 500);
 
     this.setState({
+      noGames: getSchedule.data.dates.length < 1 ? true : false,
       division: standings.data.records[this.state.team.covidDiv].division.name,
       standings: standings.data.records[this.state.team.covidDiv].teamRecords,
       nextGame: nextGame.data.teams[0],
@@ -74,22 +75,31 @@ export default class App extends Component {
     return this.state.isLoading === false ? (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <div>
-          <TeamText team={this.state.team} />
+          {this.state.noGames ? (
+            <React.Fragment>
+              <TeamText team={this.state.team} />
+              <div className="text-center mt-12">
+                No Games Today -- More to do coming soon
+              </div>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <TeamHeader
+                standings={this.state.standings}
+                team={this.state.team}
+                nextGame={this.state.nextGame}
+                schedule={this.state.schedule.dates}
+              />
 
-          <TeamHeader
-            standings={this.state.standings}
-            team={this.state.team}
-            nextGame={this.state.nextGame}
-            schedule={this.state.schedule.dates}
-          />
-
-          <Standings
-            standings={this.state.standings}
-            currentTeam={this.state.team}
-            division={this.state.division}
-          />
-          <StatsHeader team={this.state.team} />
-          <Stats team={this.state.team} />
+              <Standings
+                standings={this.state.standings}
+                currentTeam={this.state.team}
+                division={this.state.division}
+              />
+              <StatsHeader team={this.state.team} />
+              <Stats team={this.state.team} />
+            </React.Fragment>
+          )}
         </div>
       </div>
     ) : (
