@@ -23,6 +23,7 @@ export default function SwitchContainer({ team }) {
   const [enabled, setEnabled] = useState(favorited);
 
   useEffect(() => {
+    console.log(enabled);
     sessionStorage.length === 0 && sessionStorage.setItem("visited", "true");
     if (enabled) {
       return localStorage.setItem(
@@ -64,8 +65,8 @@ export default function SwitchContainer({ team }) {
           <br />
           <span
             aria-hidden="true"
-            className={`${enabled ? "translate-x-9" : "translate-x-0"}
-           favorite-btn-slider`}
+            className={`${enabled ? "selected" : "deselected"}
+             favorite-btn-slider`}
           />
         </Switch>
       </div>
