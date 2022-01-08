@@ -5,7 +5,6 @@ import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
 import { getDatesFromToday } from "../utils/dateConverter";
 import Spinner from "./loading/Spinner";
-import { Fragment } from "react/cjs/react.production.min";
 
 export default class Home extends Component {
   state = {
@@ -18,7 +17,7 @@ export default class Home extends Component {
     // fetches games from today by 1, start = todaysDate, end = tomorrows
     const [start, end] = getDatesFromToday(1);
 
-    // reuses gamesList function that fetches games from start/end point.
+    // reuses gamesList function that fetches games from start/end point.f
     const getTodaysGames = await gamesList(start, start, null).get("/schedule");
     const getTomorrowsGames = await gamesList(end, end, null).get(
       "/schedule"

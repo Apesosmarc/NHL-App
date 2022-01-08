@@ -84,6 +84,7 @@ export default class App extends Component {
             </React.Fragment>
           ) : (
             <React.Fragment>
+              <TeamText team={this.state.team} />
               <TeamHeader
                 standings={this.state.standings}
                 team={this.state.team}
