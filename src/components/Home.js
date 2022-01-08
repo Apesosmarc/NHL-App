@@ -19,8 +19,8 @@ export default class Home extends Component {
     const [start, end] = getDatesFromToday(1);
 
     // reuses gamesList function that fetches games from start/end point.
-    const getTodaysGames = await gamesList(start, end, null).get("/schedule");
-    const getTomorrowsGames = await gamesList(start, end, null).get(
+    const getTodaysGames = await gamesList(start, start, null).get("/schedule");
+    const getTomorrowsGames = await gamesList(end, end, null).get(
       "/schedule"
     );
 
