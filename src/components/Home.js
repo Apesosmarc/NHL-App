@@ -15,30 +15,28 @@ export default class Home extends Component {
 
   getData = async () => {
     // fetches games from today by 1, start = todaysDate, end = tomorrows
-    const [start, end] = getDatesFromToday(1);
+    const [start, end] = getDatesFromToday(4);
 
     // reuses gamesList function that fetches games from start/end point.f
     const getTodaysGames = await gamesList(start, start, null).get("/schedule");
     const getTomorrowsGames = await gamesList(end, end, null).get("/schedule");
 
     if (getTodaysGames.data.dates.length >= 1) {
-      console.log(getTodaysGames.data.dates[0].games);
       this.setState({
         todaysGames: getTodaysGames.data.dates[0].games,
         data: true,
       });
-    } else {
+    } else if (getTodaysGames.data.dates.length < 1) {
       this.setState({ todaysGames: [] });
     }
     if (getTomorrowsGames.data.dates.length >= 1) {
       this.setState({
         tomorrowsGame: getTomorrowsGames.data.dates[0].games,
+        data: true,
       });
     } else {
       this.setState({ tomorrowsGame: [], data: true });
     }
-
-    console.log(this.state.todaysGames);
   };
 
   componentDidMount = async () => {
@@ -55,10 +53,9 @@ export default class Home extends Component {
           src="https://www-league.nhlstatic.com/images/logos/league-dark/133.svg"
           alt="NHL Trademark logo"
         ></img>
+
         {this.state.todaysGames.length < 1 ? (
-          <div className="text-center mt-12">
-            No Games Today -- More to do coming soon
-          </div>
+          <div className="text-center mt-12">No Games Today</div>
         ) : (
           <React.Fragment>
             <DateHeader game={this.state.todaysGames[0]} />
