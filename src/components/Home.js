@@ -19,28 +19,26 @@ export default class Home extends Component {
 
     // reuses gamesList function that fetches games from start/end point.f
     const getTodaysGames = await gamesList(start, start, null).get("/schedule");
-    const getTomorrowsGames = await gamesList(end, end, null).get(
-      "/schedule"
-    );
+    const getTomorrowsGames = await gamesList(end, end, null).get("/schedule");
 
-    if (
-      getTodaysGames.data.dates.length < 1
-        ? true
-        : false || getTomorrowsGames.data.dates.length < 1
-        ? true
-        : false
-    ) {
+    if (getTodaysGames.data.dates.length >= 1) {
+      console.log(getTodaysGames.data.dates[0].games);
       this.setState({
-        noGames: true,
+        todaysGames: getTodaysGames.data.dates[0].games,
         data: true,
       });
     } else {
-      this.setState({
-        todaysGames: getTodaysGames.data.dates[0].games,
-        tomorrowsGames: getTomorrowsGames.data.dates[0].games,
-        data: true,
-      });
+      this.setState({ todaysGames: [] });
     }
+    if (getTomorrowsGames.data.dates.length >= 1) {
+      this.setState({
+        tomorrowsGame: getTomorrowsGames.data.dates[0].games,
+      });
+    } else {
+      this.setState({ tomorrowsGame: [], data: true });
+    }
+
+    console.log(this.state.todaysGames);
   };
 
   componentDidMount = async () => {
@@ -57,7 +55,7 @@ export default class Home extends Component {
           src="https://www-league.nhlstatic.com/images/logos/league-dark/133.svg"
           alt="NHL Trademark logo"
         ></img>
-        {this.state.noGames ? (
+        {this.state.todaysGames.length < 1 ? (
           <div className="text-center mt-12">
             No Games Today -- More to do coming soon
           </div>
@@ -65,8 +63,17 @@ export default class Home extends Component {
           <React.Fragment>
             <DateHeader game={this.state.todaysGames[0]} />
             <GameGrid schedule={this.state.todaysGames} team={false} />
-            <DateHeader game={this.state.tomorrowsGames[0]} />
-            <GameGrid schedule={this.state.tomorrowsGames} team={false} />
+            <div className="py-6"></div>
+          </React.Fragment>
+        )}
+        {this.state.tomorrowsGame.length < 1 ? (
+          <div className="text-center mt-12 mb-12">
+            No Games Tomorrow -- More coming soon
+          </div>
+        ) : (
+          <React.Fragment>
+            <DateHeader game={this.state.tomorrowsGame[0]} />
+            <GameGrid schedule={this.state.tomorrowsGame} team={false} />
             <div className="py-6"></div>
           </React.Fragment>
         )}
