@@ -68,7 +68,6 @@ export default class App extends Component {
   };
 
   // Conditionally renders props.id to state passed down by RouteHandle.js + loads data
-  // This is necessary as compDidMount does not run when passed props
   componentDidUpdate = (prevProps) => {
     if (prevProps.id === this.props.id) {
       return;
@@ -81,7 +80,6 @@ export default class App extends Component {
   };
 
   render() {
-    console.log(this.state.error);
     if (this.state.error) {
       return <div className="text-red-500">{this.state.error}</div>;
     } else {
@@ -121,48 +119,4 @@ export default class App extends Component {
       );
     }
   }
-
-  // render() {
-  //   {
-  //     console.log(this.state.error);
-  //   }
-  //   return (this.state.error === true && (
-  //     <div>error</div>
-  //   ) : (
-  //     this.state.isLoading === false
-  //   )) & !this.state.error ? (
-  //     <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
-  //       <div>
-  //         {this.state.noGames ? (
-  //           <React.Fragment>
-  //             <TeamText team={this.state.team} />
-  //             <div className="text-center mt-12">
-  //               No Games Today -- More to do coming soon
-  //             </div>
-  //           </React.Fragment>
-  //         ) : (
-  //           <React.Fragment>
-  //             <TeamText team={this.state.team} />
-  //             <TeamHeader
-  //               standings={this.state.standings}
-  //               team={this.state.team}
-  //               nextGame={this.state.nextGame}
-  //               schedule={this.state.schedule.dates}
-  //             />
-
-  //             <Standings
-  //               standings={this.state.standings}
-  //               currentTeam={this.state.team}
-  //               division={this.state.division}
-  //             />
-  //             <StatsHeader team={this.state.team} />
-  //             <Stats team={this.state.team} />
-  //           </React.Fragment>
-  //         )}
-  //       </div>
-  //     </div>
-  //   ) : (
-  //     <Spinner team={this.state.team} />
-  //   );
-  // }
 }
