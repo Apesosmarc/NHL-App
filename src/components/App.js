@@ -9,8 +9,7 @@ import Spinner from "./loading/Spinner";
 // retrieves teamInfo with teamId as argument
 import getTeamInfo from "../utils/getTeamInfo";
 import { getDatesFromToday } from "../utils/dateConverter";
-
-// import { isLive } from "../utils/isLive";
+import axios from "axios";
 
 export default class App extends Component {
   state = {
@@ -21,6 +20,7 @@ export default class App extends Component {
     schedule: [],
     division: [],
     isLoading: true,
+    error: null,
   };
 
   getData = async () => {
@@ -29,24 +29,33 @@ export default class App extends Component {
       isLoading: true,
     });
 
-    const [scheduleStart, scheduleEnd] = getDatesFromToday(20);
-    const standings = await divisionStandings.get("/standings");
-    const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
-    const getSchedule = await gamesList(
-      scheduleStart,
-      scheduleEnd,
-      this.state.teamId
-    ).get("/schedule");
+    // async auto invoke that fetches data but sets state error if one of the requests comes back error
+    (async () => {
+      try {
+        const [scheduleStart, scheduleEnd] = getDatesFromToday(20);
+        const standings = await divisionStandings.get("/standings");
+        const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
+        const getSchedule = await gamesList(
+          scheduleStart,
+          scheduleEnd,
+          this.state.teamId
+        ).get("/schedule");
+
+        this.setState({
+          noGames: getSchedule.data.dates.length < 1 ? true : false,
+          division:
+            standings.data.records[this.state.team.covidDiv].division.name,
+          standings:
+            standings.data.records[this.state.team.covidDiv].teamRecords,
+          nextGame: nextGame.data.teams[0],
+          schedule: getSchedule.data,
+        });
+      } catch (error) {
+        this.setState({ error: error.message });
+      }
+    })();
 
     setTimeout(() => this.setState({ isLoading: false }), 500);
-
-    this.setState({
-      noGames: getSchedule.data.dates.length < 1 ? true : false,
-      division: standings.data.records[this.state.team.covidDiv].division.name,
-      standings: standings.data.records[this.state.team.covidDiv].teamRecords,
-      nextGame: nextGame.data.teams[0],
-      schedule: getSchedule.data,
-    });
   };
 
   // Sets props.id to state when this component actually unmounts.
@@ -72,39 +81,88 @@ export default class App extends Component {
   };
 
   render() {
-    return this.state.isLoading === false ? (
-      <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
-        <div>
-          {this.state.noGames ? (
-            <React.Fragment>
-              <TeamText team={this.state.team} />
-              <div className="text-center mt-12">
-                No Games Today -- More to do coming soon
-              </div>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <TeamText team={this.state.team} />
-              <TeamHeader
-                standings={this.state.standings}
-                team={this.state.team}
-                nextGame={this.state.nextGame}
-                schedule={this.state.schedule.dates}
-              />
+    console.log(this.state.error);
+    if (this.state.error) {
+      return <div className="text-red-500">{this.state.error}</div>;
+    } else {
+      return this.state.isLoading === false ? (
+        <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
+          <div>
+            {this.state.noGames ? (
+              <React.Fragment>
+                <TeamText team={this.state.team} />
+                <div className="text-center mt-12">
+                  No Games Today -- More to do coming soon
+                </div>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <TeamText team={this.state.team} />
+                <TeamHeader
+                  standings={this.state.standings}
+                  team={this.state.team}
+                  nextGame={this.state.nextGame}
+                  schedule={this.state.schedule.dates}
+                />
 
-              <Standings
-                standings={this.state.standings}
-                currentTeam={this.state.team}
-                division={this.state.division}
-              />
-              <StatsHeader team={this.state.team} />
-              <Stats team={this.state.team} />
-            </React.Fragment>
-          )}
+                <Standings
+                  standings={this.state.standings}
+                  currentTeam={this.state.team}
+                  division={this.state.division}
+                />
+                <StatsHeader team={this.state.team} />
+                <Stats team={this.state.team} />
+              </React.Fragment>
+            )}
+          </div>
         </div>
-      </div>
-    ) : (
-      <Spinner team={this.state.team} />
-    );
+      ) : (
+        <Spinner team={this.state.team} />
+      );
+    }
   }
+
+  // render() {
+  //   {
+  //     console.log(this.state.error);
+  //   }
+  //   return (this.state.error === true && (
+  //     <div>error</div>
+  //   ) : (
+  //     this.state.isLoading === false
+  //   )) & !this.state.error ? (
+  //     <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
+  //       <div>
+  //         {this.state.noGames ? (
+  //           <React.Fragment>
+  //             <TeamText team={this.state.team} />
+  //             <div className="text-center mt-12">
+  //               No Games Today -- More to do coming soon
+  //             </div>
+  //           </React.Fragment>
+  //         ) : (
+  //           <React.Fragment>
+  //             <TeamText team={this.state.team} />
+  //             <TeamHeader
+  //               standings={this.state.standings}
+  //               team={this.state.team}
+  //               nextGame={this.state.nextGame}
+  //               schedule={this.state.schedule.dates}
+  //             />
+
+  //             <Standings
+  //               standings={this.state.standings}
+  //               currentTeam={this.state.team}
+  //               division={this.state.division}
+  //             />
+  //             <StatsHeader team={this.state.team} />
+  //             <Stats team={this.state.team} />
+  //           </React.Fragment>
+  //         )}
+  //       </div>
+  //     </div>
+  //   ) : (
+  //     <Spinner team={this.state.team} />
+  //   );
+  // }
 }

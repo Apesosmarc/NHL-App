@@ -13,30 +13,44 @@ export default class Home extends Component {
     data: null,
   };
 
+  checkGames = (arr) => {
+    console.log(arr);
+    if (arr.length >= 1) return true;
+    else {
+      return false;
+    }
+  };
+
   getData = async () => {
-    // fetches games from today by 1, start = todaysDate, end = tomorrows
-    const [start, end] = getDatesFromToday(4);
+    (async () => {
+      try {
+        // fetches games from today by 1, start = todaysDate, end = tomorrows
+        const [start, end] = getDatesFromToday(1);
+        const getTodaysGames = await gamesList(start, start, null).get(
+          "/schedule"
+        );
+        const getTomorrowsGames = await gamesList(end, end, null).get(
+          "/schedule"
+        );
 
-    // reuses gamesList function that fetches games from start/end point.f
-    const getTodaysGames = await gamesList(start, start, null).get("/schedule");
-    const getTomorrowsGames = await gamesList(end, end, null).get("/schedule");
+        // if there are no games, this sets games to an empty arr instead of resulting in infinite spinner anim
+        this.checkGames(getTodaysGames.data.dates)
+          ? this.setState({
+              todaysGames: getTodaysGames.data.dates[0].games,
+              data: true,
+            })
+          : this.setState({ todaysGames: [], data: true });
 
-    if (getTodaysGames.data.dates.length >= 1) {
-      this.setState({
-        todaysGames: getTodaysGames.data.dates[0].games,
-        data: true,
-      });
-    } else if (getTodaysGames.data.dates.length < 1) {
-      this.setState({ todaysGames: [] });
-    }
-    if (getTomorrowsGames.data.dates.length >= 1) {
-      this.setState({
-        tomorrowsGame: getTomorrowsGames.data.dates[0].games,
-        data: true,
-      });
-    } else {
-      this.setState({ tomorrowsGame: [], data: true });
-    }
+        this.checkGames(getTomorrowsGames.data.dates)
+          ? this.setState({
+              tomorrowsGame: getTomorrowsGames.data.dates[0].games,
+              data: true,
+            })
+          : this.setState({ tomorrowsGame: [], data: true });
+      } catch (error) {
+        this.setState({});
+      }
+    })();
   };
 
   componentDidMount = async () => {
@@ -63,6 +77,7 @@ export default class Home extends Component {
             <div className="py-6"></div>
           </React.Fragment>
         )}
+
         {this.state.tomorrowsGame.length < 1 ? (
           <div className="text-center mt-12 mb-12">
             No Games Tomorrow -- More coming soon
