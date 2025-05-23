@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { dummy_schedule } from "../data/dummy_schedule";
 import { gamesList } from "../apis/nhl";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
@@ -24,29 +24,12 @@ export default class Home extends Component {
   getData = async () => {
     (async () => {
       try {
-        // fetches games from today by 1, start = todaysDate, end = tomorrows
-        const [start, end] = getDatesFromToday(1);
-        const getTodaysGames = await gamesList(start, start, null).get(
-          "/schedule"
-        );
-        const getTomorrowsGames = await gamesList(end, end, null).get(
-          "/schedule"
-        );
-
-        // if there are no games, this sets games to an empty arr instead of resulting in infinite spinner anim
-        this.checkGames(getTodaysGames.data.dates)
-          ? this.setState({
-              todaysGames: getTodaysGames.data.dates[0].games,
-              data: true,
-            })
-          : this.setState({ todaysGames: [], data: true });
-
-        this.checkGames(getTomorrowsGames.data.dates)
-          ? this.setState({
-              tomorrowsGame: getTomorrowsGames.data.dates[0].games,
-              data: true,
-            })
-          : this.setState({ tomorrowsGame: [], data: true });
+        this.setState({
+          todaysGames: [dummy_schedule.games[0]],
+          tomorrowsGame: [dummy_schedule.games[1]],
+          data: true,
+        });
+        return;
       } catch (error) {
         this.setState({});
       }
@@ -58,6 +41,7 @@ export default class Home extends Component {
   };
 
   render() {
+    console.log(this.state);
     if (!this.state.data) return <Spinner />;
 
     return (

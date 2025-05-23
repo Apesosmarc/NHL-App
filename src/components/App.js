@@ -3,13 +3,10 @@ import { divisionStandings, game, gamesList } from "../apis/nhl";
 import TeamText from "./TeamText";
 import TeamHeader from "./TeamHeader";
 import Standings from "./Standings";
-import StatsHeader from "./layout/StatsHeader";
-import Stats from "./stats/Stats";
 import Spinner from "./loading/Spinner";
 // retrieves teamInfo with teamId as argument
 import getTeamInfo from "../utils/getTeamInfo";
 import { getDatesFromToday } from "../utils/dateConverter";
-import axios from "axios";
 
 export default class App extends Component {
   state = {
@@ -108,8 +105,6 @@ export default class App extends Component {
                   currentTeam={this.state.team}
                   division={this.state.division}
                 />
-                <StatsHeader team={this.state.team} />
-                <Stats team={this.state.team} />
               </React.Fragment>
             )}
           </div>
