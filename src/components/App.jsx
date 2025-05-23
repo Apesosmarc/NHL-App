@@ -4,12 +4,10 @@ import TeamText from "./TeamText";
 import TeamHeader from "./TeamHeader";
 import Standings from "./Standings";
 import StatsHeader from "./layout/StatsHeader";
-import Stats from "./stats/Stats";
 import Spinner from "./loading/Spinner";
 // retrieves teamInfo with teamId as argument
 import getTeamInfo from "../utils/getTeamInfo";
 import { getDatesFromToday } from "../utils/dateConverter";
-import axios from "axios";
 
 export default class App extends Component {
   state = {
@@ -32,14 +30,7 @@ export default class App extends Component {
     // async auto invoke that fetches data but sets state error if one of the requests comes back error
     (async () => {
       try {
-        const [scheduleStart, scheduleEnd] = getDatesFromToday(20);
-        const standings = await divisionStandings.get("/standings");
-        const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
-        const getSchedule = await gamesList(
-          scheduleStart,
-          scheduleEnd,
-          this.state.teamId
-        ).get("/schedule");
+        const standings = await divisionStandings.get("/standings/now");
 
         this.setState({
           noGames: getSchedule.data.dates.length < 1 ? true : false,

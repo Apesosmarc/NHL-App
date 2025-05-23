@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import RouteHandle from "./components/routeHandlers/";
-import "./index.css";
+import RouteHandle from "./components/routeHandlers";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import App from "./components/App";
+
+import "./index.css";
 
 const loadFavorite = () => {
   return parseInt(JSON.parse(localStorage.getItem("favorite")).id);
@@ -28,5 +29,5 @@ ReactDOM.render(
       )}
     </Switch>
   </BrowserRouter>,
-  document.getElementById("root")
+  globalThis.document.getElementById("root")
 );

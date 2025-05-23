@@ -25,7 +25,7 @@ export default class Home extends Component {
     (async () => {
       try {
         // fetches games from today by 1, start = todaysDate, end = tomorrows
-        const [start, end] = getDatesFromToday(1);
+        const [start, end] = getDatesFromToday(20);
         const getTodaysGames = await gamesList(start, start, null).get(
           "/schedule"
         );
@@ -58,16 +58,8 @@ export default class Home extends Component {
   };
 
   render() {
-    if (!this.state.data) return <Spinner />;
-
     return (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
-        <img
-          className="sm:w-56 sm:h-56 w-48 h-48 mx-auto my-auto py-8"
-          src="https://www-league.nhlstatic.com/images/logos/league-dark/133.svg"
-          alt="NHL Trademark logo"
-        ></img>
-
         {this.state.todaysGames.length < 1 ? (
           <div className="text-center mt-12">No Games Today</div>
         ) : (

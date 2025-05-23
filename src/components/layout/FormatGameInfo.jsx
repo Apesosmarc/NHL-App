@@ -1,7 +1,7 @@
 import React from "react";
-import ScoreDisplay from "../games/ScoreDisplay";
-import GameDate from "../games/GameDate";
-import LiveScore from "../games/LiveScore";
+import ScoreDisplay from "../games/ScoreDisplay.jsx";
+import GameDate from "../games/GameDate.jsx";
+import LiveScore from "../games/LiveScore.jsx";
 
 export default function FormatGameInfo({
   gameInfo,

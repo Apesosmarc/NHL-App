@@ -45,47 +45,47 @@ body {
 
 /* was getting build fail adding align-center here */
 .team-header {
-  @apply h-60 flex flex-col justify-center  items-end md:mb-8;
+  @reference h-60 flex flex-col justify-center  items-end md:mb-8;
 }
 
 .home-button-bar {
-  @apply py-4 flex justify-between items-center px-7 sm:px-12 lg:px-56 mx-auto lg:order-first;
+  @reference py-4 flex justify-between items-center px-7 sm:px-12 lg:px-56 mx-auto lg:order-first;
 }
 
 .all-games-btn {
-  @apply px-4 py-2 rounded text-lg self-center mt-2;
+  @reference px-4 py-2 rounded text-lg self-center mt-2;
 }
 
 /* FAVORITE BTN SLIDER */
 .favorite-btn-header {
-  @apply mb-2 subtitle font-bold;
+  @reference mb-2 subtitle font-bold;
 }
 
 .favorite-btn {
-  @apply relative inline-flex items-center h-7 w-16 rounded-full border-black;
+  @reference relative inline-flex items-center h-7 w-16 rounded-full border-black;
 }
 
 .favorite-btn-slider {
-  @apply bg-lightGray inline-block h-8 w-8 rounded-full shadow-lg ring-0  transform ease-in-out duration-200;
+  @reference bg-lightGray inline-block h-8 w-8 rounded-full shadow-lg ring-0  transform ease-in-out duration-200;
 }
 
 .deselected {
-  @apply translate-x-0 !important;
+  @reference translate-x-0 !important;
 }
 
 .selected {
-  @apply translate-x-9 !important;
+  @reference translate-x-9 !important;
 }
 
 /* MATCHUP CARD STYLES */
 
 /* THE LONG MATCHUP CARDS */
 .first-and-last-game-card {
-  @apply max-w-xl lg:col-start-1 lg:col-span-2 mx-auto  max-h-52;
+  @reference max-w-xl lg:col-start-1 lg:col-span-2 mx-auto  max-h-52;
 }
 
 .first-and-last-game-info {
-  @apply flex justify-between content-center mx-auto max-w-lg md:max-w-xl;
+  @reference flex justify-between content-center mx-auto max-w-lg md:max-w-xl;
 }
 
 /* THE SHORT MATCHUP CARDS */
@@ -93,11 +93,11 @@ body {
   background-color: var(--dark-card);
   color: var(--dark-text2);
   position: relative;
-  @apply rounded-md py-6 mb-6 sm:mb-0 flex items-center;
+  @reference rounded-md py-6 mb-6 sm:mb-0 flex items-center;
 }
 
 .teamcard-info {
-  @apply w-24 h-32 flex flex-col justify-between items-center text-center self-center;
+  @reference w-24 h-32 flex flex-col justify-between items-center text-center self-center;
 }
 
 /* THE GRADIENT BORDERS ON TOP OF MATCHUP CARDS */
@@ -159,7 +159,7 @@ td img {
 /* DOUGHNUT CHARTS STYLES */
 
 .doughnut-chart-grid {
-  @apply divide-y-2 divide-solid divide-gray-200 sm:divide-none sm:grid-cols-2 md:grid-cols-3 md:gap-8 sm:grid pb-20;
+  @reference divide-y-2 divide-solid divide-gray-200 sm:divide-none sm:grid-cols-2 md:grid-cols-3 md:gap-8 sm:grid pb-20;
 }
 
 /* CUSTOM PING ANIMATIONS */
@@ -178,11 +178,11 @@ td img {
 /* LOADING SPINNER STYLES */
 
 .spinner-background {
-  @apply max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto flex justify-center relative;
+  @reference max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto flex justify-center relative;
 }
 
 .spinner-and-img-container {
-  @apply mt-48 flex flex-col justify-center content-center;
+  @reference mt-48 flex flex-col justify-center content-center;
 }
 
 /* HEADLESS UI SLIDER BTN OVERRIDE */

@@ -2,7 +2,7 @@ import axios from "axios";
 
 // API documentation: https://github.com/dword4/nhlapi#game-ids
 
-const baseURL = "https://statsapi.web.nhl.com/api/v1/";
+const baseURL = "https://api-web.nhle.com/api/v1/";
 
 const divisionStandings = axios.create({
   baseURL,
