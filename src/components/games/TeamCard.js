@@ -1,6 +1,5 @@
 import React from "react";
 import getTeamInfo from "../../utils/getTeamInfo";
-import { Link } from "react-router-dom";
 
 export default function TeamCard({
   link,
