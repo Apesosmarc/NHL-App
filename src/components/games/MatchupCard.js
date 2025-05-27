@@ -14,7 +14,6 @@ export default function MatchupCard({
 }) {
   const homeTeamId = gameInfo.homeTeam.id;
   const awayTeamId = gameInfo.awayTeam.id;
-
   // Gets date + time from util function.
   const [gameDate, gameTime] = dateConverter(gameInfo.startTimeUTC);
 
@@ -33,6 +32,9 @@ export default function MatchupCard({
           displayedTeam={team}
           nextGame={gameInfo.homeTeam}
           selectTeam={selectTeam}
+          win={
+            gameInfo.homeTeam.score >= gameInfo.awayTeam.score ? true : false
+          }
         />
 
         <FormatGameInfo
@@ -47,6 +49,9 @@ export default function MatchupCard({
           displayedTeam={team}
           nextGame={gameInfo.awayTeam}
           selectTeam={selectTeam}
+          win={
+            gameInfo.awayTeam.score >= gameInfo.homeTeam.score ? true : false
+          }
         />
       </div>
     </div>

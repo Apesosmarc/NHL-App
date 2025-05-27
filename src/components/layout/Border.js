@@ -15,7 +15,7 @@ export default function Border({ team, homeTeamId, awayTeamId, gameInfo }) {
   borderStyle.background = team
     ? // converts team.id to num due to "===" vs "==" React error msg
       homeOrAway(parseInt(team.id))
-    : `linear-gradient(to left, ${getTeamInfo(homeTeamId).mainColor}, ${
+    : `linear-gradient(to right, ${getTeamInfo(homeTeamId).mainColor}, ${
         getTeamInfo(awayTeamId).mainColor
       })`;
 

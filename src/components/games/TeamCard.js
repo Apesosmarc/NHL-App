@@ -2,7 +2,7 @@ import React from "react";
 import getTeamInfo from "../../utils/getTeamInfo";
 import { Link } from "react-router-dom";
 
-export default function TeamCard({ nextGame, fullColumn, displayedTeam }) {
+export default function TeamCard({ nextGame, fullColumn, displayedTeam, win }) {
   const logo = getTeamInfo(nextGame.id).smallLogo;
   const teamName = nextGame.commonName.default;
 
@@ -27,11 +27,12 @@ export default function TeamCard({ nextGame, fullColumn, displayedTeam }) {
         />
       </Link>
       <h1 className="text-xs sm:text-sm">{teamName}</h1>
-      {/* <ul className="flex text-xs">
-        <li>{nextGame.leagueRecord.wins}</li>
+      <ul className="flex text-xs">
+        <li>{win ? 0 : 1}</li>
         <small className="mx-2">-</small>
-        <li>{nextGame.leagueRecord.losses}</li>
-      </ul> */}
+
+        <li>{win ? 1 : 0}</li>
+      </ul>
     </div>
   );
 }

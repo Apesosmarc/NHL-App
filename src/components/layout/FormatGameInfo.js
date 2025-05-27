@@ -11,7 +11,6 @@ export default function FormatGameInfo({
   gameStatus,
   fullColumn,
 }) {
-  debugger;
   const selectGameInfo = (status) => {
     switch (status.toLowerCase()) {
       case "off":
