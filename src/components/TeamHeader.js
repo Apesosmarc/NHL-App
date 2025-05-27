@@ -1,6 +1,4 @@
 import React from "react";
-import Matchups from "./games/Matchups";
-import SwitchContainer from "./buttons/SwitchContainer";
 
 // comp includes everything from team header img to all game matchups.
 

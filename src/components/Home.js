@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { dummy_schedule } from "../data/dummy_schedule";
-import { gamesList } from "../apis/nhl";
 import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
-import { getDatesFromToday } from "../utils/dateConverter";
 import Spinner from "./loading/Spinner";
-import { Standings } from "./Standings";
 import { dummy_standings } from "../data/dummy_standings";
 
 export default class Home extends Component {

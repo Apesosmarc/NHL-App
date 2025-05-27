@@ -1,9 +1,6 @@
 import React from "react";
 import MatchupCard from "../games/MatchupCard";
 
-// hometeamID
-// awayTeamID
-
 /**
  * @param {*} param0
  * @returns
