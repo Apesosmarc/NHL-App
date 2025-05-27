@@ -11,13 +11,14 @@ export default function FormatGameInfo({
   gameStatus,
   fullColumn,
 }) {
+  debugger;
   const selectGameInfo = (status) => {
-    switch (status) {
-      case "Final":
+    switch (status.toLowerCase()) {
+      case "off":
         return (
           <ScoreDisplay gameDate={gameDate} gameInfo={gameInfo} team={team} />
         );
-      case "Preview":
+      case "preview":
         return (
           <GameDate
             fullColumn={fullColumn}
@@ -27,7 +28,7 @@ export default function FormatGameInfo({
             gameVenue={gameInfo.venue.name}
           />
         );
-      case "Live":
+      case "live":
         return <LiveScore gameInfo={gameInfo} />;
       default:
         return <div>loading...</div>;

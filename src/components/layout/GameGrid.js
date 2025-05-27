@@ -1,6 +1,13 @@
 import React from "react";
 import MatchupCard from "../games/MatchupCard";
 
+// hometeamID
+// awayTeamID
+
+/**
+ * @param {*} param0
+ * @returns
+ */
 export default function GameGrid({ schedule, team }) {
   // if only one game span 75% of container, else grid 2 col
   const gridFormat =
@@ -9,7 +16,6 @@ export default function GameGrid({ schedule, team }) {
   const renderedSched = (schedule) => {
     return schedule.map((game, i) => {
       // Status is restricted global - changed prop name
-      const gameStatus = game.status.abstractGameState;
 
       return (
         <MatchupCard
@@ -17,11 +23,13 @@ export default function GameGrid({ schedule, team }) {
           team={team}
           key={i}
           gameNum={i}
-          gameStatus={gameStatus}
+          gameStatus={game.gameState}
         />
       );
     });
   };
+
+  renderedSched(schedule);
 
   return (
     <div className={`gap-4  sm:grid-flow-row  ${gridFormat}`}>

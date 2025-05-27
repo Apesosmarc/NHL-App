@@ -9,7 +9,7 @@ import Spinner from "./loading/Spinner";
 export default class Home extends Component {
   state = {
     todaysGames: [],
-    tomorrowsGame: [],
+    tomorrowsGames: [],
     data: null,
   };
 
@@ -25,8 +25,8 @@ export default class Home extends Component {
     (async () => {
       try {
         this.setState({
-          todaysGames: [dummy_schedule.games[0]],
-          tomorrowsGame: [dummy_schedule.games[1]],
+          todaysGames: dummy_schedule.gameWeek[1].games,
+          tomorrowsGames: dummy_schedule.gameWeek[2].games,
           data: true,
         });
         return;
@@ -62,14 +62,14 @@ export default class Home extends Component {
           </React.Fragment>
         )}
 
-        {this.state.tomorrowsGame.length < 1 ? (
+        {this.state.tomorrowsGames.length < 1 ? (
           <div className="text-center mt-12 mb-12">
             No Games Tomorrow -- More coming soon
           </div>
         ) : (
           <React.Fragment>
-            <DateHeader game={this.state.tomorrowsGame[0]} />
-            <GameGrid schedule={this.state.tomorrowsGame} team={false} />
+            <DateHeader game={this.state.tomorrowsGames[0]} />
+            <GameGrid schedule={this.state.tomorrowsGames} team={false} />
             <div className="py-6"></div>
           </React.Fragment>
         )}

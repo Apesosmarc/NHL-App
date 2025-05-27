@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function ScoreDisplay({ gameInfo, gameDate = null, team }) {
-  const homeScore = gameInfo.teams.home.score;
-  const awayScore = gameInfo.teams.away.score;
+  const homeScore = gameInfo.homeTeam.score;
+  const awayScore = gameInfo.awayTeam.score;
 
   return (
     <div className={`text-center p-2 text-center`}>
@@ -12,7 +12,17 @@ export default function ScoreDisplay({ gameInfo, gameDate = null, team }) {
       </p>
 
       <p className="mt-6 text-black text-opacity-80 text-xs subtitle">
-        @{gameInfo.venue.name}
+        @{gameInfo.venue.default}
+      </p>
+      <p className="mt-6 text-black text-opacity-80 text-xs subtitle">
+        <a
+          className="underline"
+          href={`https://nhl.com${gameInfo.threeMinRecap}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Game Recap
+        </a>
       </p>
     </div>
   );
