@@ -2,7 +2,13 @@ import React from "react";
 import getTeamInfo from "../../utils/getTeamInfo";
 import { Link } from "react-router-dom";
 
-export default function TeamCard({ nextGame, fullColumn, displayedTeam, win }) {
+export default function TeamCard({
+  link,
+  nextGame,
+  fullColumn,
+  displayedTeam,
+  win,
+}) {
   const logo = getTeamInfo(nextGame.id).smallLogo;
   const teamName = nextGame.commonName.default;
 
@@ -17,15 +23,14 @@ export default function TeamCard({ nextGame, fullColumn, displayedTeam, win }) {
 
   return (
     <div className={`teamcard-info ${sizeUp}`}>
-      <Link to={`/${nextGame.abbrev}`}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <img
           src={logo}
           alt={`${teamName} logo`}
-          className={`teamcard-logo
-            ${teamDisplayed === true ? null : "transform hover:opacity-30"}
-          `}
+          className={`teamcard-logo transform hover:opacity-30`}
         />
-      </Link>
+      </a>
+
       <h1 className="text-xs sm:text-sm">{teamName}</h1>
       <ul className="flex text-xs">
         <li>{win ? 0 : 1}</li>

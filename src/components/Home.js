@@ -5,6 +5,8 @@ import GameGrid from "./layout/GameGrid";
 import DateHeader from "./dates/DateHeader";
 import { getDatesFromToday } from "../utils/dateConverter";
 import Spinner from "./loading/Spinner";
+import { Standings } from "./Standings";
+import { dummy_standings } from "../data/dummy_standings";
 
 export default class Home extends Component {
   state = {
@@ -28,6 +30,7 @@ export default class Home extends Component {
           todaysGames: dummy_schedule.gameWeek[1].games,
           tomorrowsGames: dummy_schedule.gameWeek[2].games,
           data: true,
+          standings: dummy_standings,
         });
         return;
       } catch (error) {
@@ -41,16 +44,19 @@ export default class Home extends Component {
   };
 
   render() {
-    console.log(this.state);
     if (!this.state.data) return <Spinner />;
 
     return (
       <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
         <img
-          className="sm:w-56 sm:h-56 w-48 h-48 mx-auto my-auto py-8"
-          src="https://www-league.nhlstatic.com/images/logos/league-dark/133.svg"
+          className="sm:w-56 sm:h-77 mx-auto my-auto py-8"
+          src="./logos/nhl_logo_dark.svg"
           alt="NHL Trademark logo"
         ></img>
+        <p className="text-red-500 italic">
+          Since the public API used has been depreciated & NHL is off regular
+          season - API data has been archived at October 10, 2024
+        </p>
 
         {this.state.todaysGames.length < 1 ? (
           <div className="text-center mt-12">No Games Today</div>

@@ -29,6 +29,7 @@ export default function MatchupCard({
         className={`flex w-3/4 md:w-full justify-evenly content-center mx-auto`}
       >
         <TeamCard
+          link={`https://nhl.com/${gameInfo.homeTeam.commonName.default}`}
           displayedTeam={team}
           nextGame={gameInfo.homeTeam}
           selectTeam={selectTeam}
@@ -46,6 +47,7 @@ export default function MatchupCard({
         />
 
         <TeamCard
+          link={`https://nhl.com/${gameInfo.awayTeam.commonName.default}`}
           displayedTeam={team}
           nextGame={gameInfo.awayTeam}
           selectTeam={selectTeam}
