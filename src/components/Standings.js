@@ -1,19 +1,20 @@
 import React from "react";
 import getTeamInfo from "../utils/getTeamInfo";
 import { Link } from "react-router-dom";
+import teamAbrev from "../data/teamAbrev";
 
-const Standings = ({ standings, currentTeam, division }) => {
+export const Standings = ({ standings, currentTeam, division }) => {
   // Renders the Table Body
-  const divisionStandings = standings.map((teamRank) => {
+  const divisionStandings = standings.standings.map((teamRank) => {
+    const team = getTeamInfo(
+      teamAbrev[teamRank.teamAbbrev.default.toLowerCase()]
+    );
+    const teamName = teamRank.teamName.default;
     // Selects team data for each team in division
-    const team = getTeamInfo(teamRank.team.id);
-    const outlineTeam =
-      team.id === currentTeam.id ? `5px solid ${team.mainColor}` : "none";
     return (
       <tr
         className="font-bold"
         style={{
-          border: `${outlineTeam}`,
           backgroundColor: "var(--dark-card)",
         }}
         key={team.name}
@@ -22,16 +23,16 @@ const Standings = ({ standings, currentTeam, division }) => {
           <Link to={`/${team.abrev}`}>
             <img
               src={team.smallLogo}
-              alt={`${team.name} logo`}
+              alt={`${teamName} logo`}
               className="table-logo transform hover:opacity-30"
             />
           </Link>
         </td>
         <td>{teamRank.points}</td>
-        <td>{teamRank.leagueRecord.wins}</td>
-        <td>{teamRank.leagueRecord.losses}</td>
+        <td>{teamRank.wins}</td>
+        <td>{teamRank.losses}</td>
         <td>{teamRank.gamesPlayed}</td>
-        <td>{teamRank.streak.streakCode}</td>
+        <td>{teamRank.streakCode}</td>
       </tr>
     );
   });
@@ -39,8 +40,7 @@ const Standings = ({ standings, currentTeam, division }) => {
   // Renders Table Header and inputs iterated from array above.
   return (
     <React.Fragment>
-      <h1 className="text-center text-2xl pb-2 sm:text-3xl">{division}</h1>
-      <h1 className="text-center text-xl">2021-2022 Season</h1>
+      <h1 className="text-center text-xl">Overall Standings </h1>
       <table className="mx-auto">
         <thead>
           <tr>
@@ -57,5 +57,3 @@ const Standings = ({ standings, currentTeam, division }) => {
     </React.Fragment>
   );
 };
-
-export default Standings;

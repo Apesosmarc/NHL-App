@@ -13,7 +13,7 @@ export default function DateHeader({ game }) {
   return (
     <div className="mx-auto lg:py-12 py-8 text-center">
       <h2 className="text-2xl">
-        {formatDate(game.gameDate, dateFormatOptions)}
+        {formatDate(game.startTimeUTC, dateFormatOptions)}
       </h2>
     </div>
   );

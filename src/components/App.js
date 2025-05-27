@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-import { divisionStandings, game, gamesList } from "../apis/nhl";
 import TeamText from "./TeamText";
-import TeamHeader from "./TeamHeader";
-import Standings from "./Standings";
-import StatsHeader from "./layout/StatsHeader";
-import Stats from "./stats/Stats";
+import { Standings } from "./Standings";
+import { dummy_standings } from "../data/dummy_standings";
 import Spinner from "./loading/Spinner";
 // retrieves teamInfo with teamId as argument
 import getTeamInfo from "../utils/getTeamInfo";
-import { getDatesFromToday } from "../utils/dateConverter";
-import axios from "axios";
 
 export default class App extends Component {
   state = {
@@ -32,23 +27,8 @@ export default class App extends Component {
     // async auto invoke that fetches data but sets state error if one of the requests comes back error
     (async () => {
       try {
-        const [scheduleStart, scheduleEnd] = getDatesFromToday(20);
-        const standings = await divisionStandings.get("/standings");
-        const nextGame = await game("next").get(`/teams/${this.state.teamId}`);
-        const getSchedule = await gamesList(
-          scheduleStart,
-          scheduleEnd,
-          this.state.teamId
-        ).get("/schedule");
-
         this.setState({
-          noGames: getSchedule.data.dates.length < 1 ? true : false,
-          division:
-            standings.data.records[this.state.team.covidDiv].division.name,
-          standings:
-            standings.data.records[this.state.team.covidDiv].teamRecords,
-          nextGame: nextGame.data.teams[0],
-          schedule: getSchedule.data,
+          standings: dummy_standings,
         });
       } catch (error) {
         this.setState({ error: error.message });
@@ -86,32 +66,15 @@ export default class App extends Component {
       return this.state.isLoading === false ? (
         <div className="container max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
           <div>
-            {this.state.noGames ? (
-              <React.Fragment>
-                <TeamText team={this.state.team} />
-                <div className="text-center mt-12">
-                  No Games Today -- More to do coming soon
-                </div>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <TeamText team={this.state.team} />
-                <TeamHeader
-                  standings={this.state.standings}
-                  team={this.state.team}
-                  nextGame={this.state.nextGame}
-                  schedule={this.state.schedule.dates}
-                />
+            <React.Fragment>
+              <TeamText team={this.state.team} />
 
-                <Standings
-                  standings={this.state.standings}
-                  currentTeam={this.state.team}
-                  division={this.state.division}
-                />
-                <StatsHeader team={this.state.team} />
-                <Stats team={this.state.team} />
-              </React.Fragment>
-            )}
+              <Standings
+                standings={dummy_standings}
+                currentTeam={this.state.team}
+                division={this.state.division}
+              />
+            </React.Fragment>
           </div>
         </div>
       ) : (

@@ -1,7 +1,12 @@
+const fs = require("fs");
+const https = require("https");
+const path = require("path");
+
 const teams = {
   1: {
     name: "New Jersey Devils",
-    smallLogo: "./logos/new_jersey_devils_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/dlm2PLEGHJY8DzDLloxLcQ_48x48.png",
     mainColor: "#CE1126",
     secondColor: "#fff",
     conference: 6,
@@ -16,7 +21,8 @@ const teams = {
   },
   2: {
     name: "New York Islanders",
-    smallLogo: "./logos/new_york_islanders_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/wIWMfokR7qsGJM1gFhRrUA_48x48.png",
     mainColor: "#00539B",
     secondColor: "#F47D30",
     conference: 6,
@@ -30,7 +36,8 @@ const teams = {
   },
   3: {
     name: "New York Rangers",
-    smallLogo: "./logos/new_york_rangers_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/xAan1UsViSOex0EoBJEMOA_48x48.png",
     mainColor: "#0038A8",
     secondColor: "#CE1126",
     conference: 6,
@@ -45,7 +52,8 @@ const teams = {
   },
   4: {
     name: "Philadelphia Flyers",
-    smallLogo: "./logos/philadelphia_flyers_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/ZFZEyofJ8vMrr0tFGsMFKg_48x48.png",
     mainColor: "#F74902",
     secondColor: "#F74902",
     conference: 6,
@@ -60,7 +68,8 @@ const teams = {
   },
   5: {
     name: "Pittsburgh Penguins",
-    smallLogo: "./logos/pittsburgh_penguins_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/mTXURxq0CbsVREw9q3UAnw_48x48.png",
     mainColor: "#FCB514",
     secondColor: "#FFB81C",
     conference: 6,
@@ -77,7 +86,8 @@ const teams = {
     name: "Boston Bruins",
     mainLogo:
       "https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/6.svg",
-    smallLogo: "./logos/boston_bruins_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/_KkOxoGjAn3S7_9-Z1d0OA_48x48.png",
     mainColor: "#FFB81C",
     secondColor: "#FFB81C",
     conference: 6,
@@ -92,7 +102,8 @@ const teams = {
     name: "Buffalo Sabres",
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/318303268/binary-file/file.svg",
-    smallLogo: "./logos/buffalo_sabres_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/6vSZsDaiDt1MW__o_ksW4A_48x48.png",
     mainColor: "#FCB514",
     secondColor: "#FCB514",
     conference: 6,
@@ -104,7 +115,8 @@ const teams = {
   },
   8: {
     name: "Montréal Canadiens",
-    smallLogo: "./logos/montr_al_canadiens_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/fhexjWXZM7Sgvd22nDkBOA_48x48.png",
     conference: 6,
     division: 17,
     covidDiv: 1,
@@ -118,7 +130,8 @@ const teams = {
   },
   9: {
     name: "Ottawa Senators",
-    smallLogo: "./logos/ottawa_senators_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/_rlImUQJkjVKGTj1Xkdaaw_48x48.png",
     conference: 6,
     division: 17,
     covidDiv: 1,
@@ -132,7 +145,8 @@ const teams = {
   },
   10: {
     name: "Toronto Maple Leafs",
-    smallLogo: "./logos/toronto_maple_leafs_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/jMSyNOMdJPjHwsmbWukUag_48x48.png",
     conference: 6,
     division: 17,
     covidDiv: 1,
@@ -147,7 +161,8 @@ const teams = {
   },
   12: {
     name: "Carolina Hurricanes",
-    smallLogo: "./logos/carolina_hurricanes_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/nC8dMKdf-zPF4cWq_wSKHA_48x48.png",
     conference: 6,
     division: 18,
     covidDiv: 0,
@@ -161,7 +176,8 @@ const teams = {
   },
   13: {
     name: "Florida Panthers",
-    smallLogo: "./logos/florida_panthers_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/HhkdL7JKqdlVy_DtjLOjbw_48x48.png",
     conference: 6,
     division: 17,
     covidDiv: 1,
@@ -175,7 +191,8 @@ const teams = {
   },
   14: {
     name: "Tampa Bay Lightning",
-    smallLogo: "./logos/tampa_bay_lightning_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/IFjTMxl-nMxMJK2b64xLFQ_48x48.png",
     conference: 6,
     division: 17,
     covidDiv: 1,
@@ -190,7 +207,8 @@ const teams = {
   },
   15: {
     name: "Washington Capitals",
-    smallLogo: "./logos/washington_capitals_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/uT-r__4aRFZmtEITN9mNdQ_48x48.png",
     mainColor: "#C8102E",
     secondColor: "#C8102E",
     conference: 6,
@@ -204,7 +222,8 @@ const teams = {
   },
   16: {
     name: "Chicago Blackhawks",
-    smallLogo: "./logos/chicago_blackhawks_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/kUlSd6LbUN7Jj03mqZcgAw_48x48.png",
     conference: 5,
     division: 16,
     covidDiv: 2,
@@ -219,7 +238,8 @@ const teams = {
   },
   17: {
     name: "Detroit Red Wings",
-    smallLogo: "./logos/detroit_red_wings_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/QaP8buCif1FvjfqApkxsDg_48x48.png",
     conference: 6,
     division: 17,
     covidDiv: 1,
@@ -234,7 +254,8 @@ const teams = {
   },
   18: {
     name: "Nashville Predators",
-    smallLogo: "./logos/nashville_predators_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/8aNIxgSUNttfOeojBie04w_48x48.png",
     conference: 5,
     division: 16,
     covidDiv: 2,
@@ -248,7 +269,8 @@ const teams = {
   },
   19: {
     name: "St. Louis Blues",
-    smallLogo: "./logos/st__louis_blues_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/oUzPuWuhgzayhHwucx8htQ_48x48.png",
     conference: 5,
     division: 16,
     covidDiv: 2,
@@ -262,7 +284,8 @@ const teams = {
   },
   20: {
     name: "Calgary Flames",
-    smallLogo: "./logos/calgary_flames_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/jwG6UfooGEJ_nvOVT_0ykw_48x48.png",
     conference: 5,
     division: 15,
     covidDiv: 3,
@@ -276,7 +299,8 @@ const teams = {
   },
   21: {
     name: "Colorado Avalanche",
-    smallLogo: "./logos/colorado_avalanche_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/iBFLyMGpOW2Fh5j8s7kYpw_48x48.png",
     conference: 5,
     division: 16,
     covidDiv: 2,
@@ -290,7 +314,8 @@ const teams = {
   },
   22: {
     name: "Edmonton Oilers",
-    smallLogo: "./logos/edmonton_oilers_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/GFR5_nXarHj6qRI8R05otg_48x48.png",
     conference: 5,
     division: 15,
     covidDiv: 3,
@@ -305,7 +330,8 @@ const teams = {
   },
   23: {
     name: "Vancouver Canucks",
-    smallLogo: "./logos/vancouver_canucks_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/1SVoPsK2xW65VIfyQB2soQ_48x48.png",
     conference: 5,
     division: 15,
     covidDiv: 3,
@@ -319,7 +345,8 @@ const teams = {
   },
   24: {
     name: "Anaheim Ducks",
-    smallLogo: "./logos/anaheim_ducks_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/Ujlge7BWmyIJvsCwu3y-Lw_48x48.png",
     conference: 5,
     division: 15,
     covidDiv: 3,
@@ -333,7 +360,8 @@ const teams = {
   },
   25: {
     name: "Dallas Stars",
-    smallLogo: "./logos/dallas_stars_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/yAPda2I1VV6sr0TB17rnxQ_48x48.png",
     mainColor: "#006847",
     secondColor: "#006847",
     conference: 5,
@@ -347,7 +375,8 @@ const teams = {
   },
   26: {
     name: "Los Angeles Kings",
-    smallLogo: "./logos/los_angeles_kings_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/74fKqDZ5DMq7qup120TeSQ_48x48.png",
     conference: 5,
     division: 15,
     covidDiv: 3,
@@ -362,7 +391,8 @@ const teams = {
   },
   28: {
     name: "San Jose Sharks",
-    smallLogo: "./logos/san_jose_sharks_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/TuRBhY0zNhgZUbHQS4VUhQ_48x48.png",
     division: 15,
     covidDiv: 3,
     mainColor: "#006D75",
@@ -375,7 +405,8 @@ const teams = {
   },
   29: {
     name: "Columbus Blue Jackets",
-    smallLogo: "./logos/columbus_blue_jackets_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/7lrK9CX_nZj_veEeleHTmg_48x48.png",
     conference: 6,
     division: 18,
     covidDiv: 0,
@@ -389,7 +420,8 @@ const teams = {
   },
   30: {
     name: "Minnesota Wild",
-    smallLogo: "./logos/minnesota_wild_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/2AkZ-bLhHUaPoj_LlLPBVA_48x48.png",
     conference: 5,
     division: 16,
     covidDiv: 2,
@@ -403,7 +435,8 @@ const teams = {
   },
   52: {
     name: "Winnipeg Jets",
-    smallLogo: "./logos/winnipeg_jets_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/G92uFvMADMSGFV07IgpUIQ_48x48.png",
     conference: 5,
     division: 16,
     covidDiv: 2,
@@ -417,7 +450,8 @@ const teams = {
   },
   53: {
     name: "Arizona Coyotes",
-    smallLogo: "./logos/arizona_coyotes_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/dhQ15Ly2gTPvCPbJEq-OHA_48x48.png",
     division: 16,
     covidDiv: 2,
     mainColor: "#8C2633",
@@ -430,7 +464,8 @@ const teams = {
   },
   54: {
     name: "Vegas Golden Knights",
-    smallLogo: "./logos/vegas_golden_knights_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/QeG0x42j0YlJGYEAwowewA_48x48.png",
     conference: 5,
     division: 15,
     covidDiv: 3,
@@ -449,7 +484,8 @@ const teams = {
     covidDiv: 3,
     mainColor: "#99D9D9",
     secondColor: "#99D9D9",
-    smallLogo: "./logos/seattle_kraken_smallLogo.png",
+    smallLogo:
+      "https://ssl.gstatic.com/onebox/media/sports/logos/JQg1BPtt9E6O5JfjqJiDrg_48x48.png",
     mainLogo:
       "https://cms.nhl.bamgrid.com/images/assets/binary/317578370/binary-file/file.svg",
     id: "55",
@@ -458,4 +494,62 @@ const teams = {
   },
 };
 
-module.exports = teams;
+// Paths
+const teamsPath = path.resolve(__dirname, "teams.js");
+const logosDir = path.resolve(__dirname, "../../public/logos");
+
+// Ensure logos directory exists
+if (!fs.existsSync(logosDir)) {
+  fs.mkdirSync(logosDir, { recursive: true });
+}
+
+// Utility to sanitize filenames
+const sanitizeFilename = (name) =>
+  name.replace(/[^a-z0-9]/gi, "_").toLowerCase();
+
+const downloadImage = (url, filepath) => {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, (res) => {
+        if (res.statusCode !== 200) {
+          reject(new Error(`Failed to fetch ${url}: ${res.statusCode}`));
+          return;
+        }
+
+        const stream = fs.createWriteStream(filepath);
+        res.pipe(stream);
+        stream.on("finish", () => stream.close(resolve));
+      })
+      .on("error", reject);
+  });
+};
+
+(async () => {
+  for (const teamId in teams) {
+    const team = teams[teamId];
+    const { name, smallLogo } = team;
+
+    if (!smallLogo) continue;
+
+    const ext = path.extname(new URL(smallLogo).pathname) || ".png";
+    const filename = `${sanitizeFilename(name)}_smallLogo${ext}`;
+    const destPath = path.join(logosDir, filename);
+
+    try {
+      console.log(`Downloading ${name} smallLogo...`);
+      await downloadImage(smallLogo, destPath);
+      teams[teamId].smallLogo = `./logos/${filename}`;
+    } catch (err) {
+      console.error(`Error downloading ${name}: ${err.message}`);
+    }
+  }
+
+  // Serialize teams object and write it back to teams.js
+  const output = `const teams = ${JSON.stringify(
+    teams,
+    null,
+    2
+  )};\n\nmodule.exports = teams;\n`;
+  fs.writeFileSync(teamsPath, output);
+  console.log("✅ Updated teams.js with local smallLogo paths.");
+})();

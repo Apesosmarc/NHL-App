@@ -12,10 +12,10 @@ export default function MatchupCard({
   selectTeam,
   gameStatus,
 }) {
-  const homeTeamId = gameInfo.teams.home.team.id;
-  const awayTeamId = gameInfo.teams.away.team.id;
+  const homeTeamId = gameInfo.homeTeam.id;
+  const awayTeamId = gameInfo.awayTeam.id;
   // Gets date + time from util function.
-  const [gameDate, gameTime] = dateConverter(gameInfo.gameDate);
+  const [gameDate, gameTime] = dateConverter(gameInfo.startTimeUTC);
 
   return (
     <div className={`teamcard col-auto`}>
@@ -23,15 +23,19 @@ export default function MatchupCard({
         team={team}
         homeTeamId={homeTeamId}
         awayTeamId={awayTeamId}
-        gameInfo={gameInfo}
+        gameInfo={gameInfo.homeTeam}
       />
       <div
         className={`flex w-3/4 md:w-full justify-evenly content-center mx-auto`}
       >
         <TeamCard
+          link={`https://nhl.com/${gameInfo.homeTeam.commonName.default}`}
           displayedTeam={team}
-          nextGame={gameInfo.teams.away}
+          nextGame={gameInfo.homeTeam}
           selectTeam={selectTeam}
+          win={
+            gameInfo.homeTeam.score >= gameInfo.awayTeam.score ? true : false
+          }
         />
 
         <FormatGameInfo
@@ -39,13 +43,17 @@ export default function MatchupCard({
           gameDate={gameDate}
           gameTime={gameTime}
           gameVenue={gameInfo.venue.name}
-          gameStatus={gameStatus}
+          gameStatus={gameInfo.gameState}
         />
 
         <TeamCard
+          link={`https://nhl.com/${gameInfo.awayTeam.commonName.default}`}
           displayedTeam={team}
-          nextGame={gameInfo.teams.home}
+          nextGame={gameInfo.awayTeam}
           selectTeam={selectTeam}
+          win={
+            gameInfo.awayTeam.score >= gameInfo.homeTeam.score ? true : false
+          }
         />
       </div>
     </div>
